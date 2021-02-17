@@ -16,5 +16,27 @@ namespace StudentManagement
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        static void Main()
+        {
+
+
+            Student student = new Student("Sepehr", "Mansouri", "A01067581", 1998, 12, 28, "CST");
+
+            StudentManagemenet sm = new StudentManagemenet();
+
+            sm.addStudent(student);
+
+
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
+        }
     }
 }

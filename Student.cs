@@ -19,12 +19,12 @@ namespace StudentManagement
         private DateTime _dateOfBirth { get; set; }
         private String _programName { get; set; }
 
-        public Student(String firstName, String lastName, String studentNumber, DateTime dateOfBirth, String programName)
+        public Student(String firstName, String lastName, String studentNumber, int year, int month, int day, String programName)
         {
             this._firstName = firstName;
             this._lastName = lastName;
             this._studentNumber = studentNumber;
-            this._dateOfBirth = dateOfBirth;
+            this._dateOfBirth = new DateTime(year, month, day);
             this._programName = programName;
         }
 
@@ -58,16 +58,6 @@ namespace StudentManagement
         {
             get { return _programName; }
             set { _programName = value; }
-        }
-
-
-
-
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
         }
     }
 }
