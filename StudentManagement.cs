@@ -8,18 +8,21 @@ namespace StudentManagement
 {
     public class StudentManagemenet
     {
-        private List<Object> studentCollection;
+        private List<Student> studentCollection;
         public StudentManagemenet()
         {
-            this.studentCollection = new List<Object>();
+            this.studentCollection = new List<Student>();
         }
 
-
-        public void addStudent(Object student)
+        public void addStudent(Student student)
         {
             studentCollection.Add(student);
         }
 
+        public int studentCount()
+        {
+            return studentCollection.Count;
+        }
     }
 }
 
