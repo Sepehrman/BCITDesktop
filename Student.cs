@@ -1,63 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace StudentManagement
+namespace BCITDesktop
 {
-    public class Student
-    {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        /// 
-
-        private String _firstName { get; set; }
-        private String _lastName { get; set; }
-        private String _studentNumber { get; set; }
-        private DateTime _dateOfBirth { get; set; }
-        private String _programName { get; set; }
-
-        public Student(String firstName, String lastName, String studentNumber, int year, int month, int day, String programName)
-        {
-            this._firstName = firstName;
-            this._lastName = lastName;
-            this._studentNumber = studentNumber;
-            this._dateOfBirth = new DateTime(year, month, day);
-            this._programName = programName;
-        }
+	public class Student
+	{
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
+		public string Email { get; set; }
+		public string Password { get; set; }
+		public string Gender { get; set; }
+		public string Phone { get; set; }
+		public DateTime DateOfBirth { get; set; }
 
 
 
-        public String FirstName
-        {
-            get { return _firstName; }
-            set { _firstName = value; }
-        }
+		public Student(string firstName, string lastName, string email, string password, string gender, string phone, DateTime dateOfBirth)
+		{
+			this.FirstName = firstName;
+			this.LastName = lastName;
+			this.Email = email;
+			this.Password = password;
+			this.Gender = gender;
+			this.Phone = phone;
+			this.DateOfBirth = dateOfBirth;
 
-        public String LastName
-        {
-            get { return _lastName; }
-            set { _lastName = value; }
-        }
+		}
 
-        public String StudentNumber
-        {
-            get { return _studentNumber; }
-            set { _studentNumber = value; }
-        }
 
-        public DateTime DateOfBirth
-        {
-            get { return _dateOfBirth; }
-            set { _dateOfBirth = value; }
-        }
+	}
 
-        public String ProgramName
-        {
-            get { return _programName; }
-            set { _programName = value; }
-        }
-    }
 }
