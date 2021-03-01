@@ -18,9 +18,9 @@ namespace BCITDesktop
         // This is the database connection
 
         IFirebaseClient client;
-        private Label label4;
+        private Label pass;
         private TextBox passLog;
-        private Label label1;
+        private Label username;
         private TextBox userLog;
         private Button registerBtn;
         private Button btnLog;
@@ -53,22 +53,22 @@ namespace BCITDesktop
 
         private void InitializeComponent()
         {
-            this.label4 = new System.Windows.Forms.Label();
+            this.pass = new System.Windows.Forms.Label();
             this.passLog = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.username = new System.Windows.Forms.Label();
             this.userLog = new System.Windows.Forms.TextBox();
             this.registerBtn = new System.Windows.Forms.Button();
             this.btnLog = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label4
+            // pass
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(65, 139);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Last Name: ";
+            this.pass.AutoSize = true;
+            this.pass.Location = new System.Drawing.Point(65, 139);
+            this.pass.Name = "pass";
+            this.pass.Size = new System.Drawing.Size(59, 13);
+            this.pass.TabIndex = 18;
+            this.pass.Text = "Password: ";
             // 
             // passLog
             // 
@@ -77,15 +77,16 @@ namespace BCITDesktop
             this.passLog.Name = "passLog";
             this.passLog.Size = new System.Drawing.Size(174, 28);
             this.passLog.TabIndex = 17;
+            this.passLog.UseSystemPasswordChar = true;
             // 
-            // label1
+            // username
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 79);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "First Name: ";
+            this.username.AutoSize = true;
+            this.username.Location = new System.Drawing.Point(65, 79);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(61, 13);
+            this.username.TabIndex = 16;
+            this.username.Text = "Username: ";
             // 
             // userLog
             // 
@@ -121,9 +122,9 @@ namespace BCITDesktop
             this.ClientSize = new System.Drawing.Size(456, 436);
             this.Controls.Add(this.btnLog);
             this.Controls.Add(this.registerBtn);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.pass);
             this.Controls.Add(this.passLog);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.username);
             this.Controls.Add(this.userLog);
             this.Name = "LoginForm";
             this.Load += new System.EventHandler(this.LoginForm_Load);

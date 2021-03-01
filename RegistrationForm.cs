@@ -79,7 +79,6 @@ namespace BCITDesktop
                 SetResponse set = client.Set(@"Users/" + firstNameReg.Text, student);
                 MessageBox.Show("Student has been registered successfully!");
 
-
         }
 
         private void phone_Click(object sender, EventArgs e)

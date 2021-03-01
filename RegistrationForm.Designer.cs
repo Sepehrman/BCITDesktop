@@ -88,6 +88,7 @@ namespace BCITDesktop
             this.passwordReg.Name = "passwordReg";
             this.passwordReg.Size = new System.Drawing.Size(132, 28);
             this.passwordReg.TabIndex = 7;
+            this.passwordReg.UseSystemPasswordChar = true;
             // 
             // firstNameReg
             // 
@@ -154,6 +155,7 @@ namespace BCITDesktop
             this.passwordConfReg.Name = "passwordConfReg";
             this.passwordConfReg.Size = new System.Drawing.Size(132, 28);
             this.passwordConfReg.TabIndex = 15;
+            this.passwordConfReg.UseSystemPasswordChar = true;
             // 
             // genderReg
             // 
