@@ -26,6 +26,7 @@ namespace BCITDesktop
 
         }
 
+        // Link to Database: https://console.firebase.google.com/u/0/project/bcitdesktop/database/bcitdesktop-default-rtdb/data
         IFirebaseClient client;
         IFirebaseConfig firebaseConfigurations = new FirebaseConfig()
         {
