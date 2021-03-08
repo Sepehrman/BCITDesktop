@@ -24,7 +24,8 @@ namespace BCITDesktop
         private TextBox userLog;
         private Button registerBtn;
         private Button btnLog;
-
+        private RadioButton studentRadio;
+        private RadioButton InstructorRadio;
         IFirebaseConfig firebaseConfigurations = new FirebaseConfig()
         {
             AuthSecret = "xyEfrWdHzVWmoXvV11MFgTmMRv8g28oLaJs8kRnH",
@@ -59,21 +60,23 @@ namespace BCITDesktop
             this.userLog = new System.Windows.Forms.TextBox();
             this.registerBtn = new System.Windows.Forms.Button();
             this.btnLog = new System.Windows.Forms.Button();
+            this.studentRadio = new System.Windows.Forms.RadioButton();
+            this.InstructorRadio = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // pass
             // 
             this.pass.AutoSize = true;
-            this.pass.Location = new System.Drawing.Point(65, 139);
+            this.pass.Location = new System.Drawing.Point(65, 210);
             this.pass.Name = "pass";
-            this.pass.Size = new System.Drawing.Size(59, 13);
+            this.pass.Size = new System.Drawing.Size(86, 20);
             this.pass.TabIndex = 18;
             this.pass.Text = "Password: ";
             // 
             // passLog
             // 
             this.passLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passLog.Location = new System.Drawing.Point(163, 139);
+            this.passLog.Location = new System.Drawing.Point(163, 210);
             this.passLog.Name = "passLog";
             this.passLog.Size = new System.Drawing.Size(174, 28);
             this.passLog.TabIndex = 17;
@@ -82,16 +85,16 @@ namespace BCITDesktop
             // username
             // 
             this.username.AutoSize = true;
-            this.username.Location = new System.Drawing.Point(65, 79);
+            this.username.Location = new System.Drawing.Point(65, 150);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(61, 13);
+            this.username.Size = new System.Drawing.Size(91, 20);
             this.username.TabIndex = 16;
             this.username.Text = "Username: ";
             // 
             // userLog
             // 
             this.userLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userLog.Location = new System.Drawing.Point(162, 79);
+            this.userLog.Location = new System.Drawing.Point(162, 150);
             this.userLog.Name = "userLog";
             this.userLog.Size = new System.Drawing.Size(174, 28);
             this.userLog.TabIndex = 15;
@@ -99,7 +102,7 @@ namespace BCITDesktop
             // registerBtn
             // 
             this.registerBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerBtn.Location = new System.Drawing.Point(95, 243);
+            this.registerBtn.Location = new System.Drawing.Point(94, 281);
             this.registerBtn.Name = "registerBtn";
             this.registerBtn.Size = new System.Drawing.Size(131, 42);
             this.registerBtn.TabIndex = 19;
@@ -110,22 +113,47 @@ namespace BCITDesktop
             // btnLog
             // 
             this.btnLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLog.Location = new System.Drawing.Point(280, 243);
+            this.btnLog.Location = new System.Drawing.Point(279, 281);
             this.btnLog.Name = "btnLog";
             this.btnLog.Size = new System.Drawing.Size(82, 42);
             this.btnLog.TabIndex = 20;
             this.btnLog.Text = "Login";
             this.btnLog.UseVisualStyleBackColor = true;
             // 
+            // studentRadio
+            // 
+            this.studentRadio.AutoSize = true;
+            this.studentRadio.Location = new System.Drawing.Point(141, 31);
+            this.studentRadio.Name = "studentRadio";
+            this.studentRadio.Size = new System.Drawing.Size(84, 24);
+            this.studentRadio.TabIndex = 21;
+            this.studentRadio.TabStop = true;
+            this.studentRadio.Text = "Student";
+            this.studentRadio.UseVisualStyleBackColor = true;
+            // 
+            // InstructorRadio
+            // 
+            this.InstructorRadio.AutoSize = true;
+            this.InstructorRadio.Location = new System.Drawing.Point(243, 31);
+            this.InstructorRadio.Name = "InstructorRadio";
+            this.InstructorRadio.Size = new System.Drawing.Size(95, 24);
+            this.InstructorRadio.TabIndex = 22;
+            this.InstructorRadio.TabStop = true;
+            this.InstructorRadio.Text = "Instructor";
+            this.InstructorRadio.UseVisualStyleBackColor = true;
+            // 
             // LoginForm
             // 
             this.ClientSize = new System.Drawing.Size(456, 436);
+            this.Controls.Add(this.InstructorRadio);
+            this.Controls.Add(this.studentRadio);
             this.Controls.Add(this.btnLog);
             this.Controls.Add(this.registerBtn);
             this.Controls.Add(this.pass);
             this.Controls.Add(this.passLog);
             this.Controls.Add(this.username);
             this.Controls.Add(this.userLog);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "LoginForm";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
@@ -143,6 +171,11 @@ namespace BCITDesktop
         {
             RegistrationForm registration = new RegistrationForm();
             registration.ShowDialog();
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }

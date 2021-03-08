@@ -34,8 +34,8 @@ namespace BCITDesktop
             this.label1 = new System.Windows.Forms.Label();
             this.passwordReg = new System.Windows.Forms.TextBox();
             this.firstNameReg = new System.Windows.Forms.TextBox();
-            this.emailReg = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.text = new System.Windows.Forms.Label();
+            this.emailReg = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.LastnameReg = new System.Windows.Forms.TextBox();
             this.passConfirm = new System.Windows.Forms.Label();
@@ -99,24 +99,24 @@ namespace BCITDesktop
             this.firstNameReg.Size = new System.Drawing.Size(132, 28);
             this.firstNameReg.TabIndex = 6;
             // 
+            // text
+            // 
+            this.text.AutoSize = true;
+            this.text.Location = new System.Drawing.Point(57, 136);
+            this.text.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.text.Name = "text";
+            this.text.Size = new System.Drawing.Size(38, 13);
+            this.text.TabIndex = 12;
+            this.text.Text = "Email: ";
+            // 
             // emailReg
             // 
-            this.emailReg.AutoSize = true;
-            this.emailReg.Location = new System.Drawing.Point(57, 136);
-            this.emailReg.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.emailReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailReg.Location = new System.Drawing.Point(105, 136);
+            this.emailReg.Margin = new System.Windows.Forms.Padding(2);
             this.emailReg.Name = "emailReg";
-            this.emailReg.Size = new System.Drawing.Size(38, 13);
-            this.emailReg.TabIndex = 12;
-            this.emailReg.Text = "Email: ";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(105, 136);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 28);
-            this.textBox1.TabIndex = 11;
+            this.emailReg.Size = new System.Drawing.Size(132, 28);
+            this.emailReg.TabIndex = 11;
             // 
             // label4
             // 
@@ -234,8 +234,8 @@ namespace BCITDesktop
             this.Controls.Add(this.passwordConfReg);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.LastnameReg);
+            this.Controls.Add(this.text);
             this.Controls.Add(this.emailReg);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.RegistrationBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -256,8 +256,8 @@ namespace BCITDesktop
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox passwordReg;
         private System.Windows.Forms.TextBox firstNameReg;
-        private System.Windows.Forms.Label emailReg;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label text;
+        private System.Windows.Forms.TextBox emailReg;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox LastnameReg;
         private System.Windows.Forms.Label passConfirm;
