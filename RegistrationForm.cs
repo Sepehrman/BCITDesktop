@@ -72,14 +72,17 @@ namespace BCITDesktop
             {
                 MessageBox.Show("Please fill in, all the fields to proceed");
             }
-            else if (passwordReg.Text != passwordConfReg.Text) {
+            else if (passwordReg.Text != passwordConfReg.Text)
+            {
                 MessageBox.Show("Passwords are unmatching!");
             }
+            else
+            {
 
-                Student student = new Student(firstNameReg.Text, LastnameReg.Text, emailReg.Text, passwordReg.Text, genderReg.Text, phoneReg.Text , dobReg.Value);
+                Student student = new Student(firstNameReg.Text, LastnameReg.Text, emailReg.Text, passwordReg.Text, genderReg.Text, phoneReg.Text, dobReg.Value);
                 SetResponse set = client.Set(@"Users/" + firstNameReg.Text, student);
                 MessageBox.Show("Student has been registered successfully!");
-
+            }
         }
 
         private void phone_Click(object sender, EventArgs e)
