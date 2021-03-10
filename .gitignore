@@ -1,7 +1,4 @@
-bin/Debug
-obj/Debug
-obj/Release
-.vs/BCITDesktop
-bin\Debug
-obj\Debug
-obj\Release
+.vs\BCITDesktop\
+bin\Debug\
+obj\Debug\
+obj\Release\
