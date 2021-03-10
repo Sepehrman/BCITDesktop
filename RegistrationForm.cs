@@ -92,6 +92,8 @@ namespace BCITDesktop
                 // Sets the database name under 'Users' and their first name
                 SetResponse set = client.Set(@"Users/" + firstNameReg.Text, student);
                 MessageBox.Show("Student has been registered successfully!");
+                this.Close();
+                this.Dispose();
             }
         }
 

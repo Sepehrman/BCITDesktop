@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FireSharp;
 using FireSharp.Config;
 using FireSharp.Response;
 using FireSharp.Interfaces;
@@ -36,20 +37,6 @@ namespace BCITDesktop
         public LoginForm()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                client = new FireSharp.FirebaseClient(firebaseConfigurations);
-            }
-
-            catch
-            {
-                MessageBox.Show("Connection Error");
-            }
-
         }
 
         private void InitializeComponent()
@@ -175,11 +162,15 @@ namespace BCITDesktop
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            if (hasEmptyFields()) 
+            client = new FirebaseClient(firebaseConfigurations);
+            if (client == null)
             {
-                MessageBox.Show("Please fill in, all the fields to proceed");
+                 MessageBox.Show("Connection Error");
             }
-
+            else
+            {
+                Console.Log("Connected");
+            }
         }
 
         private void registerBtn_Click(object sender, EventArgs e)
@@ -192,30 +183,33 @@ namespace BCITDesktop
 
         private void btnLog_Click(object sender, EventArgs e)
         {
-
-            // Retrieves data from the database using Get()
-            FirebaseResponse response = client.Get(@"Users/" + userLog.Text);
-            Student resStudent = response.ResultAs<Student>(); // Database Results
-
-            Student currentStudent = new Student()
+            if (hasEmptyFields()) 
             {
-                Email = userLog.Text,
-                Password = passLog.Text
-            };
-
-            // If student exists in database, open homepage
-            if (Student.areTheSameUsers(resStudent, currentStudent))
-            {
-                MessageBox.Show("They are equal");
-                Homepage home = new Homepage();
-                home.ShowDialog();
-            } 
+                MessageBox.Show("Please fill in, all the fields to proceed");
+            }
             else
             {
-                Student.ShowErrorMessage();
+                // Retrieves data from the database using Get()
+                FirebaseResponse response = client.Get(@"Users/" + userLog.Text);
+                Student resStudent = response.ResultAs<Student>(); // Database Results
+                Student currentStudent = new Student()
+                {
+                    Email = userLog.Text,
+                    Password = passLog.Text
+                };
+
+                // If student exists in database, open homepage
+                if (Student.areTheSameUsers(resStudent, currentStudent))
+                {
+                    MessageBox.Show("They are equal");
+                    Homepage home = new Homepage();
+                    home.ShowDialog();
+                } 
+                else
+                {
+                    Student.ShowErrorMessage();
+                }
             }
-
-
         }
 
         private void userLog_TextChanged(object sender, EventArgs e)

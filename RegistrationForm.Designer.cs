@@ -242,6 +242,8 @@ namespace BCITDesktop
             this.Controls.Add(this.passwordReg);
             this.Controls.Add(this.firstNameReg);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "RegistrationForm";
             this.Text = "RegistrationForm";
             this.Load += new System.EventHandler(this.RegistrationForm_Load);
