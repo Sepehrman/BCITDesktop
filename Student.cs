@@ -19,11 +19,12 @@ namespace BCITDesktop
 			System.Windows.Forms.MessageBox.Show(errorMessage);
         }
        
-		public static bool areTheSameUsers(Student student1, Student student2) { 
+		public static bool areTheSameUsers(Student student1, Student student2) {
 			if (student1 == null || student2 == null)
-            {
+			{
 				return false;
-            } else if (student1.Email != student2.Email)
+			}
+			else if (student1.Email != student2.Email)
             {
 				errorMessage = "Email does not exist";
 				return false;

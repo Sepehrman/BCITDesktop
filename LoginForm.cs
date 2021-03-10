@@ -192,9 +192,11 @@ namespace BCITDesktop
 
         private void btnLog_Click(object sender, EventArgs e)
         {
+
             // Retrieves data from the database using Get()
             FirebaseResponse response = client.Get(@"Users/" + userLog.Text);
             Student resStudent = response.ResultAs<Student>(); // Database Results
+
             Student currentStudent = new Student()
             {
                 Email = userLog.Text,
