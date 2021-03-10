@@ -69,7 +69,7 @@ namespace BCITDesktop
             this.pass.AutoSize = true;
             this.pass.Location = new System.Drawing.Point(65, 210);
             this.pass.Name = "pass";
-            this.pass.Size = new System.Drawing.Size(86, 20);
+            this.pass.Size = new System.Drawing.Size(109, 25);
             this.pass.TabIndex = 18;
             this.pass.Text = "Password: ";
             // 
@@ -78,7 +78,7 @@ namespace BCITDesktop
             this.passLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passLog.Location = new System.Drawing.Point(163, 210);
             this.passLog.Name = "passLog";
-            this.passLog.Size = new System.Drawing.Size(174, 28);
+            this.passLog.Size = new System.Drawing.Size(174, 34);
             this.passLog.TabIndex = 17;
             this.passLog.UseSystemPasswordChar = true;
             // 
@@ -87,7 +87,7 @@ namespace BCITDesktop
             this.username.AutoSize = true;
             this.username.Location = new System.Drawing.Point(65, 150);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(91, 20);
+            this.username.Size = new System.Drawing.Size(113, 25);
             this.username.TabIndex = 16;
             this.username.Text = "Username: ";
             // 
@@ -96,8 +96,9 @@ namespace BCITDesktop
             this.userLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userLog.Location = new System.Drawing.Point(162, 150);
             this.userLog.Name = "userLog";
-            this.userLog.Size = new System.Drawing.Size(174, 28);
+            this.userLog.Size = new System.Drawing.Size(174, 34);
             this.userLog.TabIndex = 15;
+            this.userLog.TextChanged += new System.EventHandler(this.userLog_TextChanged);
             // 
             // registerBtn
             // 
@@ -119,13 +120,14 @@ namespace BCITDesktop
             this.btnLog.TabIndex = 20;
             this.btnLog.Text = "Login";
             this.btnLog.UseVisualStyleBackColor = true;
+            this.btnLog.Click += new System.EventHandler(this.btnLog_Click);
             // 
             // studentRadio
             // 
             this.studentRadio.AutoSize = true;
             this.studentRadio.Location = new System.Drawing.Point(141, 31);
             this.studentRadio.Name = "studentRadio";
-            this.studentRadio.Size = new System.Drawing.Size(84, 24);
+            this.studentRadio.Size = new System.Drawing.Size(101, 29);
             this.studentRadio.TabIndex = 21;
             this.studentRadio.TabStop = true;
             this.studentRadio.Text = "Student";
@@ -136,7 +138,7 @@ namespace BCITDesktop
             this.InstructorRadio.AutoSize = true;
             this.InstructorRadio.Location = new System.Drawing.Point(243, 31);
             this.InstructorRadio.Name = "InstructorRadio";
-            this.InstructorRadio.Size = new System.Drawing.Size(95, 24);
+            this.InstructorRadio.Size = new System.Drawing.Size(113, 29);
             this.InstructorRadio.TabIndex = 22;
             this.InstructorRadio.TabStop = true;
             this.InstructorRadio.Text = "Instructor";
@@ -162,8 +164,21 @@ namespace BCITDesktop
         }
 
 
+        private bool hasEmptyFields()
+        {
+            if (string.IsNullOrWhiteSpace(userLog.Text) || (string.IsNullOrWhiteSpace(passLog.Text)))
+            {
+                return true;
+            }
+            return false;
+        }
+
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            if (hasEmptyFields()) 
+            {
+                MessageBox.Show("Please fill in, all the fields to proceed");
+            }
 
         }
 
@@ -174,7 +189,34 @@ namespace BCITDesktop
 
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+
+        private void btnLog_Click(object sender, EventArgs e)
+        {
+            // Retrieves data from the database using Get()
+            FirebaseResponse response = client.Get(@"Users/" + userLog.Text);
+            Student resStudent = response.ResultAs<Student>(); // Database Results
+            Student currentStudent = new Student()
+            {
+                Email = userLog.Text,
+                Password = passLog.Text
+            };
+
+            // If student exists in database, open homepage
+            if (Student.areTheSameUsers(resStudent, currentStudent))
+            {
+                MessageBox.Show("They are equal");
+                Homepage home = new Homepage();
+                home.ShowDialog();
+            } 
+            else
+            {
+                Student.ShowErrorMessage();
+            }
+
+
+        }
+
+        private void userLog_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -78,8 +78,18 @@ namespace BCITDesktop
             }
             else
             {
+                // Register users onto the realtime Database
+                Student student = new Student() {
+                    FirstName = firstNameReg.Text,
+                    LastName = LastnameReg.Text,
+                    Email = emailReg.Text,
+                    Password = passwordReg.Text,
+                    Gender = genderReg.Text,
+                    Phone = phoneReg.Text,
+                    DateOfBirth = dobReg.Value
+                };
 
-                Student student = new Student(firstNameReg.Text, LastnameReg.Text, emailReg.Text, passwordReg.Text, genderReg.Text, phoneReg.Text, dobReg.Value);
+                // Sets the database name under 'Users' and their first name
                 SetResponse set = client.Set(@"Users/" + firstNameReg.Text, student);
                 MessageBox.Show("Student has been registered successfully!");
             }
