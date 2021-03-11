@@ -169,7 +169,7 @@ namespace BCITDesktop
             }
             else
             {
-                Console.Log("Connected");
+                MessageBox.Show("Connected");
             }
         }
 
