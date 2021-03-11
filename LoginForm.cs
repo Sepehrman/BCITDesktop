@@ -169,7 +169,11 @@ namespace BCITDesktop
             }
             else
             {
+<<<<<<< HEAD
                 Console.WriteLine("Connected");
+=======
+                MessageBox.Show("Connected");
+>>>>>>> firebase-nullreference-correction-branch
             }
         }
 
