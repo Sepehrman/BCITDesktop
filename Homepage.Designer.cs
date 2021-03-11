@@ -49,6 +49,7 @@ namespace BCITDesktop
             this.Controls.Add(this.label1);
             this.Name = "Homepage";
             this.Text = "Homepage";
+            this.Load += new System.EventHandler(this.Homepage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

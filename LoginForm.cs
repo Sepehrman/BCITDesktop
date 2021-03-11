@@ -169,11 +169,8 @@ namespace BCITDesktop
             }
             else
             {
-<<<<<<< HEAD
                 Console.WriteLine("Connected");
-=======
                 MessageBox.Show("Connected");
->>>>>>> firebase-nullreference-correction-branch
             }
         }
 
@@ -183,6 +180,25 @@ namespace BCITDesktop
             registration.ShowDialog();
 
         }
+
+
+        public bool areTheSameUsers(Student student1, Student student2)
+        {
+            if (student1 == null || student2 == null)
+            {
+                return false;
+            }
+            else if (student1.Email != student2.Email)
+            {
+                return false;
+            }
+            else if (student1.Password != student2.Password)
+            {
+                return false;
+            }
+            return true;
+        }
+
 
         private void btnLog_Click(object sender, EventArgs e)
         {
@@ -202,15 +218,15 @@ namespace BCITDesktop
                 };
 
                 // If student exists in database, open homepage
-                if (Student.areTheSameUsers(resStudent, currentStudent))
+                if (areTheSameUsers(resStudent, currentStudent))
+                {
+                    Student.ShowErrorMessage();
+                } 
+                else
                 {
                     MessageBox.Show("They are equal");
                     Homepage home = new Homepage();
                     home.ShowDialog();
-                } 
-                else
-                {
-                    Student.ShowErrorMessage();
                 }
             }
         }
