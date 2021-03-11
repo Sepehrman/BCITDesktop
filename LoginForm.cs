@@ -169,7 +169,7 @@ namespace BCITDesktop
             }
             else
             {
-                Console.Log("Connected");
+                Console.WriteLine("Connected");
             }
         }
 
@@ -179,7 +179,6 @@ namespace BCITDesktop
             registration.ShowDialog();
 
         }
-
 
         private void btnLog_Click(object sender, EventArgs e)
         {
