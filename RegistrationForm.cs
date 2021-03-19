@@ -16,6 +16,7 @@ namespace BCITDesktop
 {
     public partial class RegistrationForm : Form
     {
+        Student student;
         public RegistrationForm()
         {
             InitializeComponent();
@@ -53,6 +54,7 @@ namespace BCITDesktop
             if (string.IsNullOrWhiteSpace(firstNameReg.Text) ||
                 string.IsNullOrWhiteSpace(LastnameReg.Text) ||
                 string.IsNullOrWhiteSpace(emailReg.Text) ||
+                string.IsNullOrWhiteSpace(studentNumReg.Text) ||
                 string.IsNullOrWhiteSpace(passwordReg.Text) ||
                 string.IsNullOrWhiteSpace(passwordConfReg.Text) ||
                 string.IsNullOrWhiteSpace(genderReg.Text) ||
@@ -79,18 +81,19 @@ namespace BCITDesktop
             else
             {
                 // Register users onto the realtime Database
-                Student student = new Student() {
+                student = new Student() {
                     FirstName = firstNameReg.Text,
                     LastName = LastnameReg.Text,
+                    StudentNumber = studentNumReg.Text,
                     Email = emailReg.Text,
                     Password = passwordReg.Text,
                     Gender = genderReg.Text,
                     Phone = phoneReg.Text,
-                    DateOfBirth = dobReg.Value
+                    DateOfBirth = dobReg.Value.Date
                 };
 
                 // Sets the database name under 'Users' and their first name
-                SetResponse set = client.Set(@"Users/" + firstNameReg.Text, student);
+                SetResponse set = client.Set(@"Students/" + firstNameReg.Text, student);
                 MessageBox.Show("Student has been registered successfully!");
                 this.Close();
                 this.Dispose();

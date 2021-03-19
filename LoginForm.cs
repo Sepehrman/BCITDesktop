@@ -188,7 +188,7 @@ namespace BCITDesktop
             {
                 return false;
             }
-            else if (student1.Email != student2.Email)
+            else if (student1.StudentNumber != student2.StudentNumber)
             {
                 return false;
             }
@@ -209,15 +209,15 @@ namespace BCITDesktop
             else
             {
                 // Retrieves data from the database using Get()
-                FirebaseResponse response = client.Get(@"Users/" + userLog.Text);
+                FirebaseResponse response = client.Get(@"Students/" + userLog.Text);
                 Student resStudent = response.ResultAs<Student>(); // Database Results
                 Student currentStudent = new Student()
                 {
-                    Email = userLog.Text,
+                    StudentNumber = userLog.Text,
                     Password = passLog.Text
                 };
 
-                // If student exists in database, open homepage
+                // TODO : Double Check this
                 if (areTheSameUsers(resStudent, currentStudent))
                 {
                     Student.ShowErrorMessage();
