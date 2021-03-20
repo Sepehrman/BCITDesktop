@@ -1,63 +1,49 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace StudentManagement
+namespace BCITDesktop
 {
-    public class Student
-    {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        /// 
+	public class Student
+	{
+        private static string err = "An Error Occured";
 
-        private String _firstName { get; set; }
-        private String _lastName { get; set; }
-        private String _studentNumber { get; set; }
-        private DateTime _dateOfBirth { get; set; }
-        private String _programName { get; set; }
+        public string FirstName { get; set; }
+		public string LastName { get; set; }
+		public string Email { get; set; }
+		public string Password { get; set; }
 
-        public Student(String firstName, String lastName, String studentNumber, int year, int month, int day, String programName)
+		public string StudentNumber { get; set; }
+		public string Gender { get; set; }
+		public string Phone { get; set; }
+		public DateTime DateOfBirth { get; set; }
+
+
+		public static void ShowErrorMessage()
         {
-            this._firstName = firstName;
-            this._lastName = lastName;
-            this._studentNumber = studentNumber;
-            this._dateOfBirth = new DateTime(year, month, day);
-            this._programName = programName;
+			System.Windows.Forms.MessageBox.Show(err);
         }
 
 
-
-        public String FirstName
+		public static bool areTheSameUsers(Student student1, Student student2)
         {
-            get { return _firstName; }
-            set { _firstName = value; }
+            if (student1 == null || student2 == null)
+            {
+                return false;
+            }
+            if (student1.FirstName != student2.FirstName)
+            {
+                err = "Student does not exist";
+                return false;
+            }
+            if (student1.Password != student2.Password)
+            {
+                err = "Password does not match!";
+                return false;
+            }
+            return true;
+            
         }
 
-        public String LastName
-        {
-            get { return _lastName; }
-            set { _lastName = value; }
-        }
 
-        public String StudentNumber
-        {
-            get { return _studentNumber; }
-            set { _studentNumber = value; }
-        }
+	}
 
-        public DateTime DateOfBirth
-        {
-            get { return _dateOfBirth; }
-            set { _dateOfBirth = value; }
-        }
-
-        public String ProgramName
-        {
-            get { return _programName; }
-            set { _programName = value; }
-        }
-    }
 }
