@@ -169,7 +169,6 @@ namespace BCITDesktop
             }
             else
             {
-                Console.WriteLine("Connected");
                 MessageBox.Show("Connected");
             }
         }
@@ -179,24 +178,6 @@ namespace BCITDesktop
             RegistrationForm registration = new RegistrationForm();
             registration.ShowDialog();
 
-        }
-
-
-        public bool areTheSameUsers(Student student1, Student student2)
-        {
-            if (student1 == null || student2 == null)
-            {
-                return false;
-            }
-            else if (student1.StudentNumber != student2.StudentNumber)
-            {
-                return false;
-            }
-            else if (student1.Password != student2.Password)
-            {
-                return false;
-            }
-            return true;
         }
 
 
@@ -213,20 +194,20 @@ namespace BCITDesktop
                 Student resStudent = response.ResultAs<Student>(); // Database Results
                 Student currentStudent = new Student()
                 {
-                    StudentNumber = userLog.Text,
+                    FirstName = userLog.Text,
                     Password = passLog.Text
                 };
 
                 // TODO : Double Check this
-                if (areTheSameUsers(resStudent, currentStudent))
-                {
-                    Student.ShowErrorMessage();
-                } 
-                else
+                if (Student.areTheSameUsers(resStudent, currentStudent))
                 {
                     MessageBox.Show("They are equal");
                     Homepage home = new Homepage();
                     home.ShowDialog();
+                } 
+                else
+                {
+                    Student.ShowErrorMessage();
                 }
             }
         }

@@ -92,7 +92,7 @@ namespace BCITDesktop
                     DateOfBirth = dobReg.Value.Date
                 };
 
-                // Sets the database name under 'Users' and their first name
+                // Sets the database name under 'Users' and sets their first name as the main tab opener
                 SetResponse set = client.Set(@"Students/" + firstNameReg.Text, student);
                 MessageBox.Show("Student has been registered successfully!");
                 this.Close();
@@ -102,6 +102,8 @@ namespace BCITDesktop
 
         private void phone_Click(object sender, EventArgs e)
         {
+
+
         }
     }
 

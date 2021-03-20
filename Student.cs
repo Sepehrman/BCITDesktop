@@ -4,7 +4,9 @@ namespace BCITDesktop
 {
 	public class Student
 	{
-		public string FirstName { get; set; }
+        private static string err = "An Error Occured";
+
+        public string FirstName { get; set; }
 		public string LastName { get; set; }
 		public string Email { get; set; }
 		public string Password { get; set; }
@@ -14,26 +16,32 @@ namespace BCITDesktop
 		public string Phone { get; set; }
 		public DateTime DateOfBirth { get; set; }
 
-		public static string errorMessage;
 
 		public static void ShowErrorMessage()
         {
-			System.Windows.Forms.MessageBox.Show(errorMessage);
+			System.Windows.Forms.MessageBox.Show(err);
         }
-       
 
 
-/*		public Student(string firstName, string lastName, string email, string password, string gender, string phone, DateTime dateOfBirth)
-		{
-			this.FirstName = firstName;
-			this.LastName = lastName;
-			this.Email = email;
-			this.Password = password;
-			this.Gender = gender;
-			this.Phone = phone;
-			this.DateOfBirth = dateOfBirth;
-
-		}*/
+		public static bool areTheSameUsers(Student student1, Student student2)
+        {
+            if (student1 == null || student2 == null)
+            {
+                return false;
+            }
+            if (student1.FirstName != student2.FirstName)
+            {
+                err = "Student does not exist";
+                return false;
+            }
+            if (student1.Password != student2.Password)
+            {
+                err = "Password does not match!";
+                return false;
+            }
+            return true;
+            
+        }
 
 
 	}
