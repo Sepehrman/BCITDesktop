@@ -201,8 +201,8 @@ namespace BCITDesktop
                 // TODO : Double Check this
                 if (Student.areTheSameUsers(resStudent, currentStudent))
                 {
-                    MessageBox.Show("They are equal");
-                    Homepage home = new Homepage();
+                    // Passes the student info to the homepage
+                    Homepage home = new Homepage(resStudent);
                     home.ShowDialog();
                 } 
                 else
