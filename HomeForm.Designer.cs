@@ -1,7 +1,7 @@
 ﻿
 namespace BCITDesktop
 {
-    partial class MainForm
+    partial class HomeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,17 +30,17 @@ namespace BCITDesktop
         private void InitializeComponent()
         {
             this.SidePanel = new System.Windows.Forms.Panel();
-            this.homeLabel = new System.Windows.Forms.Label();
-            this.userName = new System.Windows.Forms.Label();
+            this.settingsButton = new System.Windows.Forms.Button();
+            this.inboxButton = new System.Windows.Forms.Button();
+            this.calenderButton = new System.Windows.Forms.Button();
             this.userNumber = new System.Windows.Forms.Label();
+            this.userName = new System.Windows.Forms.Label();
             this.HomeButton = new System.Windows.Forms.Button();
             this.Logo = new System.Windows.Forms.PictureBox();
-            this.calenderButton = new System.Windows.Forms.Button();
-            this.inboxButton = new System.Windows.Forms.Button();
-            this.settingsButton = new System.Windows.Forms.Button();
+            this.homeLabel = new System.Windows.Forms.Label();
             this.course1 = new System.Windows.Forms.Panel();
-            this.courseName = new System.Windows.Forms.Label();
             this.courseNumber = new System.Windows.Forms.Label();
+            this.courseName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,6 +56,8 @@ namespace BCITDesktop
             this.panel5 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.childPanel = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.SidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.course1.SuspendLayout();
@@ -64,6 +66,7 @@ namespace BCITDesktop
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.childPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // SidePanel
@@ -82,76 +85,20 @@ namespace BCITDesktop
             this.SidePanel.Size = new System.Drawing.Size(181, 580);
             this.SidePanel.TabIndex = 0;
             // 
-            // homeLabel
+            // settingsButton
             // 
-            this.homeLabel.AutoSize = true;
-            this.homeLabel.Font = new System.Drawing.Font("Nirmala UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homeLabel.ForeColor = System.Drawing.Color.White;
-            this.homeLabel.Location = new System.Drawing.Point(202, 12);
-            this.homeLabel.Name = "homeLabel";
-            this.homeLabel.Size = new System.Drawing.Size(191, 47);
-            this.homeLabel.TabIndex = 1;
-            this.homeLabel.Text = "Dashboard";
-            // 
-            // userName
-            // 
-            this.userName.AutoSize = true;
-            this.userName.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userName.Location = new System.Drawing.Point(35, 151);
-            this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(105, 25);
-            this.userName.TabIndex = 2;
-            this.userName.Text = "User Name";
-            // 
-            // userNumber
-            // 
-            this.userNumber.AutoSize = true;
-            this.userNumber.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userNumber.Location = new System.Drawing.Point(40, 176);
-            this.userNumber.Name = "userNumber";
-            this.userNumber.Size = new System.Drawing.Size(92, 21);
-            this.userNumber.TabIndex = 3;
-            this.userNumber.Text = "A00123456";
-            // 
-            // HomeButton
-            // 
-            this.HomeButton.BackColor = System.Drawing.Color.White;
-            this.HomeButton.FlatAppearance.BorderSize = 0;
-            this.HomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HomeButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HomeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.HomeButton.Location = new System.Drawing.Point(0, 200);
-            this.HomeButton.Name = "HomeButton";
-            this.HomeButton.Size = new System.Drawing.Size(181, 67);
-            this.HomeButton.TabIndex = 1;
-            this.HomeButton.Text = "Dashboard";
-            this.HomeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.HomeButton.UseVisualStyleBackColor = false;
-            // 
-            // Logo
-            // 
-            this.Logo.Image = global::BCITDesktop.Properties.Resources.bcit;
-            this.Logo.Location = new System.Drawing.Point(12, 12);
-            this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(168, 136);
-            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Logo.TabIndex = 0;
-            this.Logo.TabStop = false;
-            // 
-            // calenderButton
-            // 
-            this.calenderButton.BackColor = System.Drawing.Color.White;
-            this.calenderButton.FlatAppearance.BorderSize = 0;
-            this.calenderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.calenderButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calenderButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.calenderButton.Location = new System.Drawing.Point(0, 273);
-            this.calenderButton.Name = "calenderButton";
-            this.calenderButton.Size = new System.Drawing.Size(181, 67);
-            this.calenderButton.TabIndex = 4;
-            this.calenderButton.Text = "Calender";
-            this.calenderButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.calenderButton.UseVisualStyleBackColor = false;
+            this.settingsButton.BackColor = System.Drawing.Color.White;
+            this.settingsButton.FlatAppearance.BorderSize = 0;
+            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.settingsButton.Location = new System.Drawing.Point(0, 510);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(181, 67);
+            this.settingsButton.TabIndex = 6;
+            this.settingsButton.Text = "Settings";
+            this.settingsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.settingsButton.UseVisualStyleBackColor = false;
             // 
             // inboxButton
             // 
@@ -168,20 +115,77 @@ namespace BCITDesktop
             this.inboxButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.inboxButton.UseVisualStyleBackColor = false;
             // 
-            // settingsButton
+            // calenderButton
             // 
-            this.settingsButton.BackColor = System.Drawing.Color.White;
-            this.settingsButton.FlatAppearance.BorderSize = 0;
-            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingsButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.settingsButton.Location = new System.Drawing.Point(0, 510);
-            this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(181, 67);
-            this.settingsButton.TabIndex = 6;
-            this.settingsButton.Text = "Settings";
-            this.settingsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.settingsButton.UseVisualStyleBackColor = false;
+            this.calenderButton.BackColor = System.Drawing.Color.White;
+            this.calenderButton.FlatAppearance.BorderSize = 0;
+            this.calenderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.calenderButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calenderButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.calenderButton.Location = new System.Drawing.Point(0, 273);
+            this.calenderButton.Name = "calenderButton";
+            this.calenderButton.Size = new System.Drawing.Size(181, 67);
+            this.calenderButton.TabIndex = 4;
+            this.calenderButton.Text = "Calender";
+            this.calenderButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.calenderButton.UseVisualStyleBackColor = false;
+            // 
+            // userNumber
+            // 
+            this.userNumber.AutoSize = true;
+            this.userNumber.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNumber.Location = new System.Drawing.Point(40, 176);
+            this.userNumber.Name = "userNumber";
+            this.userNumber.Size = new System.Drawing.Size(92, 21);
+            this.userNumber.TabIndex = 3;
+            this.userNumber.Text = "A00123456";
+            // 
+            // userName
+            // 
+            this.userName.AutoSize = true;
+            this.userName.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userName.Location = new System.Drawing.Point(35, 151);
+            this.userName.Name = "userName";
+            this.userName.Size = new System.Drawing.Size(105, 25);
+            this.userName.TabIndex = 2;
+            this.userName.Text = "User Name";
+            // 
+            // HomeButton
+            // 
+            this.HomeButton.BackColor = System.Drawing.Color.White;
+            this.HomeButton.FlatAppearance.BorderSize = 0;
+            this.HomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HomeButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HomeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.HomeButton.Location = new System.Drawing.Point(0, 200);
+            this.HomeButton.Name = "HomeButton";
+            this.HomeButton.Size = new System.Drawing.Size(181, 67);
+            this.HomeButton.TabIndex = 1;
+            this.HomeButton.Text = "Dashboard";
+            this.HomeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.HomeButton.UseVisualStyleBackColor = false;
+            this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
+            // 
+            // Logo
+            // 
+            this.Logo.Image = global::BCITDesktop.Properties.Resources.bcit;
+            this.Logo.Location = new System.Drawing.Point(12, 12);
+            this.Logo.Name = "Logo";
+            this.Logo.Size = new System.Drawing.Size(168, 136);
+            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Logo.TabIndex = 0;
+            this.Logo.TabStop = false;
+            // 
+            // homeLabel
+            // 
+            this.homeLabel.AutoSize = true;
+            this.homeLabel.Font = new System.Drawing.Font("Nirmala UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homeLabel.ForeColor = System.Drawing.Color.White;
+            this.homeLabel.Location = new System.Drawing.Point(202, 12);
+            this.homeLabel.Name = "homeLabel";
+            this.homeLabel.Size = new System.Drawing.Size(191, 47);
+            this.homeLabel.TabIndex = 1;
+            this.homeLabel.Text = "Dashboard";
             // 
             // course1
             // 
@@ -193,17 +197,6 @@ namespace BCITDesktop
             this.course1.Size = new System.Drawing.Size(150, 150);
             this.course1.TabIndex = 2;
             // 
-            // courseName
-            // 
-            this.courseName.AutoSize = true;
-            this.courseName.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseName.ForeColor = System.Drawing.Color.White;
-            this.courseName.Location = new System.Drawing.Point(4, 4);
-            this.courseName.Name = "courseName";
-            this.courseName.Size = new System.Drawing.Size(139, 30);
-            this.courseName.TabIndex = 0;
-            this.courseName.Text = "Course Name";
-            // 
             // courseNumber
             // 
             this.courseNumber.AutoSize = true;
@@ -214,6 +207,17 @@ namespace BCITDesktop
             this.courseNumber.Size = new System.Drawing.Size(117, 21);
             this.courseNumber.TabIndex = 1;
             this.courseNumber.Text = "CourseNumber";
+            // 
+            // courseName
+            // 
+            this.courseName.AutoSize = true;
+            this.courseName.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.courseName.ForeColor = System.Drawing.Color.White;
+            this.courseName.Location = new System.Drawing.Point(4, 4);
+            this.courseName.Name = "courseName";
+            this.courseName.Size = new System.Drawing.Size(139, 30);
+            this.courseName.TabIndex = 0;
+            this.courseName.Text = "Course Name";
             // 
             // panel1
             // 
@@ -375,12 +379,33 @@ namespace BCITDesktop
             this.label10.TabIndex = 0;
             this.label10.Text = "Course Name";
             // 
-            // MainForm
+            // childPanel
+            // 
+            this.childPanel.Controls.Add(this.label11);
+            this.childPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.childPanel.Location = new System.Drawing.Point(181, 0);
+            this.childPanel.Name = "childPanel";
+            this.childPanel.Size = new System.Drawing.Size(799, 580);
+            this.childPanel.TabIndex = 8;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Nirmala UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(311, 23);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(163, 47);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Welcome";
+            // 
+            // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(113)))));
             this.ClientSize = new System.Drawing.Size(980, 580);
+            this.Controls.Add(this.childPanel);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);
@@ -389,10 +414,12 @@ namespace BCITDesktop
             this.Controls.Add(this.course1);
             this.Controls.Add(this.homeLabel);
             this.Controls.Add(this.SidePanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "MainForm";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "HomeForm";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HomeForm";
+            this.Load += new System.EventHandler(this.Homeform_Load);
             this.SidePanel.ResumeLayout(false);
             this.SidePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
@@ -408,6 +435,8 @@ namespace BCITDesktop
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.childPanel.ResumeLayout(false);
+            this.childPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -442,5 +471,7 @@ namespace BCITDesktop
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel childPanel;
+        private System.Windows.Forms.Label label11;
     }
 }

@@ -202,7 +202,7 @@ namespace BCITDesktop
                 if (Student.areTheSameUsers(resStudent, currentStudent))
                 {
                     // Passes the student info to the homepage
-                    Homepage home = new Homepage(resStudent);
+                    HomeForm home = new HomeForm(resStudent);
                     home.ShowDialog();
                 } 
                 else

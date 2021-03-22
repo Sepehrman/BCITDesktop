@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BCITDesktop
 {
@@ -15,7 +16,7 @@ namespace BCITDesktop
 		public string Gender { get; set; }
 		public string Phone { get; set; }
 		public DateTime DateOfBirth { get; set; }
-
+        public List<Course> enrolledCourses { get; set; }
 
 		public static void ShowErrorMessage()
         {
