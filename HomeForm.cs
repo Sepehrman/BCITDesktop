@@ -34,6 +34,7 @@ namespace BCITDesktop
         {
             userName.Text = student.FirstName + ' ' + student.LastName;
             userNumber.Text = student.StudentNumber;
+            header.Text = "Welcome " + student.FirstName;
         }
 
         private void openChildForm(Form childForm)
@@ -54,7 +55,7 @@ namespace BCITDesktop
 
         private void HomeButton_Click(object sender, EventArgs e)
         {
-            openChildForm(new Dashboard());
+            openChildForm(new Dashboard(student));
         }
     }
 }

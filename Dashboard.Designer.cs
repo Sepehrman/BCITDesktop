@@ -33,6 +33,7 @@ namespace BCITDesktop
             this.panel7 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.addCourseBtn = new System.Windows.Forms.Button();
             this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +53,7 @@ namespace BCITDesktop
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(120)))));
             this.panel7.Controls.Add(this.label12);
             this.panel7.Controls.Add(this.label13);
-            this.panel7.Location = new System.Drawing.Point(53, 74);
+            this.panel7.Location = new System.Drawing.Point(53, 84);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(150, 150);
             this.panel7.TabIndex = 4;
@@ -79,16 +80,28 @@ namespace BCITDesktop
             this.label13.TabIndex = 0;
             this.label13.Text = "Course Name";
             // 
+            // addCourseBtn
+            // 
+            this.addCourseBtn.Location = new System.Drawing.Point(705, 9);
+            this.addCourseBtn.Name = "addCourseBtn";
+            this.addCourseBtn.Size = new System.Drawing.Size(66, 47);
+            this.addCourseBtn.TabIndex = 5;
+            this.addCourseBtn.Text = "Add Course";
+            this.addCourseBtn.UseVisualStyleBackColor = true;
+            this.addCourseBtn.Click += new System.EventHandler(this.addCourseBtn_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(113)))));
             this.ClientSize = new System.Drawing.Size(783, 541);
+            this.Controls.Add(this.addCourseBtn);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.label11);
             this.Name = "Dashboard";
-            this.Text = "Form1";
+            this.Text = "Dashboard";
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.ResumeLayout(false);
@@ -102,5 +115,6 @@ namespace BCITDesktop
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button addCourseBtn;
     }
 }

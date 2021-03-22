@@ -36,7 +36,6 @@ namespace BCITDesktop
             this.userNumber = new System.Windows.Forms.Label();
             this.userName = new System.Windows.Forms.Label();
             this.HomeButton = new System.Windows.Forms.Button();
-            this.Logo = new System.Windows.Forms.PictureBox();
             this.homeLabel = new System.Windows.Forms.Label();
             this.course1 = new System.Windows.Forms.Panel();
             this.courseNumber = new System.Windows.Forms.Label();
@@ -57,9 +56,9 @@ namespace BCITDesktop
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.childPanel = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
+            this.header = new System.Windows.Forms.Label();
+            this.Logo = new System.Windows.Forms.PictureBox();
             this.SidePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.course1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -67,6 +66,7 @@ namespace BCITDesktop
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.childPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // SidePanel
@@ -165,16 +165,6 @@ namespace BCITDesktop
             this.HomeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.HomeButton.UseVisualStyleBackColor = false;
             this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
-            // 
-            // Logo
-            // 
-            this.Logo.Image = global::BCITDesktop.Properties.Resources.bcit;
-            this.Logo.Location = new System.Drawing.Point(12, 12);
-            this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(168, 136);
-            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Logo.TabIndex = 0;
-            this.Logo.TabStop = false;
             // 
             // homeLabel
             // 
@@ -381,23 +371,33 @@ namespace BCITDesktop
             // 
             // childPanel
             // 
-            this.childPanel.Controls.Add(this.label11);
+            this.childPanel.Controls.Add(this.header);
             this.childPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.childPanel.Location = new System.Drawing.Point(181, 0);
             this.childPanel.Name = "childPanel";
             this.childPanel.Size = new System.Drawing.Size(799, 580);
             this.childPanel.TabIndex = 8;
             // 
-            // label11
+            // header
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Nirmala UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(311, 23);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(163, 47);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Welcome";
+            this.header.AutoSize = true;
+            this.header.Font = new System.Drawing.Font("Nirmala UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.header.ForeColor = System.Drawing.Color.White;
+            this.header.Location = new System.Drawing.Point(220, 12);
+            this.header.Name = "header";
+            this.header.Size = new System.Drawing.Size(163, 47);
+            this.header.TabIndex = 2;
+            this.header.Text = "Welcome";
+            // 
+            // Logo
+            // 
+            this.Logo.Image = global::BCITDesktop.Properties.Resources.bcit;
+            this.Logo.Location = new System.Drawing.Point(12, 12);
+            this.Logo.Name = "Logo";
+            this.Logo.Size = new System.Drawing.Size(168, 136);
+            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Logo.TabIndex = 0;
+            this.Logo.TabStop = false;
             // 
             // HomeForm
             // 
@@ -418,11 +418,10 @@ namespace BCITDesktop
             this.Name = "HomeForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HomeForm";
+            this.Text = "BCIT";
             this.Load += new System.EventHandler(this.Homeform_Load);
             this.SidePanel.ResumeLayout(false);
             this.SidePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.course1.ResumeLayout(false);
             this.course1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -437,6 +436,7 @@ namespace BCITDesktop
             this.panel5.PerformLayout();
             this.childPanel.ResumeLayout(false);
             this.childPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -472,6 +472,6 @@ namespace BCITDesktop
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel childPanel;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label header;
     }
 }

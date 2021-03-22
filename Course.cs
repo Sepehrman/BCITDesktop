@@ -9,29 +9,28 @@ namespace BCITDesktop
     public class Course
     {
 
-        private String _courseName { get => _courseName; set => _courseName = value; }
-        private String _courseID { get => _courseID; set => _courseID = value; }
-        private int _courseNum { get => _courseNum; set => _courseNum = value; }
-        private String _instructor { get => _instructor; set => _instructor = value; }
-        private List<Student> _classList { get => _classList; set => _classList = value; }
+        private String courseName { get; set; }
+        private String courseID { get; set; }
+        private int courseCreds { get; set; }
+        private String instructor { get; set; }
+        //private List<Student> _classList { get; set; }
 
-        public Course(String courseName, String courseID, int courseNum, String instructor, List<Student> classList)
+        public Course(String courseName, String courseID, int courseCreds, String instructor)
         {
-            this._courseName = courseName;
-            this._courseID = courseID;
-            this._courseNum = courseNum;
-            this._instructor = instructor;
-            this._classList = classList;
+            this.courseName = courseName;
+            this.courseID = courseID;
+            this.courseCreds = courseCreds;
+            this.instructor = instructor;
         }
 
         public void enrollStudent(Student student)
         {
-            _classList.Add(student);
+            //_classList.Add(student);
         }
 
-        public int classCount()
-        {
-            return _classList.Count;
-        }
+        //public int classCount()
+        //{
+        //    return _classList.Count;
+        //}
     }
 }

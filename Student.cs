@@ -16,7 +16,9 @@ namespace BCITDesktop
 		public string Gender { get; set; }
 		public string Phone { get; set; }
 		public DateTime DateOfBirth { get; set; }
-        public List<Course> enrolledCourses { get; set; }
+        public Course c1 { get; set; }
+        public Course c2 { get; set; }
+        //public List<Course> enrolledCourses { get; set; }
 
 		public static void ShowErrorMessage()
         {
