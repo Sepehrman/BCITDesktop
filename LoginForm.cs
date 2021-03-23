@@ -204,10 +204,12 @@ namespace BCITDesktop
                     // Passes the student info to the homepage
                     Homepage home = new Homepage(resStudent);
                     home.ShowDialog();
+                    this.Close();
+                    this.Dispose();
                 } 
                 else
                 {
-                    Student.ShowErrorMessage();
+                    MessageBox.Show("Login failed");
                 }
             }
         }
