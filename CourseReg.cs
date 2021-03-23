@@ -16,10 +16,10 @@ namespace BCITDesktop
     public partial class CourseReg : Form
     {
         Student student;
-        public CourseReg(Student student)
+        public CourseReg(Student studentObj)
         {
             InitializeComponent();
-            this.student = student;
+            this.student = studentObj;
         }
 
         IFirebaseClient client;
@@ -48,14 +48,20 @@ namespace BCITDesktop
             else
             {
                 int creds = Int32.Parse(credits.Text);
-                Course c = new Course(crsName.Text, crsID.Text, creds, instrName.Text);
+                Course c = new Course() {
+                courseName = crsName.Text,
+                courseID = crsID.Text,
+                courseCreds = creds,
+                instructor = instrName.Text            
+
+                };
 
                 //FirebaseResponse r = client.Get(@"Students/" + student.FirstName);
                 //Student s = r.ResultAs<Student>();
                 //s.c1 = c;
 
-                SetResponse response = client.Set(@"Student/" , c);
-                Course c1 = response.ResultAs<Course>();
+                SetResponse response = client.Set(@"Students/"+ student.FirstName + "/Courses/" + crsName.Text , c);
+                MessageBox.Show("Registered " + c);
                 this.Close();
                 this.Dispose();
             }

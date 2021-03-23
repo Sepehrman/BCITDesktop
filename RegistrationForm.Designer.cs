@@ -54,7 +54,7 @@ namespace BCITDesktop
             // 
             this.RegistrationBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegistrationBtn.Location = new System.Drawing.Point(77, 486);
-            this.RegistrationBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RegistrationBtn.Margin = new System.Windows.Forms.Padding(2);
             this.RegistrationBtn.Name = "RegistrationBtn";
             this.RegistrationBtn.Size = new System.Drawing.Size(73, 34);
             this.RegistrationBtn.TabIndex = 10;
@@ -86,7 +86,7 @@ namespace BCITDesktop
             // 
             this.passwordReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordReg.Location = new System.Drawing.Point(104, 238);
-            this.passwordReg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passwordReg.Margin = new System.Windows.Forms.Padding(2);
             this.passwordReg.Name = "passwordReg";
             this.passwordReg.Size = new System.Drawing.Size(132, 28);
             this.passwordReg.TabIndex = 5;
@@ -96,7 +96,7 @@ namespace BCITDesktop
             // 
             this.firstNameReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.firstNameReg.Location = new System.Drawing.Point(104, 32);
-            this.firstNameReg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.firstNameReg.Margin = new System.Windows.Forms.Padding(2);
             this.firstNameReg.Name = "firstNameReg";
             this.firstNameReg.Size = new System.Drawing.Size(132, 28);
             this.firstNameReg.TabIndex = 1;
@@ -115,7 +115,7 @@ namespace BCITDesktop
             // 
             this.emailReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailReg.Location = new System.Drawing.Point(104, 184);
-            this.emailReg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.emailReg.Margin = new System.Windows.Forms.Padding(2);
             this.emailReg.Name = "emailReg";
             this.emailReg.Size = new System.Drawing.Size(132, 28);
             this.emailReg.TabIndex = 4;
@@ -134,7 +134,7 @@ namespace BCITDesktop
             // 
             this.LastnameReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LastnameReg.Location = new System.Drawing.Point(105, 80);
-            this.LastnameReg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LastnameReg.Margin = new System.Windows.Forms.Padding(2);
             this.LastnameReg.Name = "LastnameReg";
             this.LastnameReg.Size = new System.Drawing.Size(132, 28);
             this.LastnameReg.TabIndex = 2;
@@ -153,7 +153,7 @@ namespace BCITDesktop
             // 
             this.passwordConfReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordConfReg.Location = new System.Drawing.Point(104, 286);
-            this.passwordConfReg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passwordConfReg.Margin = new System.Windows.Forms.Padding(2);
             this.passwordConfReg.Name = "passwordConfReg";
             this.passwordConfReg.Size = new System.Drawing.Size(132, 28);
             this.passwordConfReg.TabIndex = 6;
@@ -168,7 +168,7 @@ namespace BCITDesktop
             "Female",
             "Other"});
             this.genderReg.Location = new System.Drawing.Point(104, 379);
-            this.genderReg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.genderReg.Margin = new System.Windows.Forms.Padding(2);
             this.genderReg.Name = "genderReg";
             this.genderReg.Size = new System.Drawing.Size(131, 30);
             this.genderReg.TabIndex = 8;
@@ -193,13 +193,12 @@ namespace BCITDesktop
             this.phone.Size = new System.Drawing.Size(84, 13);
             this.phone.TabIndex = 20;
             this.phone.Text = "Phone Number: ";
-            this.phone.Click += new System.EventHandler(this.phone_Click);
             // 
             // phoneReg
             // 
             this.phoneReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phoneReg.Location = new System.Drawing.Point(104, 423);
-            this.phoneReg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.phoneReg.Margin = new System.Windows.Forms.Padding(2);
             this.phoneReg.Name = "phoneReg";
             this.phoneReg.Size = new System.Drawing.Size(131, 28);
             this.phoneReg.TabIndex = 9;
@@ -235,7 +234,7 @@ namespace BCITDesktop
             // 
             this.studentNumReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentNumReg.Location = new System.Drawing.Point(105, 130);
-            this.studentNumReg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.studentNumReg.Margin = new System.Windows.Forms.Padding(2);
             this.studentNumReg.Name = "studentNumReg";
             this.studentNumReg.Size = new System.Drawing.Size(132, 28);
             this.studentNumReg.TabIndex = 3;
@@ -264,7 +263,7 @@ namespace BCITDesktop
             this.Controls.Add(this.label1);
             this.Controls.Add(this.passwordReg);
             this.Controls.Add(this.firstNameReg);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RegistrationForm";

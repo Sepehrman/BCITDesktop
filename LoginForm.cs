@@ -204,6 +204,8 @@ namespace BCITDesktop
                     // Passes the student info to the homepage
                     HomeForm home = new HomeForm(resStudent);
                     home.ShowDialog();
+                    this.Close();
+                    this.Dispose();
                 } 
                 else
                 {

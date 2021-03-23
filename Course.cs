@@ -9,19 +9,19 @@ namespace BCITDesktop
     public class Course
     {
 
-        private String courseName { get; set; }
-        private String courseID { get; set; }
-        private int courseCreds { get; set; }
-        private String instructor { get; set; }
+        public string courseName { get; set; }
+        public string courseID { get; set; }
+        public int courseCreds { get; set; }
+        public string instructor { get; set; }
         //private List<Student> _classList { get; set; }
 
-        public Course(String courseName, String courseID, int courseCreds, String instructor)
+/*        public Course(String courseName, String courseID, int courseCreds, String instructor)
         {
             this.courseName = courseName;
             this.courseID = courseID;
             this.courseCreds = courseCreds;
             this.instructor = instructor;
-        }
+        }*/
 
         public void enrollStudent(Student student)
         {

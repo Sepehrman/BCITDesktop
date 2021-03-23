@@ -59,3 +59,6 @@ E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.pdb
 E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.HomeForm.resources
 E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.Dashboard.resources
 E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.CourseReg.resources
+C:\Users\Sepehr\source\repos\StudentManagement\Student-Management-System-Project\obj\Debug\BCITDesktop.CourseReg.resources
+C:\Users\Sepehr\source\repos\StudentManagement\Student-Management-System-Project\obj\Debug\BCITDesktop.Dashboard.resources
+C:\Users\Sepehr\source\repos\StudentManagement\Student-Management-System-Project\obj\Debug\BCITDesktop.HomeForm.resources
