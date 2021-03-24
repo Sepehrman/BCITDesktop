@@ -129,6 +129,7 @@ namespace BCITDesktop
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "CourseReg";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CourseReg";
             this.Load += new System.EventHandler(this.CourseReg_Load);
             this.ResumeLayout(false);

@@ -48,18 +48,13 @@ namespace BCITDesktop
             else
             {
                 int creds = Int32.Parse(credits.Text);
-                Course c = new Course(crsName.Text, crsID.Text, creds, instrName.Text) 
-/*                {
+                Course c = new Course()
+                {
                 courseName = crsName.Text,
                 courseID = crsID.Text,
                 courseCreds = creds,
                 instructor = instrName.Text            
-
-                };*/
-
-                //FirebaseResponse r = client.Get(@"Students/" + student.FirstName);
-                //Student s = r.ResultAs<Student>();
-                //s.c1 = c;
+                };
 
                 SetResponse response = client.Set(@"Students/"+ student.FirstName + "/Courses/" + crsName.Text , c);
                 MessageBox.Show("Registered " + c);

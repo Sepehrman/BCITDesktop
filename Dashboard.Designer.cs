@@ -34,7 +34,10 @@ namespace BCITDesktop
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.addCourseBtn = new System.Windows.Forms.Button();
+            this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel7.SuspendLayout();
+            this.flowLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label11
@@ -50,12 +53,13 @@ namespace BCITDesktop
             // 
             // panel7
             // 
+            this.panel7.AutoScroll = true;
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(120)))));
             this.panel7.Controls.Add(this.label12);
             this.panel7.Controls.Add(this.label13);
-            this.panel7.Location = new System.Drawing.Point(53, 84);
+            this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(150, 150);
+            this.panel7.Size = new System.Drawing.Size(170, 170);
             this.panel7.TabIndex = 4;
             // 
             // label12
@@ -82,13 +86,40 @@ namespace BCITDesktop
             // 
             // addCourseBtn
             // 
+            this.addCourseBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(120)))));
+            this.addCourseBtn.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addCourseBtn.ForeColor = System.Drawing.Color.White;
             this.addCourseBtn.Location = new System.Drawing.Point(705, 9);
             this.addCourseBtn.Name = "addCourseBtn";
             this.addCourseBtn.Size = new System.Drawing.Size(66, 47);
             this.addCourseBtn.TabIndex = 5;
             this.addCourseBtn.Text = "Add Course";
-            this.addCourseBtn.UseVisualStyleBackColor = true;
+            this.addCourseBtn.UseVisualStyleBackColor = false;
             this.addCourseBtn.Click += new System.EventHandler(this.addCourseBtn_Click);
+            // 
+            // flowLayoutPanel
+            // 
+            this.flowLayoutPanel.AutoScroll = true;
+            this.flowLayoutPanel.Controls.Add(this.panel7);
+            this.flowLayoutPanel.Controls.Add(this.button2);
+            this.flowLayoutPanel.Location = new System.Drawing.Point(20, 76);
+            this.flowLayoutPanel.Name = "flowLayoutPanel";
+            this.flowLayoutPanel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 50);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(739, 465);
+            this.flowLayoutPanel.TabIndex = 7;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(120)))));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(179, 3);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(10, 5, 0, 0);
+            this.button2.Size = new System.Drawing.Size(170, 170);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "button2";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // Dashboard
             // 
@@ -96,14 +127,15 @@ namespace BCITDesktop
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(113)))));
             this.ClientSize = new System.Drawing.Size(783, 541);
+            this.Controls.Add(this.flowLayoutPanel);
             this.Controls.Add(this.addCourseBtn);
-            this.Controls.Add(this.panel7);
             this.Controls.Add(this.label11);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.flowLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,5 +148,7 @@ namespace BCITDesktop
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button addCourseBtn;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
+        private System.Windows.Forms.Button button2;
     }
 }
