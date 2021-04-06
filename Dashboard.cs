@@ -17,6 +17,9 @@ namespace BCITDesktop
     public partial class Dashboard : Form
     {
         private Student student;
+        /**
+         * Firebase initialization
+         */
         IFirebaseClient client;
         IFirebaseConfig firebaseConfigurations = new FirebaseConfig()
         {
@@ -38,17 +41,30 @@ namespace BCITDesktop
                 FirebaseResponse response = await client.GetAsync("Students/" + student.FirstName + "/Courses");
                 Dictionary<string, Course> data = response.ResultAs<Dictionary<string, Course>>();
                 
-                foreach (Course c in data.Values)
+                if (data != null)
                 {
-                    Button b = new Button();
-                    b.Size = new Size(175, 175);
-                    b.ForeColor = Color.FromArgb(0, 0, 0);
-                    b.Text = c.courseID + "\n" + c.courseName;
-                    b.TextAlign = ContentAlignment.TopLeft;
-                    b.Font = new Font("Nirmala UI", 15.75f);
-                    b.FlatAppearance.BorderSize = 0;
-                    b.Padding = new Padding(7, 5, 0, 0);
-                    flowLayoutPanel.Controls.Add(b);
+                    foreach (Course c in data.Values)
+                    {
+                        Button b = new Button();
+                        b.Size = new Size(175, 175);
+                        b.Text = c.courseID + "\n" + c.courseName;
+                        b.TextAlign = ContentAlignment.TopLeft;
+                        b.Font = new Font("Nirmala UI", 15.75f);
+                        b.FlatAppearance.BorderSize = 0;
+                        b.Padding = new Padding(7, 5, 0, 0);
+                        flowLayoutPanel.Controls.Add(b);
+                        Form courseForm = new CourseForm(student);
+                        b.Click += new EventHandler(openCourseForm);
+                    }
+                }
+                else
+                {
+                    Label l = new Label();
+                    l.Size = new Size(500, 200);
+                    l.Text = "You are currently not enrolled in any courses";
+                    l.TextAlign = ContentAlignment.TopLeft;
+                    l.Font = new Font("Nirmala UI", 18f);
+                    flowLayoutPanel.Controls.Add(l);
                 }
             }
 
@@ -56,6 +72,11 @@ namespace BCITDesktop
             {
                 MessageBox.Show("Connection Error");
             }
+        }
+
+        private void openCourseForm(object sender, EventArgs e)
+        {
+
         }
 
         private void addCourseBtn_Click(object sender, EventArgs e)

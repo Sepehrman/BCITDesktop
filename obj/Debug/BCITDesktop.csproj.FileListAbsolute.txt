@@ -15,6 +15,7 @@ E:\Projects\Student-Management-System-Project\bin\Debug\Newtonsoft.Json.xml
 E:\Projects\Student-Management-System-Project\bin\Debug\System.Net.Http.Extensions.xml
 E:\Projects\Student-Management-System-Project\bin\Debug\System.Net.Http.Primitives.xml
 E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.csproj.App.config
+E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.csprojAssemblyReference.cache
 E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.CourseReg.resources
 E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.Dashboard.resources
 E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.HomeForm.resources
@@ -27,3 +28,4 @@ E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.csproj.CoreC
 E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.csproj.CopyComplete
 E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.exe
 E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.pdb
+E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.CourseForm.resources

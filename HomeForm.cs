@@ -12,15 +12,6 @@ namespace BCITDesktop
 {
     public partial class HomeForm : Form
     {
-        /*        public string FirstName { get; set; }
-                public string LastName { get; set; }
-                public string Email { get; set; }
-                public string Password { get; set; }
-                public string StudentNumber { get; set; }
-                public string Gender { get; set; }
-                public string Phone { get; set; }
-                public DateTime DateOfBirth { get; set; }*/
-
         private Student student;
         private Form activeForm = null;
 
@@ -37,7 +28,7 @@ namespace BCITDesktop
             header.Text = "Welcome " + student.FirstName;
         }
 
-        private void openChildForm(Form childForm)
+        public void openChildForm(Form childForm)
         {
             if (activeForm != null)
             {
