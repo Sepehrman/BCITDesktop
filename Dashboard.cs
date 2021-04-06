@@ -41,11 +41,12 @@ namespace BCITDesktop
                 foreach (Course c in data.Values)
                 {
                     Button b = new Button();
-                    b.Size = new Size(170, 170);
+                    b.Size = new Size(175, 175);
+                    b.ForeColor = Color.FromArgb(0, 0, 0);
                     b.Text = c.courseID + "\n" + c.courseName;
                     b.TextAlign = ContentAlignment.TopLeft;
                     b.Font = new Font("Nirmala UI", 15.75f);
-                    b.ForeColor = Color.FromArgb(0, 0, 0);
+                    b.FlatAppearance.BorderSize = 0;
                     b.Padding = new Padding(7, 5, 0, 0);
                     flowLayoutPanel.Controls.Add(b);
                 }
@@ -61,6 +62,7 @@ namespace BCITDesktop
         {
             Form courseReg = new CourseReg(student);
             courseReg.ShowDialog();
+            flowLayoutPanel.Controls.Clear();
             this.Dashboard_Load(null, EventArgs.Empty);
         }
     }
