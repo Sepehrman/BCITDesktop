@@ -30,9 +30,9 @@ namespace BCITDesktop
         private void InitializeComponent()
         {
             this.SidePanel = new System.Windows.Forms.Panel();
-            this.settingsButton = new System.Windows.Forms.Button();
+            this.logoutButton = new System.Windows.Forms.Button();
             this.inboxButton = new System.Windows.Forms.Button();
-            this.calenderButton = new System.Windows.Forms.Button();
+            this.resourcesButton = new System.Windows.Forms.Button();
             this.userNumber = new System.Windows.Forms.Label();
             this.userName = new System.Windows.Forms.Label();
             this.HomeButton = new System.Windows.Forms.Button();
@@ -72,9 +72,9 @@ namespace BCITDesktop
             // SidePanel
             // 
             this.SidePanel.BackColor = System.Drawing.Color.White;
-            this.SidePanel.Controls.Add(this.settingsButton);
+            this.SidePanel.Controls.Add(this.logoutButton);
             this.SidePanel.Controls.Add(this.inboxButton);
-            this.SidePanel.Controls.Add(this.calenderButton);
+            this.SidePanel.Controls.Add(this.resourcesButton);
             this.SidePanel.Controls.Add(this.userNumber);
             this.SidePanel.Controls.Add(this.userName);
             this.SidePanel.Controls.Add(this.HomeButton);
@@ -85,20 +85,21 @@ namespace BCITDesktop
             this.SidePanel.Size = new System.Drawing.Size(181, 580);
             this.SidePanel.TabIndex = 0;
             // 
-            // settingsButton
+            // logoutButton
             // 
-            this.settingsButton.BackColor = System.Drawing.Color.White;
-            this.settingsButton.FlatAppearance.BorderSize = 0;
-            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingsButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.settingsButton.Location = new System.Drawing.Point(0, 510);
-            this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(181, 67);
-            this.settingsButton.TabIndex = 6;
-            this.settingsButton.Text = "Settings";
-            this.settingsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.settingsButton.UseVisualStyleBackColor = false;
+            this.logoutButton.BackColor = System.Drawing.Color.White;
+            this.logoutButton.FlatAppearance.BorderSize = 0;
+            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.logoutButton.Location = new System.Drawing.Point(0, 510);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(181, 67);
+            this.logoutButton.TabIndex = 6;
+            this.logoutButton.Text = "Log Out";
+            this.logoutButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.logoutButton.UseVisualStyleBackColor = false;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // inboxButton
             // 
@@ -115,20 +116,20 @@ namespace BCITDesktop
             this.inboxButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.inboxButton.UseVisualStyleBackColor = false;
             // 
-            // calenderButton
+            // resourcesButton
             // 
-            this.calenderButton.BackColor = System.Drawing.Color.White;
-            this.calenderButton.FlatAppearance.BorderSize = 0;
-            this.calenderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.calenderButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calenderButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.calenderButton.Location = new System.Drawing.Point(0, 273);
-            this.calenderButton.Name = "calenderButton";
-            this.calenderButton.Size = new System.Drawing.Size(181, 67);
-            this.calenderButton.TabIndex = 4;
-            this.calenderButton.Text = "Calender";
-            this.calenderButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.calenderButton.UseVisualStyleBackColor = false;
+            this.resourcesButton.BackColor = System.Drawing.Color.White;
+            this.resourcesButton.FlatAppearance.BorderSize = 0;
+            this.resourcesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.resourcesButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resourcesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.resourcesButton.Location = new System.Drawing.Point(0, 273);
+            this.resourcesButton.Name = "resourcesButton";
+            this.resourcesButton.Size = new System.Drawing.Size(181, 67);
+            this.resourcesButton.TabIndex = 4;
+            this.resourcesButton.Text = "Resources";
+            this.resourcesButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.resourcesButton.UseVisualStyleBackColor = false;
             // 
             // userNumber
             // 
@@ -175,6 +176,7 @@ namespace BCITDesktop
             this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Logo.TabIndex = 0;
             this.Logo.TabStop = false;
+            this.Logo.Click += new System.EventHandler(this.Logo_Click);
             // 
             // homeLabel
             // 
@@ -453,8 +455,8 @@ namespace BCITDesktop
         private System.Windows.Forms.Label userNumber;
         private System.Windows.Forms.Label userName;
         private System.Windows.Forms.Button inboxButton;
-        private System.Windows.Forms.Button calenderButton;
-        private System.Windows.Forms.Button settingsButton;
+        private System.Windows.Forms.Button resourcesButton;
+        private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Panel course1;
         private System.Windows.Forms.Label courseName;
         private System.Windows.Forms.Label courseNumber;

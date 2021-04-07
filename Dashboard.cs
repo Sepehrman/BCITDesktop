@@ -17,6 +17,7 @@ namespace BCITDesktop
     public partial class Dashboard : Form
     {
         private Student student;
+        private HomeForm parent;
         /**
          * Firebase initialization
          */
@@ -27,10 +28,11 @@ namespace BCITDesktop
             BasePath = "https://bcitdesktop-default-rtdb.firebaseio.com/"
         };
 
-        public Dashboard(Student student)
+        public Dashboard(Student student, HomeForm homeRef)
         {
             InitializeComponent();
             this.student = student;
+            this.parent = homeRef;
         }
 
         private async void Dashboard_Load(object sender, EventArgs e)
@@ -46,6 +48,7 @@ namespace BCITDesktop
                     foreach (Course c in data.Values)
                     {
                         Button b = new Button();
+                        b.Name = c.courseName;
                         b.Size = new Size(175, 175);
                         b.Text = c.courseID + "\n" + c.courseName;
                         b.TextAlign = ContentAlignment.TopLeft;
@@ -53,7 +56,6 @@ namespace BCITDesktop
                         b.FlatAppearance.BorderSize = 0;
                         b.Padding = new Padding(7, 5, 0, 0);
                         flowLayoutPanel.Controls.Add(b);
-                        Form courseForm = new CourseForm(student);
                         b.Click += new EventHandler(openCourseForm);
                     }
                 }
@@ -76,7 +78,9 @@ namespace BCITDesktop
 
         private void openCourseForm(object sender, EventArgs e)
         {
-
+            Button b = (Button) sender;
+            Form courseForm = new CourseForm(student, parent, b.Name);
+            parent.openChildForm(courseForm);
         }
 
         private void addCourseBtn_Click(object sender, EventArgs e)

@@ -30,6 +30,9 @@ namespace BCITDesktop
 
         public void openChildForm(Form childForm)
         {
+            /**
+             * Opens a new form in the right side panel
+             */
             if (activeForm != null)
             {
                 activeForm.Close();
@@ -44,9 +47,22 @@ namespace BCITDesktop
             childForm.Show();
         }
 
-        private void HomeButton_Click(object sender, EventArgs e)
+        public void HomeButton_Click(object sender, EventArgs e)
         {
-            openChildForm(new Dashboard(student));
+            openChildForm(new Dashboard(student, this));
+        }
+
+        private void Logo_Click(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

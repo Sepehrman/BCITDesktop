@@ -31,6 +31,7 @@ namespace BCITDesktop
         {
             this.courseIDLabel = new System.Windows.Forms.Label();
             this.courseNameLabel = new System.Windows.Forms.Label();
+            this.closeFormBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // courseIDLabel
@@ -55,12 +56,26 @@ namespace BCITDesktop
             this.courseNameLabel.TabIndex = 5;
             this.courseNameLabel.Text = "CourseName";
             // 
+            // closeFormBtn
+            // 
+            this.closeFormBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(120)))));
+            this.closeFormBtn.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeFormBtn.ForeColor = System.Drawing.Color.White;
+            this.closeFormBtn.Location = new System.Drawing.Point(738, 9);
+            this.closeFormBtn.Name = "closeFormBtn";
+            this.closeFormBtn.Size = new System.Drawing.Size(33, 23);
+            this.closeFormBtn.TabIndex = 6;
+            this.closeFormBtn.Text = "X";
+            this.closeFormBtn.UseVisualStyleBackColor = false;
+            this.closeFormBtn.Click += new System.EventHandler(this.closeFormBtn_Click);
+            // 
             // CourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(113)))));
             this.ClientSize = new System.Drawing.Size(783, 541);
+            this.Controls.Add(this.closeFormBtn);
             this.Controls.Add(this.courseNameLabel);
             this.Controls.Add(this.courseIDLabel);
             this.ForeColor = System.Drawing.Color.White;
@@ -76,5 +91,6 @@ namespace BCITDesktop
 
         private System.Windows.Forms.Label courseIDLabel;
         private System.Windows.Forms.Label courseNameLabel;
+        private System.Windows.Forms.Button closeFormBtn;
     }
 }
