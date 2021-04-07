@@ -91,8 +91,8 @@ namespace BCITDesktop
                 // Register users onto the realtime Database
                 student = new Student()
                 {
-                    FirstName = firstNameReg.Text,
-                    LastName = LastnameReg.Text,
+                    FirstName = firstNameReg.Text.ToUpper(),
+                    LastName = LastnameReg.Text.ToUpper(),
                     StudentNumber = generateStudentNumber(),
                     Email = emailReg.Text,
                     Password = passwordReg.Text,
