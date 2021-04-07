@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BCITDesktop.Properties;
 using System.Windows.Forms;
 
 namespace BCITDesktop
@@ -26,6 +27,13 @@ namespace BCITDesktop
             userName.Text = student.FirstName + ' ' + student.LastName;
             userNumber.Text = student.StudentNumber;
             header.Text = "Welcome " + student.FirstName;
+
+            // Set Windows Size
+
+            if (Settings.Default.ApplicationSize != null)
+            {
+                this.Size = Settings.Default.ApplicationSize;
+            }
         }
 
         public void openChildForm(Form childForm)

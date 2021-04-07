@@ -15,6 +15,10 @@ namespace BCITDesktop
         public SettingsForm()
         {
             InitializeComponent();
+        }    
+        public void setNewWindowsSize()
+        {
+            Size newSize = new Size(appSizeComboBox.SelectedIndex);
         }
     }
 }

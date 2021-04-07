@@ -30,6 +30,7 @@ namespace BCITDesktop
         private void InitializeComponent()
         {
             this.SidePanel = new System.Windows.Forms.Panel();
+            this.settingsButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
             this.inboxButton = new System.Windows.Forms.Button();
             this.resourcesButton = new System.Windows.Forms.Button();
@@ -58,7 +59,6 @@ namespace BCITDesktop
             this.label10 = new System.Windows.Forms.Label();
             this.childPanel = new System.Windows.Forms.Panel();
             this.header = new System.Windows.Forms.Label();
-            this.settingsButton = new System.Windows.Forms.Button();
             this.SidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.course1.SuspendLayout();
@@ -86,6 +86,21 @@ namespace BCITDesktop
             this.SidePanel.Name = "SidePanel";
             this.SidePanel.Size = new System.Drawing.Size(175, 580);
             this.SidePanel.TabIndex = 0;
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.BackColor = System.Drawing.Color.White;
+            this.settingsButton.FlatAppearance.BorderSize = 0;
+            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.settingsButton.Location = new System.Drawing.Point(0, 434);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(175, 67);
+            this.settingsButton.TabIndex = 7;
+            this.settingsButton.Text = "Settings";
+            this.settingsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.settingsButton.UseVisualStyleBackColor = false;
             // 
             // logoutButton
             // 
@@ -403,21 +418,6 @@ namespace BCITDesktop
             this.header.Size = new System.Drawing.Size(163, 47);
             this.header.TabIndex = 2;
             this.header.Text = "Welcome";
-            // 
-            // settingsButton
-            // 
-            this.settingsButton.BackColor = System.Drawing.Color.White;
-            this.settingsButton.FlatAppearance.BorderSize = 0;
-            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingsButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.settingsButton.Location = new System.Drawing.Point(0, 434);
-            this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(175, 67);
-            this.settingsButton.TabIndex = 7;
-            this.settingsButton.Text = "Settings";
-            this.settingsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.settingsButton.UseVisualStyleBackColor = false;
             // 
             // HomeForm
             // 
