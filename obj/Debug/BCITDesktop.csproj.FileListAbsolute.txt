@@ -35,7 +35,6 @@ C:\Users\Sepehr\source\repos\Student-Management-System-Project\obj\Debug\BCITDes
 C:\Users\Sepehr\source\repos\Student-Management-System-Project\obj\Debug\BCITDesktop.CourseReg.resources
 C:\Users\Sepehr\source\repos\Student-Management-System-Project\obj\Debug\BCITDesktop.Dashboard.resources
 C:\Users\Sepehr\source\repos\Student-Management-System-Project\obj\Debug\BCITDesktop.HomeForm.resources
-C:\Users\Sepehr\source\repos\Student-Management-System-Project\obj\Debug\BCITDesktop.Homepage.resources
 C:\Users\Sepehr\source\repos\Student-Management-System-Project\obj\Debug\BCITDesktop.LoginForm.resources
 C:\Users\Sepehr\source\repos\Student-Management-System-Project\obj\Debug\BCITDesktop.Properties.Resources.resources
 C:\Users\Sepehr\source\repos\Student-Management-System-Project\obj\Debug\BCITDesktop.RegistrationForm.resources

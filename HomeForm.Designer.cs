@@ -58,6 +58,7 @@ namespace BCITDesktop
             this.label10 = new System.Windows.Forms.Label();
             this.childPanel = new System.Windows.Forms.Panel();
             this.header = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.course1.SuspendLayout();
@@ -67,6 +68,7 @@ namespace BCITDesktop
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.childPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // SidePanel
@@ -383,6 +385,7 @@ namespace BCITDesktop
             // 
             // childPanel
             // 
+            this.childPanel.Controls.Add(this.pictureBox1);
             this.childPanel.Controls.Add(this.header);
             this.childPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.childPanel.ForeColor = System.Drawing.Color.White;
@@ -402,6 +405,14 @@ namespace BCITDesktop
             this.header.Size = new System.Drawing.Size(163, 47);
             this.header.TabIndex = 2;
             this.header.Text = "Welcome";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(6, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(72, 72);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // HomeForm
             // 
@@ -442,6 +453,7 @@ namespace BCITDesktop
             this.panel5.PerformLayout();
             this.childPanel.ResumeLayout(false);
             this.childPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,5 +490,6 @@ namespace BCITDesktop
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel childPanel;
         private System.Windows.Forms.Label header;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

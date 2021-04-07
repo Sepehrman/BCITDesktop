@@ -41,9 +41,8 @@ namespace BCITDesktop
             this.courseIDLabel.ForeColor = System.Drawing.Color.White;
             this.courseIDLabel.Location = new System.Drawing.Point(12, 9);
             this.courseIDLabel.Name = "courseIDLabel";
-            this.courseIDLabel.Size = new System.Drawing.Size(162, 47);
+            this.courseIDLabel.Size = new System.Drawing.Size(0, 38);
             this.courseIDLabel.TabIndex = 4;
-            this.courseIDLabel.Text = "CourseID";
             // 
             // courseNameLabel
             // 
@@ -52,9 +51,9 @@ namespace BCITDesktop
             this.courseNameLabel.ForeColor = System.Drawing.Color.White;
             this.courseNameLabel.Location = new System.Drawing.Point(33, 56);
             this.courseNameLabel.Name = "courseNameLabel";
-            this.courseNameLabel.Size = new System.Drawing.Size(170, 37);
+            this.courseNameLabel.Size = new System.Drawing.Size(21, 30);
             this.courseNameLabel.TabIndex = 5;
-            this.courseNameLabel.Text = "CourseName";
+            this.courseNameLabel.Text = "";
             // 
             // closeFormBtn
             // 

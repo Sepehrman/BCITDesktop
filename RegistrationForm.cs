@@ -70,7 +70,7 @@ namespace BCITDesktop
         public static string generateStudentNumber()
         {
             Random rand = new Random();
-            int randNum = rand.Next(01111111, 99999999);
+            int randNum = rand.Next(111111, 99999999);
             string generator = randNum.ToString("00000000");
             return "A" + generator;
         }
