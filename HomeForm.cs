@@ -45,6 +45,13 @@ namespace BCITDesktop
             childPanel.Controls.Add(childForm);
             childForm.BringToFront();
             childForm.Show();
+
+            //Change button appearance for active form
+            if (activeForm.GetType() == typeof(Dashboard) || activeForm.GetType() == typeof(CourseForm))
+            {
+                HomeButton.BackColor = Color.LightSlateGray;
+            }
+            
         }
 
         public void HomeButton_Click(object sender, EventArgs e)

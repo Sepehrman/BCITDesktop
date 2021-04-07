@@ -54,7 +54,6 @@ namespace BCITDesktop
             if (string.IsNullOrWhiteSpace(firstNameReg.Text) ||
                 string.IsNullOrWhiteSpace(LastnameReg.Text) ||
                 string.IsNullOrWhiteSpace(emailReg.Text) ||
-                string.IsNullOrWhiteSpace(studentNumReg.Text) ||
                 string.IsNullOrWhiteSpace(passwordReg.Text) ||
                 string.IsNullOrWhiteSpace(passwordConfReg.Text) ||
                 string.IsNullOrWhiteSpace(genderReg.Text) ||
@@ -65,6 +64,15 @@ namespace BCITDesktop
                 return true;
             }
             return false;
+        }
+
+
+        public static string generateStudentNumber()
+        {
+            Random rand = new Random();
+            int randNum = rand.Next(01111111, 99999999);
+            string generator = randNum.ToString("00000000");
+            return "A" + generator;
         }
 
 
@@ -81,20 +89,35 @@ namespace BCITDesktop
             else
             {
                 // Register users onto the realtime Database
-                student = new Student() {
-                    FirstName = firstNameReg.Text,
-                    LastName = LastnameReg.Text,
-                    StudentNumber = studentNumReg.Text,
+                student = new Student()
+                {
+                    FirstName = firstNameReg.Text.ToUpper(),
+                    LastName = LastnameReg.Text.ToUpper(),
+                    StudentNumber = generateStudentNumber(),
                     Email = emailReg.Text,
                     Password = passwordReg.Text,
                     Gender = genderReg.Text,
                     Phone = phoneReg.Text,
                     DateOfBirth = dobReg.Value.Date
                 };
+                // Checks if student number already exists in the database
+                FirebaseResponse response = client.Get(@"Students/" + student.StudentNumber);
+                Student resStudent = response.ResultAs<Student>(); // Database Results
+                if (resStudent != null)
+                {
+                    string studentNumInDatabase = resStudent.StudentNumber;
+
+                    while (studentNumInDatabase == student.StudentNumber)
+                    {
+                        student.StudentNumber = generateStudentNumber();
+                    }
+                }
+
 
                 // Sets the database name under 'Users' and sets their first name as the main tab opener
-                SetResponse set = client.Set(@"Students/" + firstNameReg.Text, student);
-                MessageBox.Show("Student has been registered successfully!");
+                SetResponse set = client.Set(@"Students/" + student.StudentNumber, student);
+                MessageBox.Show("Student has been registered successfully!\nYour dedicated student number is "
+                    + student.StudentNumber + "\nYou can use this to log into your account");
                 this.Close();
                 this.Dispose();
             }

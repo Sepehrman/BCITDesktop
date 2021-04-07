@@ -45,7 +45,7 @@ namespace BCITDesktop
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(49, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Course Name:";
             // 
@@ -54,7 +54,7 @@ namespace BCITDesktop
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(49, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Course ID:";
             // 
@@ -63,7 +63,7 @@ namespace BCITDesktop
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(49, 150);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Instructor:";
             // 
@@ -72,52 +72,54 @@ namespace BCITDesktop
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(49, 211);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Credits:";
             // 
             // regBtn
             // 
+            this.regBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(120)))));
             this.regBtn.Location = new System.Drawing.Point(89, 292);
             this.regBtn.Name = "regBtn";
             this.regBtn.Size = new System.Drawing.Size(75, 23);
             this.regBtn.TabIndex = 4;
             this.regBtn.Text = "Register";
-            this.regBtn.UseVisualStyleBackColor = true;
+            this.regBtn.UseVisualStyleBackColor = false;
             this.regBtn.Click += new System.EventHandler(this.regBtn_Click);
             // 
             // crsName
             // 
-            this.crsName.Location = new System.Drawing.Point(122, 30);
+            this.crsName.Location = new System.Drawing.Point(133, 28);
             this.crsName.Name = "crsName";
-            this.crsName.Size = new System.Drawing.Size(100, 20);
+            this.crsName.Size = new System.Drawing.Size(100, 22);
             this.crsName.TabIndex = 6;
             // 
             // crsID
             // 
-            this.crsID.Location = new System.Drawing.Point(122, 91);
+            this.crsID.Location = new System.Drawing.Point(133, 91);
             this.crsID.Name = "crsID";
-            this.crsID.Size = new System.Drawing.Size(100, 20);
+            this.crsID.Size = new System.Drawing.Size(100, 22);
             this.crsID.TabIndex = 7;
             // 
             // instrName
             // 
-            this.instrName.Location = new System.Drawing.Point(122, 147);
+            this.instrName.Location = new System.Drawing.Point(133, 147);
             this.instrName.Name = "instrName";
-            this.instrName.Size = new System.Drawing.Size(100, 20);
+            this.instrName.Size = new System.Drawing.Size(100, 22);
             this.instrName.TabIndex = 8;
             // 
             // credits
             // 
-            this.credits.Location = new System.Drawing.Point(122, 208);
+            this.credits.Location = new System.Drawing.Point(133, 208);
             this.credits.Name = "credits";
-            this.credits.Size = new System.Drawing.Size(100, 20);
+            this.credits.Size = new System.Drawing.Size(100, 22);
             this.credits.TabIndex = 9;
             // 
             // CourseReg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(113)))));
             this.ClientSize = new System.Drawing.Size(260, 357);
             this.Controls.Add(this.credits);
             this.Controls.Add(this.instrName);
@@ -128,6 +130,8 @@ namespace BCITDesktop
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "CourseReg";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CourseReg";

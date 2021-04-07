@@ -32,7 +32,7 @@ namespace BCITDesktop
             {
                 return false;
             }
-            if (student1.FirstName != student2.FirstName)
+            if (student1.StudentNumber != student2.StudentNumber)
             {
                 err = "Student does not exist";
                 return false;
