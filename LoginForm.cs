@@ -166,7 +166,7 @@ namespace BCITDesktop
             client = new FirebaseClient(firebaseConfigurations);
             if (client == null)
             {
-                 MessageBox.Show("Connection Error");
+                MessageBox.Show("Connection Error");
             }
             else
             {
@@ -184,7 +184,7 @@ namespace BCITDesktop
 
         private void btnLog_Click(object sender, EventArgs e)
         {
-            if (hasEmptyFields()) 
+            if (hasEmptyFields())
             {
                 MessageBox.Show("Please fill in, all the fields to proceed");
             }
@@ -195,11 +195,10 @@ namespace BCITDesktop
                 Student resStudent = response.ResultAs<Student>(); // Database Results
                 Student currentStudent = new Student()
                 {
-                    FirstName = userLog.Text,
+                    StudentNumber = userLog.Text,
                     Password = passLog.Text
                 };
 
-                // TODO : Double Check this
                 if (Student.areTheSameUsers(resStudent, currentStudent))
                 {
                     // Passes the student info to the homepage
@@ -214,7 +213,7 @@ namespace BCITDesktop
                         home.Dispose();
                     }
 
-                } 
+                }
                 else
                 {
                     Student.ShowErrorMessage();
