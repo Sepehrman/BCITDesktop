@@ -99,12 +99,6 @@ namespace BCITDesktop
                 this.Dispose();
             }
         }
-
-        private void phone_Click(object sender, EventArgs e)
-        {
-
-
-        }
     }
 
 }
