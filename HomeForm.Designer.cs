@@ -162,7 +162,7 @@ namespace BCITDesktop
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(181, 67);
             this.HomeButton.TabIndex = 1;
-            this.HomeButton.Text = "Dashboard";
+            this.HomeButton.Text = "Courses";
             this.HomeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.HomeButton.UseVisualStyleBackColor = false;
             this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
@@ -393,10 +393,11 @@ namespace BCITDesktop
             // 
             // header
             // 
+            this.header.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.header.AutoSize = true;
             this.header.Font = new System.Drawing.Font("Nirmala UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.header.ForeColor = System.Drawing.Color.White;
-            this.header.Location = new System.Drawing.Point(220, 12);
+            this.header.Location = new System.Drawing.Point(237, 12);
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(163, 47);
             this.header.TabIndex = 2;
