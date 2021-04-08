@@ -1,5 +1,4 @@
-﻿
-namespace BCITDesktop
+﻿namespace BCITDesktop
 {
     partial class HomeForm
     {
@@ -58,6 +57,7 @@ namespace BCITDesktop
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.childPanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.header = new System.Windows.Forms.Label();
             this.SidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
@@ -68,6 +68,7 @@ namespace BCITDesktop
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.childPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // SidePanel
@@ -101,6 +102,7 @@ namespace BCITDesktop
             this.settingsButton.Text = "Settings";
             this.settingsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.settingsButton.UseVisualStyleBackColor = false;
+            this.settingsButton.Click += new System.EventHandler(this.openSettingsForm);
             // 
             // logoutButton
             // 
@@ -400,6 +402,7 @@ namespace BCITDesktop
             // 
             // childPanel
             // 
+            this.childPanel.Controls.Add(this.pictureBox1);
             this.childPanel.Controls.Add(this.header);
             this.childPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.childPanel.ForeColor = System.Drawing.Color.White;
@@ -407,6 +410,14 @@ namespace BCITDesktop
             this.childPanel.Name = "childPanel";
             this.childPanel.Size = new System.Drawing.Size(805, 580);
             this.childPanel.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(6, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(72, 72);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // header
             // 
@@ -458,6 +469,7 @@ namespace BCITDesktop
             this.panel5.PerformLayout();
             this.childPanel.ResumeLayout(false);
             this.childPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,6 +506,7 @@ namespace BCITDesktop
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel childPanel;
         private System.Windows.Forms.Label header;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button settingsButton;
     }
 }

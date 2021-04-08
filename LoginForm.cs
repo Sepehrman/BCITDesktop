@@ -200,7 +200,6 @@ namespace BCITDesktop
         {
             RegistrationForm registration = new RegistrationForm();
             registration.ShowDialog();
-
         }
 
 
@@ -213,8 +212,7 @@ namespace BCITDesktop
             else
             {
                 // Retrieves data from the database using Get()
-                FirebaseResponse response = client.Get(@"Students/" + userLog.Text);
-                Student resStudent = response.ResultAs<Student>(); // Database Results
+                Student resStudent = Student.getStudent(client, userLog.Text); // Database Results
                 Student currentStudent = new Student()
                 {
                     StudentNumber = userLog.Text,

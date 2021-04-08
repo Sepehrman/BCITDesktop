@@ -29,6 +29,7 @@ namespace BCITDesktop
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(userDataBaseSettings));
             this.firstNamelabel = new System.Windows.Forms.Label();
             this.firstNameSet = new System.Windows.Forms.TextBox();
             this.lastNamelabel = new System.Windows.Forms.Label();
@@ -207,8 +208,9 @@ namespace BCITDesktop
             this.Controls.Add(this.lastNameSet);
             this.Controls.Add(this.firstNamelabel);
             this.Controls.Add(this.firstNameSet);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "userDataBaseSettings";
-            this.Text = "userDataBaseSettings";
+            this.Text = "Profile";
             this.Load += new System.EventHandler(this.userDataBaseSettings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

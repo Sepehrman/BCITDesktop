@@ -16,13 +16,11 @@ namespace BCITDesktop
 {
     public partial class userDataBaseSettings : Form
     {
+        private HomeForm homeref;
         private Student student;
-        private HomeForm parent;
         private Student updatedStudent;
-        /**
-         * Firebase initialization
-         */
         IFirebaseClient client;
+
         IFirebaseConfig firebaseConfigurations = new FirebaseConfig()
         {
             AuthSecret = "xyEfrWdHzVWmoXvV11MFgTmMRv8g28oLaJs8kRnH",
@@ -44,15 +42,25 @@ namespace BCITDesktop
             return false;
         }
 
-        public userDataBaseSettings(Student student, HomeForm homeRef)
+        public userDataBaseSettings(Student student, HomeForm homeref)
         {
             InitializeComponent();
             this.student = student;
-            this.parent = homeRef;
+            this.homeref = homeref;
         }
 
         private void userDataBaseSettings_Load(object sender, EventArgs e)
         {
+            try
+            {
+                client = new FireSharp.FirebaseClient(firebaseConfigurations);
+            }
+
+            catch
+            {
+                MessageBox.Show("Connection Error");
+            }
+            this.student = Student.getStudent(client, this.student.StudentNumber);
             firstNameSet.Text = student.FirstName;
             lastNameSet.Text = student.LastName;
             emailSet.Text = student.Email;
@@ -78,10 +86,12 @@ namespace BCITDesktop
                     Password = student.Password,
                     Gender = genderSet.Text,
                     Phone = phoneSet.Text,
-                    DateOfBirth = dobSet.Value.Date),
+                    DateOfBirth = dobSet.Value.Date,
                 };
-                client.UpdateAsync("@Student/" + student.StudentNumber, updatedStudent);
-                closeForm(sender, e);
+                client.Update("Students/" + student.StudentNumber, updatedStudent);
+                this.homeref.user = student;
+                this.closeForm(sender, e);
+
             }      
         }
 

@@ -53,14 +53,16 @@ namespace BCITDesktop
             // 
             // RegistrationBtn
             // 
+            this.RegistrationBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(113)))));
             this.RegistrationBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegistrationBtn.Location = new System.Drawing.Point(77, 486);
+            this.RegistrationBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.RegistrationBtn.Location = new System.Drawing.Point(90, 510);
             this.RegistrationBtn.Margin = new System.Windows.Forms.Padding(2);
             this.RegistrationBtn.Name = "RegistrationBtn";
             this.RegistrationBtn.Size = new System.Drawing.Size(73, 34);
             this.RegistrationBtn.TabIndex = 10;
             this.RegistrationBtn.Text = "Register";
-            this.RegistrationBtn.UseVisualStyleBackColor = true;
+            this.RegistrationBtn.UseVisualStyleBackColor = false;
             this.RegistrationBtn.Click += new System.EventHandler(this.RegistrationBtn_Click);
             // 
             // label2
@@ -244,6 +246,7 @@ namespace BCITDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(113)))));
             this.ClientSize = new System.Drawing.Size(260, 612);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.studentNumReg);
@@ -264,6 +267,7 @@ namespace BCITDesktop
             this.Controls.Add(this.label1);
             this.Controls.Add(this.passwordReg);
             this.Controls.Add(this.firstNameReg);
+            this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
