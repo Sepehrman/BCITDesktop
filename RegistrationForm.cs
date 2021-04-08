@@ -6,8 +6,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -76,6 +78,15 @@ namespace BCITDesktop
         }
 
 
+        public static string makeTitle(string word)
+        {
+            CultureInfo culture_info = Thread.CurrentThread.CurrentCulture;
+            TextInfo text_info = culture_info.TextInfo;
+
+            return text_info.ToTitleCase(word);
+        }
+
+
         private void RegistrationBtn_Click(object sender, EventArgs e)
         {
             if (hasEmptyFields())
@@ -91,8 +102,8 @@ namespace BCITDesktop
                 // Register users onto the realtime Database
                 student = new Student()
                 {
-                    FirstName = firstNameReg.Text.ToUpper(),
-                    LastName = LastnameReg.Text.ToUpper(),
+                    FirstName = makeTitle(firstNameReg.Text),
+                    LastName = makeTitle(LastnameReg.Text),
                     StudentNumber = generateStudentNumber(),
                     Email = emailReg.Text,
                     Password = passwordReg.Text,
