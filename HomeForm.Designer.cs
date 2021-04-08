@@ -1,5 +1,4 @@
-﻿
-namespace BCITDesktop
+﻿namespace BCITDesktop
 {
     partial class HomeForm
     {
@@ -30,6 +29,7 @@ namespace BCITDesktop
         private void InitializeComponent()
         {
             this.SidePanel = new System.Windows.Forms.Panel();
+            this.settingsButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
             this.inboxButton = new System.Windows.Forms.Button();
             this.resourcesButton = new System.Windows.Forms.Button();
@@ -58,11 +58,9 @@ namespace BCITDesktop
             this.label10 = new System.Windows.Forms.Label();
             this.childPanel = new System.Windows.Forms.Panel();
             this.header = new System.Windows.Forms.Label();
-<<<<<<< HEAD
+
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-=======
-            this.settingsButton = new System.Windows.Forms.Button();
->>>>>>> a7efb047274d6906096a5d0c7e477d8aa58fbece
+
             this.SidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.course1.SuspendLayout();
@@ -91,6 +89,22 @@ namespace BCITDesktop
             this.SidePanel.Name = "SidePanel";
             this.SidePanel.Size = new System.Drawing.Size(175, 580);
             this.SidePanel.TabIndex = 0;
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.BackColor = System.Drawing.Color.White;
+            this.settingsButton.FlatAppearance.BorderSize = 0;
+            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.settingsButton.Location = new System.Drawing.Point(0, 434);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(175, 67);
+            this.settingsButton.TabIndex = 7;
+            this.settingsButton.Text = "Settings";
+            this.settingsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.settingsButton.UseVisualStyleBackColor = false;
+            this.settingsButton.Click += new System.EventHandler(this.openSettingsForm);
             // 
             // logoutButton
             // 
@@ -399,6 +413,14 @@ namespace BCITDesktop
             this.childPanel.Size = new System.Drawing.Size(805, 580);
             this.childPanel.TabIndex = 8;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(6, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(72, 72);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // header
             // 
             this.header.AutoSize = true;
@@ -410,7 +432,7 @@ namespace BCITDesktop
             this.header.TabIndex = 2;
             this.header.Text = "Welcome";
             // 
-<<<<<<< HEAD
+
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(6, 3);
@@ -418,7 +440,7 @@ namespace BCITDesktop
             this.pictureBox1.Size = new System.Drawing.Size(72, 72);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
-=======
+
             // settingsButton
             // 
             this.settingsButton.BackColor = System.Drawing.Color.White;
@@ -433,8 +455,8 @@ namespace BCITDesktop
             this.settingsButton.Text = "Settings";
             this.settingsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.settingsButton.UseVisualStyleBackColor = false;
->>>>>>> a7efb047274d6906096a5d0c7e477d8aa58fbece
             // 
+
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -511,10 +533,7 @@ namespace BCITDesktop
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel childPanel;
         private System.Windows.Forms.Label header;
-<<<<<<< HEAD
         private System.Windows.Forms.PictureBox pictureBox1;
-=======
         private System.Windows.Forms.Button settingsButton;
->>>>>>> a7efb047274d6906096a5d0c7e477d8aa58fbece
     }
 }

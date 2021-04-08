@@ -124,7 +124,6 @@ namespace BCITDesktop
                     }
                 }
 
-
                 // Sets the database name under 'Users' and sets their first name as the main tab opener
                 SetResponse set = client.Set(@"Students/" + student.StudentNumber, student);
                 MessageBox.Show("Student has been registered successfully!\nYour dedicated student number is "

@@ -117,6 +117,12 @@
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Student.cs" />
+    <Compile Include="userDataBaseSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="userDataBaseSettings.Designer.cs">
+      <DependentUpon>userDataBaseSettings.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CourseForm.resx">
       <DependentUpon>CourseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="userDataBaseSettings.resx">
+      <DependentUpon>userDataBaseSettings.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
