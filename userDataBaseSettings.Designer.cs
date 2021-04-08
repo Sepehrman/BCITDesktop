@@ -165,6 +165,7 @@ namespace BCITDesktop
             // 
             // SaveBtn
             // 
+            this.SaveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(113)))));
             this.SaveBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.SaveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SaveBtn.Location = new System.Drawing.Point(180, 389);
@@ -173,11 +174,12 @@ namespace BCITDesktop
             this.SaveBtn.Size = new System.Drawing.Size(73, 34);
             this.SaveBtn.TabIndex = 37;
             this.SaveBtn.Text = "Save";
-            this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.UseVisualStyleBackColor = false;
             this.SaveBtn.Click += new System.EventHandler(this.saveSettings_Handler);
             // 
             // cancelBtn
             // 
+            this.cancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(113)))));
             this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtn.Location = new System.Drawing.Point(30, 389);
@@ -186,13 +188,14 @@ namespace BCITDesktop
             this.cancelBtn.Size = new System.Drawing.Size(73, 34);
             this.cancelBtn.TabIndex = 40;
             this.cancelBtn.Text = "Cancel";
-            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.UseVisualStyleBackColor = false;
             this.cancelBtn.Click += new System.EventHandler(this.closeForm);
             // 
             // userDataBaseSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(113)))));
             this.ClientSize = new System.Drawing.Size(275, 440);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.phoneLabel);
@@ -208,6 +211,7 @@ namespace BCITDesktop
             this.Controls.Add(this.lastNameSet);
             this.Controls.Add(this.firstNamelabel);
             this.Controls.Add(this.firstNameSet);
+            this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "userDataBaseSettings";
             this.Text = "Profile";

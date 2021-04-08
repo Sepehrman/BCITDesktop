@@ -1,19 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using FireSharp;
 using FireSharp.Config;
-using FireSharp.Response;
 using FireSharp.Interfaces;
 
+/// <summary>
+/// Term Project, User profile settings 
+/// Authors: Sepehr Mansouri, Eric Dong, Jacob Tan
+/// Include here date/revisions: Version 1.0, April 7th 2021.
+/// </summary>
 namespace BCITDesktop
 {
+    /// <summary>
+    /// Login form.
+    /// Authors: Sepehr Mansouri, Eric Dong, Jacob Tan
+    /// </summary>
     public partial class LoginForm : Form
     {
         // This is the database connection
@@ -34,7 +35,10 @@ namespace BCITDesktop
             BasePath = "https://bcitdesktop-default-rtdb.firebaseio.com/"
         };
 
-
+        /// <summary>
+        /// Initializes form.
+        /// Authors: Sepehr Mansouri
+        /// </summary>
         public LoginForm()
         {
             InitializeComponent();
@@ -89,7 +93,6 @@ namespace BCITDesktop
             this.userLog.Name = "userLog";
             this.userLog.Size = new System.Drawing.Size(174, 28);
             this.userLog.TabIndex = 15;
-            this.userLog.TextChanged += new System.EventHandler(this.userLog_TextChanged);
             // 
             // registerBtn
             // 
@@ -173,7 +176,11 @@ namespace BCITDesktop
 
         }
 
-
+        /// <summary>
+        /// Check if username or password fields are blank, true if they blank, false if they aren't.
+        /// Authors: Sepehr Mansouri
+        /// </summary>
+        /// <returns></returns>
         private bool hasEmptyFields()
         {
             if (string.IsNullOrWhiteSpace(userLog.Text) || (string.IsNullOrWhiteSpace(passLog.Text)))
@@ -183,6 +190,11 @@ namespace BCITDesktop
             return false;
         }
 
+        /// <summary>
+        /// On form load, get the client.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LoginForm_Load(object sender, EventArgs e)
         {
             client = new FirebaseClient(firebaseConfigurations);
@@ -196,13 +208,24 @@ namespace BCITDesktop
             }
         }
 
+        /// <summary>
+        /// Handles button click to open form for users to register an account.
+        /// Authors: Sepehr Mansouri
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void registerBtn_Click(object sender, EventArgs e)
         {
             RegistrationForm registration = new RegistrationForm();
             registration.ShowDialog();
         }
 
-
+        /// <summary>
+        /// Handles click to login, if login info is valid, opens homeform, else notifies user of failure with messagebox.
+        /// Authors: Sepehr Mansouri, Jacob Tan
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLog_Click(object sender, EventArgs e)
         {
             if (hasEmptyFields() || !(studentRadio.Checked || InstructorRadio.Checked))
@@ -239,11 +262,6 @@ namespace BCITDesktop
                     Student.ShowErrorMessage();
                 }
             }
-        }
-
-        private void userLog_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

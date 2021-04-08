@@ -175,7 +175,6 @@ namespace BCITDesktop
             this.genderReg.Name = "genderReg";
             this.genderReg.Size = new System.Drawing.Size(131, 30);
             this.genderReg.TabIndex = 8;
-            this.genderReg.SelectedIndexChanged += new System.EventHandler(this.genderReg_SelectedIndexChanged);
             // 
             // label3
             // 

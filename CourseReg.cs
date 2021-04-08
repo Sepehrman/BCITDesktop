@@ -1,21 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
 
+/// <summary>
+/// Term Project, Course registeration form.
+/// Authors: Sepehr Mansouri, Jacob Tan
+/// Include here date/revisions: Version 1.0, April 7th 2021.
+/// </summary>
 namespace BCITDesktop
 {
+    /// <summary>
+    /// Child form for registering courses to the user in the database.
+    /// Authors: Sepehr Mansouri, Jacob Tan
+    /// </summary>
     public partial class CourseReg : Form
     {
         Student student;
+
+        /// <summary>
+        /// Initializer.
+        /// Authors: Sepehr Mansouri, Jacob Tan
+        /// </summary>
+        /// <param name="studentObj"></param>
         public CourseReg(Student studentObj)
         {
             InitializeComponent();
@@ -29,8 +37,14 @@ namespace BCITDesktop
             BasePath = "https://bcitdesktop-default-rtdb.firebaseio.com/"
         };
 
+        /// <summary>
+        /// Checks if the fields are empty, notifies user via message box if they are.
+        /// Authors: Jacob Tan
+        /// </summary>
+        /// <returns></returns>
         private bool hasEmptyFields()
         {
+            // if any of the fields are blank.
             if (string.IsNullOrWhiteSpace(crsName.Text) || (string.IsNullOrWhiteSpace(crsID.Text))
                 || string.IsNullOrWhiteSpace(instrName.Text) || string.IsNullOrWhiteSpace(credits.Text))
             {
@@ -39,6 +53,12 @@ namespace BCITDesktop
             return false;
         }
 
+        /// <summary>
+        /// Handles registeration, if everything is valid it is added to the user in the database and notifies user, if it fails it will notify user, both are done with messagebox..
+        /// Authors: Sepehr Mansouri, Jacob Tan, Eric Dong
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void regBtn_Click(object sender, EventArgs e)
         {
             if (hasEmptyFields())
@@ -48,6 +68,8 @@ namespace BCITDesktop
             else
             {
                 int creds = Int32.Parse(credits.Text);
+                
+                // new course object from information
                 Course c = new Course()
                 {
                 courseName = crsName.Text,
@@ -56,21 +78,26 @@ namespace BCITDesktop
                 instructor = instrName.Text            
                 };
 
-                SetResponse response = client.Set(@"Students/"+ student.FirstName + "/Courses/" + crsName.Text , c);
+                // get the response
+                SetResponse response = client.Set(@"Students/"+ student.StudentNumber + "/Courses/" + crsName.Text , c);
                 MessageBox.Show("Registered " + c);
+                
                 this.Close();
                 this.Dispose();
             }
         }
 
+        /// <summary>
+        /// On page load, get client, if it fails notify user with messagebox.
+        /// Authors: Sepehr Mansouri, Jacob Tan, Eric Dong
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CourseReg_Load(object sender, EventArgs e)
         {
-            try
-            {
-                client = new FireSharp.FirebaseClient(firebaseConfigurations);
-            }
+            client = new FireSharp.FirebaseClient(firebaseConfigurations);
 
-            catch
+            if (client == null)
             {
                 MessageBox.Show("Connection Error");
             }

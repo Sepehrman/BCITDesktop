@@ -1,23 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BCITDesktop.Properties;
 using System.Windows.Forms;
 using FireSharp.Interfaces;
 using FireSharp.Config;
 using FireSharp.Response;
 
+/// <summary>
+/// Term Project, Main form of program. 
+/// Authors: Sepehr Mansouri, Eric Dong, Jacob Tan
+/// Include here date/revisions: Version 3.0, April 7th 2021.
+/// </summary>
 namespace BCITDesktop
 {
+    /// <summary>
+    /// Main form of program after user logs in.
+    /// Authors: Eric Dong, Jacob Tan
+    /// </summary>
     public partial class HomeForm : Form
     {
         IFirebaseClient client;
-
         IFirebaseConfig firebaseConfigurations = new FirebaseConfig()
         {
             AuthSecret = "xyEfrWdHzVWmoXvV11MFgTmMRv8g28oLaJs8kRnH",
@@ -26,22 +29,21 @@ namespace BCITDesktop
 
 
         private Form activeForm = null;
+
+        /// <summary>
+        /// Delegate for updating information after information about the user is changed.
+        /// Authors: Eric Dong
+        /// </summary>
         private delegate void updateLabelsDelegate();
         private updateLabelsDelegate updateStudentLabels;
 
         private Student student;
-        public Student user
-        {
-            get { return student; }
-            set
-            {
-                if (value != null)
-                {
-                    student = value;
-                }
-            }
-        }
 
+        /// <summary>
+        /// Initializes the form, the sutdent and delegate.
+        /// Authors: Eric Dong, Jacob Tan
+        /// </summary>
+        /// <param name="studentObj"></param>
         public HomeForm(Student studentObj)
         {
             InitializeComponent();
@@ -49,47 +51,69 @@ namespace BCITDesktop
             this.updateStudentLabels = new updateLabelsDelegate(updateStudentLabelsmethod);
         }
 
+        /// <summary>
+        /// Updates the student if it is changed in the database asyncronisly.
+        /// Authors: Eric Dong
+        /// </summary>
         private async void  updateStudent()
         {
-            EventStreamResponse response = await this.client.OnAsync("Students", added: (s, args, context) =>
+            // Get response on update asyncronisly.
+            EventStreamResponse response = await this.client.OnAsync("Students",
+            // if the update is an add event
+            added: (s, args, context) =>
             {
-                // Console.WriteLine(args.Data);
             },
+            // if the update is a change event, update the student attribute and labels.
             changed: (s, args, context) =>
             {
                 FirebaseResponse responseStudent = client.Get(@"Students/" + this.student.StudentNumber);
-                Student updatedStudent = responseStudent.ResultAs<Student>(); // Database Results
+                Student updatedStudent = responseStudent.ResultAs<Student>();
+
+                // update the student in this.
                 this.student = updatedStudent;
+
+                // call the method to update the labels
                 this.Invoke(this.updateStudentLabels);
-                Console.WriteLine(updatedStudent.FirstName);
             },
+            // if the update is a remove event.
             removed: (s, args, context) =>
             {
-            // Console.WriteLine(args);
             });
         }
 
+        /// <summary>
+        /// On form load, initalize the client for database, set the labels with information from database.
+        /// Authors: Eric Dong, Jacob Tan
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Homeform_Load(object sender, EventArgs e)
         {
+            // Update the student labels
             updateStudentLabelsmethod();
-            // Set Windows Size
-
+            
+            //  Set Windows Size
             changeSizeToAppSettingsSize();
+
+            // Set the method for when a property in settings is changed.
             Properties.Settings.Default.PropertyChanged += SettingsChanged;
 
-            try
-            {
-                client = new FireSharp.FirebaseClient(firebaseConfigurations);
-            }
-
-            catch
+            client = new FireSharp.FirebaseClient(firebaseConfigurations);
+            if (client != null)
             {
                 MessageBox.Show("Connection Error");
             }
-
-            this.updateStudent();
+            else
+            {
+                this.updateStudent();
+            }
         }
 
+        /// <summary>
+        /// Helper function for opening child forms to use in this form.
+        /// Authors: Jacob Tan
+        /// </summary>
+        /// <param name="childForm"></param>
         public void openChildForm(Form childForm)
         {
             /**
@@ -101,6 +125,7 @@ namespace BCITDesktop
                 activeForm.Dispose();
             }
 
+            // sets the child form attributes
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -118,16 +143,34 @@ namespace BCITDesktop
             
         }
 
+        /// <summary>
+        /// Handler to open the dashboard form.
+        /// Authors: Jacob Tan
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void HomeButton_Click(object sender, EventArgs e)
         {
             openChildForm(new Dashboard(student, this));
         }
 
+        /// <summary>
+        /// Handler to open the settings form.
+        /// Authors: Eric Dong
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void openSettingsForm(object sender, EventArgs e)
         {
             openChildForm(new SettingsForm(student, this));
         }
 
+        /// <summary>
+        /// Handler to close active child form
+        /// Authors: Jacob Tan
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Logo_Click(object sender, EventArgs e)
         {
             if (activeForm != null)
@@ -136,28 +179,44 @@ namespace BCITDesktop
             }
         }
 
+        /// <summary>
+        /// Handler to log the user out and close the form.
+        /// Authors: Jacob Tan
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void logoutButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
         }
 
+        /// <summary>
+        /// Function to add to properties default property changed.
+        /// Authors: Eric Dong
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SettingsChanged(object sender, PropertyChangedEventArgs e)
         {
             changeSizeToAppSettingsSize();
         }
 
+        /// <summary>
+        /// Changes the size of the form to the application setting.
+        /// Authors: Eric Dong
+        /// </summary>
         private void changeSizeToAppSettingsSize()
         {
             if (Settings.Default.ApplicationSize != null)
             {
-                //this.Size = new Size(996, 619);
-                //Settings.Default.ApplicationSize = new Size(996, 619);
                 this.Size = Settings.Default.ApplicationSize;
-                Console.WriteLine(Settings.Default.ApplicationSize);
-                //Settings.Default.Save();
             }
         }
 
+        /// <summary>
+        /// Method for delegate to update the labels containing user information.
+        /// Authors: Eric Dong
+        /// </summary>
         public void updateStudentLabelsmethod()
         {
             userName.Text = student.FirstName + ' ' + student.LastName;

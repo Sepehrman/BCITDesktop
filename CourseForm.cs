@@ -1,18 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using FireSharp.Config;
 using FireSharp.Response;
 using FireSharp.Interfaces;
 
+/// <summary>
+/// Term Project, Form for displaying a course.
+/// Authors: Jacob Tan
+/// Include here date/revisions: Version 1.0, April 7th 2021.
+/// </summary>
 namespace BCITDesktop
 {
+    /// <summary>
+    /// Form that displays a course.
+    /// Authors: Jacob Tan
+    /// </summary>
     public partial class CourseForm : Form
     {
         private Student student;
@@ -27,6 +29,14 @@ namespace BCITDesktop
             AuthSecret = "xyEfrWdHzVWmoXvV11MFgTmMRv8g28oLaJs8kRnH",
             BasePath = "https://bcitdesktop-default-rtdb.firebaseio.com/"
         };
+
+        /// <summary>
+        /// Initalizes the form.
+        /// Authors: Jacob Tan
+        /// </summary>
+        /// <param name="student">The user</param>
+        /// <param name="homeRef"></param>
+        /// <param name="courseName">The course name</param>
         public CourseForm(Student student, HomeForm homeRef, string courseName)
         {
             InitializeComponent();
@@ -35,14 +45,31 @@ namespace BCITDesktop
             this.courseName = courseName;
         }
 
+        /// <summary>
+        /// On load, gets the course information, and sets the labels.
+        /// Authors: Jacob Tan, Eric Dong
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void CourseForm_Load(object sender, EventArgs e)
         {
             try
             {
+                // gets the client, notifies user with message box if that fails.
                 client = new FireSharp.FirebaseClient(firebaseConfigurations);
-                FirebaseResponse response = await client.GetAsync("Students/" + student.FirstName + "/Courses/"
+                if (client == null)
+                {
+                    MessageBox.Show("Connection Error");
+                }
+
+                // get courses from student
+                FirebaseResponse response = await client.GetAsync("Students/" + student.StudentNumber + "/Courses/"
                                         + courseName);
+
+                // convert response to course class.
                 Course course = response.ResultAs<Course>();
+
+                // set the labels
                 courseIDLabel.Text = course.courseID;
                 courseNameLabel.Text = course.courseName;
             }
@@ -52,6 +79,12 @@ namespace BCITDesktop
             }
         }
 
+        /// <summary>
+        /// Handles the form closing.
+        /// Authors: Jacob Tan
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void closeFormBtn_Click(object sender, EventArgs e)
         {
             parent.HomeButton_Click(sender, e);

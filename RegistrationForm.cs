@@ -2,31 +2,33 @@
 using FireSharp.Interfaces;
 using FireSharp.Response;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
+/// <summary>
+/// Term Project, User profile settings 
+/// Authors: Sepehr Mansouri
+/// Include here date/revisions: Version 2.0, April 7th 2021.
+/// </summary>
 namespace BCITDesktop
 {
+    /// <summary>
+    /// Form for registering a user.
+    /// Authors: Sepehr Mansouri
+    /// Include here date/revisions: Version 2.0, April 7th 2021.
+    /// </summary>
     public partial class RegistrationForm : Form
     {
         Student student;
+
+        /// <summary>
+        /// Initialized the form
+        /// Authors: Sepehr Mansouri
+        /// </summary>
         public RegistrationForm()
         {
             InitializeComponent();
-        }
-
-        private void genderReg_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         // Link to Database: https://console.firebase.google.com/u/0/project/bcitdesktop/database/bcitdesktop-default-rtdb/data
@@ -37,20 +39,26 @@ namespace BCITDesktop
             BasePath = "https://bcitdesktop-default-rtdb.firebaseio.com/"
         };
 
-
+        /// <summary>
+        /// On form load, sets the client, notifies user with message box if it doesnt connect.
+        /// Authors: Sepehr Mansouri, Eric Dong
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RegistrationForm_Load(object sender, EventArgs e)
         {
-            try
-            {
-                client = new FireSharp.FirebaseClient(firebaseConfigurations);
-            }
+            client = new FireSharp.FirebaseClient(firebaseConfigurations);
 
-            catch
-            {
+            if (client == null) {
                 MessageBox.Show("Connection Error");
             }
         }
 
+        /// <summary>
+        /// Check if fields are empty, returns if true or false.
+        /// Authors: Sepehr Mansouri
+        /// </summary>
+        /// <returns></returns>
         private bool hasEmptyFields()
         {
             if (string.IsNullOrWhiteSpace(firstNameReg.Text) ||
@@ -68,7 +76,11 @@ namespace BCITDesktop
             return false;
         }
 
-
+        /// <summary>
+        /// Generates a student number.
+        /// Authors: Sepehr Mansouri
+        /// </summary>
+        /// <returns></returns>
         public static string generateStudentNumber()
         {
             Random rand = new Random();
@@ -77,7 +89,11 @@ namespace BCITDesktop
             return "A" + generator;
         }
 
-
+        /// <summary>
+        /// Sets the names to title case.
+        /// </summary>
+        /// <param name="word"></param>
+        /// <returns></returns>
         public static string makeTitle(string word)
         {
             CultureInfo culture_info = Thread.CurrentThread.CurrentCulture;
@@ -86,7 +102,12 @@ namespace BCITDesktop
             return text_info.ToTitleCase(word);
         }
 
-
+        /// <summary>
+        /// Registers user if everything is valid, else notifies user with messagebox.
+        /// Authors: Sepehr Mansouri, Eric Dong.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RegistrationBtn_Click(object sender, EventArgs e)
         {
             if (hasEmptyFields())
@@ -100,6 +121,8 @@ namespace BCITDesktop
             else
             {
                 // Register users onto the realtime Database
+
+                // create a new student
                 student = new Student()
                 {
                     FirstName = makeTitle(firstNameReg.Text),

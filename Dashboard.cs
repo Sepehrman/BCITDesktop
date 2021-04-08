@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using FireSharp;
 using FireSharp.Config;
 using FireSharp.Response;
 using FireSharp.Interfaces;
 
+/// <summary>
+/// Term Project, Dashboard of the main form.
+/// Authors: Jacob Tan
+/// Include here date/revisions: Version 1.0, April 7th 2021.
+/// </summary>
 namespace BCITDesktop
 {
+    /// <summary>
+    /// Child form that represents the dashboard for the main form of the app.
+    /// Authors: Jacob Tan
+    /// </summary>
     public partial class Dashboard : Form
     {
         private Student student;
@@ -28,6 +31,12 @@ namespace BCITDesktop
             BasePath = "https://bcitdesktop-default-rtdb.firebaseio.com/"
         };
 
+        /// <summary>
+        /// Initalizes the form.
+        /// Authors: Jacob Tan
+        /// </summary>
+        /// <param name="student"></param>
+        /// <param name="homeRef"></param>
         public Dashboard(Student student, HomeForm homeRef)
         {
             InitializeComponent();
@@ -35,18 +44,27 @@ namespace BCITDesktop
             this.parent = homeRef;
         }
 
+        /// <summary>
+        /// On dashboard load, gets the courses from the student in the database, and displays them as buttons.
+        /// Authors: Jacob Tan, Eric Dong
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void Dashboard_Load(object sender, EventArgs e)
         {
-            try
+            client = new FireSharp.FirebaseClient(firebaseConfigurations);
+            if (client != null)
             {
-                client = new FireSharp.FirebaseClient(firebaseConfigurations);
-                FirebaseResponse response = await client.GetAsync("Students/" + student.FirstName + "/Courses");
+                
+                // get courses the student has in the database.
+                FirebaseResponse response = await client.GetAsync("Students/" + student.StudentNumber + "/Courses");
                 Dictionary<string, Course> data = response.ResultAs<Dictionary<string, Course>>();
                 
                 if (data != null)
                 {
                     foreach (Course c in data.Values)
                     {
+                        // make new buttons with information of each course.
                         Button b = new Button();
                         b.Name = c.courseName;
                         b.Size = new Size(175, 175);
@@ -61,6 +79,7 @@ namespace BCITDesktop
                 }
                 else
                 {
+                    // make label if they arent in any courses.
                     Label l = new Label();
                     l.Size = new Size(500, 200);
                     l.Text = "You are currently not enrolled in any courses";
@@ -70,19 +89,32 @@ namespace BCITDesktop
                 }
             }
 
-            catch
+            else
             {
                 MessageBox.Show("Connection Error");
             }
         }
 
+        /// <summary>
+        /// Handles opening opening the course the user selected.
+        /// Authors: Jacob Tan
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openCourseForm(object sender, EventArgs e)
         {
             Button b = (Button) sender;
             Form courseForm = new CourseForm(student, parent, b.Name);
+
             parent.openChildForm(courseForm);
         }
 
+        /// <summary>
+        /// Handles opening a form for user to register a course.
+        /// Authors: Jacob Tan
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addCourseBtn_Click(object sender, EventArgs e)
         {
             Form courseReg = new CourseReg(student);
