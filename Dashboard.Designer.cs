@@ -29,21 +29,22 @@ namespace BCITDesktop
         /// </summary>
         private void InitializeComponent()
         {
-            this.label11 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
+            this.pageTitleLabel = new System.Windows.Forms.Label();
             this.addCourseBtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
-            // label11
+            // pageTitleLabel
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Nirmala UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(12, 9);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(143, 47);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Courses";
+            this.pageTitleLabel.AutoSize = true;
+            this.pageTitleLabel.Font = new System.Drawing.Font("Nirmala UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageTitleLabel.ForeColor = System.Drawing.Color.White;
+            this.pageTitleLabel.Location = new System.Drawing.Point(12, 9);
+            this.pageTitleLabel.Name = "pageTitleLabel";
+            this.pageTitleLabel.Size = new System.Drawing.Size(191, 47);
+            this.pageTitleLabel.TabIndex = 3;
+            this.pageTitleLabel.Text = "Dashboard";
             // 
             // addCourseBtn
             // 
@@ -75,8 +76,9 @@ namespace BCITDesktop
             this.ClientSize = new System.Drawing.Size(783, 541);
             this.Controls.Add(this.flowLayoutPanel);
             this.Controls.Add(this.addCourseBtn);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.pageTitleLabel);
             this.ForeColor = System.Drawing.Color.White;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
@@ -87,7 +89,7 @@ namespace BCITDesktop
 
         #endregion
 
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label pageTitleLabel;
         private System.Windows.Forms.Button addCourseBtn;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
     }

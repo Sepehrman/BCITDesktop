@@ -29,6 +29,7 @@ namespace BCITDesktop
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CourseForm));
             this.courseIDLabel = new System.Windows.Forms.Label();
             this.courseNameLabel = new System.Windows.Forms.Label();
             this.closeFormBtn = new System.Windows.Forms.Button();
@@ -78,6 +79,7 @@ namespace BCITDesktop
             this.Controls.Add(this.courseNameLabel);
             this.Controls.Add(this.courseIDLabel);
             this.ForeColor = System.Drawing.Color.White;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CourseForm";
             this.Text = "CourseForm";
             this.Load += new System.EventHandler(this.CourseForm_Load);

@@ -42,6 +42,7 @@ namespace BCITDesktop
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.pass = new System.Windows.Forms.Label();
             this.passLog = new System.Windows.Forms.TextBox();
             this.username = new System.Windows.Forms.Label();
@@ -166,7 +167,7 @@ namespace BCITDesktop
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.LoginForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ResumeLayout(false);
             this.PerformLayout();
 

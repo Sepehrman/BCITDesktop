@@ -58,7 +58,11 @@ namespace BCITDesktop
             this.label10 = new System.Windows.Forms.Label();
             this.childPanel = new System.Windows.Forms.Panel();
             this.header = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+=======
+            this.settingsButton = new System.Windows.Forms.Button();
+>>>>>>> a7efb047274d6906096a5d0c7e477d8aa58fbece
             this.SidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.course1.SuspendLayout();
@@ -74,6 +78,7 @@ namespace BCITDesktop
             // SidePanel
             // 
             this.SidePanel.BackColor = System.Drawing.Color.White;
+            this.SidePanel.Controls.Add(this.settingsButton);
             this.SidePanel.Controls.Add(this.logoutButton);
             this.SidePanel.Controls.Add(this.inboxButton);
             this.SidePanel.Controls.Add(this.resourcesButton);
@@ -84,7 +89,7 @@ namespace BCITDesktop
             this.SidePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.SidePanel.Location = new System.Drawing.Point(0, 0);
             this.SidePanel.Name = "SidePanel";
-            this.SidePanel.Size = new System.Drawing.Size(181, 580);
+            this.SidePanel.Size = new System.Drawing.Size(175, 580);
             this.SidePanel.TabIndex = 0;
             // 
             // logoutButton
@@ -110,9 +115,9 @@ namespace BCITDesktop
             this.inboxButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.inboxButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inboxButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.inboxButton.Location = new System.Drawing.Point(0, 346);
+            this.inboxButton.Location = new System.Drawing.Point(0, 361);
             this.inboxButton.Name = "inboxButton";
-            this.inboxButton.Size = new System.Drawing.Size(181, 67);
+            this.inboxButton.Size = new System.Drawing.Size(175, 67);
             this.inboxButton.TabIndex = 5;
             this.inboxButton.Text = "Inbox";
             this.inboxButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -125,9 +130,9 @@ namespace BCITDesktop
             this.resourcesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.resourcesButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resourcesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.resourcesButton.Location = new System.Drawing.Point(0, 273);
+            this.resourcesButton.Location = new System.Drawing.Point(3, 288);
             this.resourcesButton.Name = "resourcesButton";
-            this.resourcesButton.Size = new System.Drawing.Size(181, 67);
+            this.resourcesButton.Size = new System.Drawing.Size(172, 67);
             this.resourcesButton.TabIndex = 4;
             this.resourcesButton.Text = "Resources";
             this.resourcesButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -160,11 +165,11 @@ namespace BCITDesktop
             this.HomeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HomeButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HomeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.HomeButton.Location = new System.Drawing.Point(0, 200);
+            this.HomeButton.Location = new System.Drawing.Point(3, 215);
             this.HomeButton.Name = "HomeButton";
-            this.HomeButton.Size = new System.Drawing.Size(181, 67);
+            this.HomeButton.Size = new System.Drawing.Size(175, 67);
             this.HomeButton.TabIndex = 1;
-            this.HomeButton.Text = "Courses";
+            this.HomeButton.Text = "Dashboard";
             this.HomeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.HomeButton.UseVisualStyleBackColor = false;
             this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
@@ -389,23 +394,23 @@ namespace BCITDesktop
             this.childPanel.Controls.Add(this.header);
             this.childPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.childPanel.ForeColor = System.Drawing.Color.White;
-            this.childPanel.Location = new System.Drawing.Point(181, 0);
+            this.childPanel.Location = new System.Drawing.Point(175, 0);
             this.childPanel.Name = "childPanel";
-            this.childPanel.Size = new System.Drawing.Size(799, 580);
+            this.childPanel.Size = new System.Drawing.Size(805, 580);
             this.childPanel.TabIndex = 8;
             // 
             // header
             // 
-            this.header.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.header.AutoSize = true;
             this.header.Font = new System.Drawing.Font("Nirmala UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.header.ForeColor = System.Drawing.Color.White;
-            this.header.Location = new System.Drawing.Point(237, 12);
+            this.header.Location = new System.Drawing.Point(303, 12);
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(163, 47);
             this.header.TabIndex = 2;
             this.header.Text = "Welcome";
             // 
+<<<<<<< HEAD
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(6, 3);
@@ -413,6 +418,22 @@ namespace BCITDesktop
             this.pictureBox1.Size = new System.Drawing.Size(72, 72);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+=======
+            // settingsButton
+            // 
+            this.settingsButton.BackColor = System.Drawing.Color.White;
+            this.settingsButton.FlatAppearance.BorderSize = 0;
+            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsButton.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.settingsButton.Location = new System.Drawing.Point(0, 434);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(175, 67);
+            this.settingsButton.TabIndex = 7;
+            this.settingsButton.Text = "Settings";
+            this.settingsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.settingsButton.UseVisualStyleBackColor = false;
+>>>>>>> a7efb047274d6906096a5d0c7e477d8aa58fbece
             // 
             // HomeForm
             // 
@@ -490,6 +511,10 @@ namespace BCITDesktop
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel childPanel;
         private System.Windows.Forms.Label header;
+<<<<<<< HEAD
         private System.Windows.Forms.PictureBox pictureBox1;
+=======
+        private System.Windows.Forms.Button settingsButton;
+>>>>>>> a7efb047274d6906096a5d0c7e477d8aa58fbece
     }
 }

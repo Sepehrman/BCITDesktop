@@ -29,6 +29,7 @@ E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.csproj.CopyC
 E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.exe
 E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.pdb
 E:\Projects\Student-Management-System-Project\obj\Debug\BCITDesktop.CourseForm.resources
+<<<<<<< HEAD
 C:\Users\Sepehr\source\repos\Student-Management-System-Project\obj\Debug\BCITDesktop.csproj.App.config
 C:\Users\Sepehr\source\repos\Student-Management-System-Project\obj\Debug\BCITDesktop.csprojAssemblyReference.cache
 C:\Users\Sepehr\source\repos\Student-Management-System-Project\obj\Debug\BCITDesktop.CourseForm.resources
@@ -59,3 +60,6 @@ C:\Users\Sepehr\source\repos\Student-Management-System-Project\bin\Debug\Newtons
 C:\Users\Sepehr\source\repos\Student-Management-System-Project\bin\Debug\System.Net.Http.Extensions.xml
 C:\Users\Sepehr\source\repos\Student-Management-System-Project\bin\Debug\System.Net.Http.Primitives.xml
 C:\Users\Sepehr\source\repos\Student-Management-System-Project\obj\Debug\BCITDesktop.csproj.CopyComplete
+=======
+>>>>>>> a7efb047274d6906096a5d0c7e477d8aa58fbece
+C:\Users\Sepehr\source\repos\Student-Management-System-Project\obj\Debug\BCITDesktop.SettingsForm.resources
