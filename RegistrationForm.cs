@@ -1,6 +1,8 @@
 ﻿using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
+using SocketLabs.InjectionApi;
+using SocketLabs.InjectionApi.Message;
 using System;
 using System.Globalization;
 using System.Threading;
@@ -11,8 +13,8 @@ using System.Windows.Forms;
 /// Authors: Sepehr Mansouri
 /// Include here date/revisions: Version 2.0, April 7th 2021.
 /// </summary>
-namespace BCITDesktop
-{
+namespace BCITDesktop { 
+
     /// <summary>
     /// Form for registering a user.
     /// Authors: Sepehr Mansouri
@@ -102,6 +104,20 @@ namespace BCITDesktop
             return text_info.ToTitleCase(word);
         }
 
+
+
+
+        /// <summary>
+        /// Sends an Email through SocketLabs API
+        /// </summary>
+        /// <param name="studentObj"></param>
+        private void sendEmailConfirmation()
+        {
+
+    }
+
+
+
         /// <summary>
         /// Registers user if everything is valid, else notifies user with messagebox.
         /// Authors: Sepehr Mansouri, Eric Dong.
@@ -134,8 +150,10 @@ namespace BCITDesktop
                     Phone = phoneReg.Text,
                     DateOfBirth = dobReg.Value.Date
                 };
-                // Checks if student number already exists in the database
-                FirebaseResponse response = client.Get(@"Students/" + student.StudentNumber);
+
+
+            // Checks if student number already exists in the database
+            FirebaseResponse response = client.Get(@"Students/" + student.StudentNumber);
                 Student resStudent = response.ResultAs<Student>(); // Database Results
                 if (resStudent != null)
                 {
@@ -149,8 +167,25 @@ namespace BCITDesktop
 
                 // Sets the database name under 'Users' and sets their first name as the main tab opener
                 SetResponse set = client.Set(@"Students/" + student.StudentNumber, student);
-                MessageBox.Show("Student has been registered successfully!\nYour dedicated student number is "
-                    + student.StudentNumber + "\nYou can use this to log into your account");
+                MessageBox.Show("Student has been registered successfully!\nPlease check your Email for confirmation of registration");
+              //  sendEmailConfirmation();
+                // SocketLabs Library to send Emails to users who have just registered
+                int serverId = 38531;
+                String injectionApiKey = "g3QBi56LwSs87Zpq4AXk";
+                SocketLabsClient emailClient = new SocketLabsClient(serverId, injectionApiKey);
+                BasicMessage message = new BasicMessage();
+                message.Subject = "Registration Confirmation";
+                message.HtmlBody = "<p><h3>Welcome to BCIT " + student.FirstName + " you can view your account's details bellow</h3>" +
+                                   "<br>Student Full Name: " + student.FirstName + " " + student.LastName + "</br>" +
+                                   "<br>Student Number: " + student.StudentNumber + "</br>" +
+                                   "<br>Student Email: " + student.Email + "</br>";
+                message.From.Email = "registration@bcit.ca";
+                message.To.Add(student.Email);
+                var res = emailClient.Send(message);
+                Console.WriteLine(res);
+
+
+
                 this.Close();
                 this.Dispose();
             }
