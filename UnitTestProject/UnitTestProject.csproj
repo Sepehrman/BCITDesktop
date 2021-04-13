@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="StudentUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="InstructorUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

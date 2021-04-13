@@ -73,14 +73,11 @@ namespace BCITDesktop
         /// <param name="e"></param>
         private void userDataBaseSettings_Load(object sender, EventArgs e)
         {
-            try
-            {
-                client = new FireSharp.FirebaseClient(firebaseConfigurations);
-            }
-
-            catch
+            client = new FireSharp.FirebaseClient(firebaseConfigurations);
+            if (client == null)
             {
                 MessageBox.Show("Connection Error");
+                return;
             }
             // updates student in this.
             this.student = Student.getStudent(client, this.student.StudentNumber);
