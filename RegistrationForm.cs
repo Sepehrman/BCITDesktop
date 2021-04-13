@@ -56,6 +56,11 @@ namespace BCITDesktop {
             }
         }
 
+
+
+
+
+
         /// <summary>
         /// Check if fields are empty, returns if true or false.
         /// Authors: Sepehr Mansouri
@@ -180,10 +185,10 @@ namespace BCITDesktop {
                     }
                 }
 
-                // Sets the database name under 'Users' and sets their first name as the main tab opener
+                // Sets the database name under 'Students' and sets their first name as the main tab opener
                 SetResponse set = client.Set(@"Students/" + student.StudentNumber, student);
                 MessageBox.Show("Student has been registered successfully!\nPlease check your Email for confirmation of registration");
-              
+                sendEmailConfirmation(student);
 
                 this.Close();
                 this.Dispose();
@@ -215,7 +220,7 @@ namespace BCITDesktop {
                     }
                 }
 
-                // Sets the database name under 'Users' and sets their first name as the main tab opener
+                // Sets the database name under 'Instructors' and sets their first name as the main tab opener
                 SetResponse set = client.Set(@"Instructors/" + instructor.InstructorNumber, instructor);
                 MessageBox.Show("Instructor has been registered successfully!\nYour dedicated instructor number is "
                     + instructor.InstructorNumber + "\nYou can use this to log into your account");
