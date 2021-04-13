@@ -112,10 +112,23 @@ namespace BCITDesktop {
         /// Sends an Email through SocketLabs API
         /// </summary>
         /// <param name="studentObj"></param>
-        private void sendEmailConfirmation()
+        private void sendEmailConfirmation(Student studentObj)
         {
+            int serverId = 38531;
+            String injectionApiKey = "g3QBi56LwSs87Zpq4AXk";
+            SocketLabsClient emailClient = new SocketLabsClient(serverId, injectionApiKey);
+            BasicMessage message = new BasicMessage();
+            message.Subject = "Registration Confirmation";
+            message.HtmlBody = "<p><h3>Welcome to BCIT " + studentObj.FirstName + " you can view your account's details bellow</h3>" +
+                               "<br>Student Full Name: " + studentObj.FirstName + " " + studentObj.LastName + "</br>" +
+                               "<br>Student Number: " + studentObj.StudentNumber + "</br>" +
+                               "<br>Student Email: " + studentObj.Email + "</br>";
+            message.From.Email = "registration@bcit.ca";
+            message.To.Add(student.Email);
+            var res = emailClient.Send(message);
+            Console.WriteLine(res);
 
-    }
+        }
 
 
 
@@ -170,23 +183,7 @@ namespace BCITDesktop {
                 // Sets the database name under 'Users' and sets their first name as the main tab opener
                 SetResponse set = client.Set(@"Students/" + student.StudentNumber, student);
                 MessageBox.Show("Student has been registered successfully!\nPlease check your Email for confirmation of registration");
-              //  sendEmailConfirmation();
-                // SocketLabs Library to send Emails to users who have just registered
-                int serverId = 38531;
-                String injectionApiKey = "g3QBi56LwSs87Zpq4AXk";
-                SocketLabsClient emailClient = new SocketLabsClient(serverId, injectionApiKey);
-                BasicMessage message = new BasicMessage();
-                message.Subject = "Registration Confirmation";
-                message.HtmlBody = "<p><h3>Welcome to BCIT " + student.FirstName + " you can view your account's details bellow</h3>" +
-                                   "<br>Student Full Name: " + student.FirstName + " " + student.LastName + "</br>" +
-                                   "<br>Student Number: " + student.StudentNumber + "</br>" +
-                                   "<br>Student Email: " + student.Email + "</br>";
-                message.From.Email = "registration@bcit.ca";
-                message.To.Add(student.Email);
-                var res = emailClient.Send(message);
-                Console.WriteLine(res);
-
-
+              
 
                 this.Close();
                 this.Dispose();
@@ -222,6 +219,9 @@ namespace BCITDesktop {
                 SetResponse set = client.Set(@"Instructors/" + instructor.InstructorNumber, instructor);
                 MessageBox.Show("Instructor has been registered successfully!\nYour dedicated instructor number is "
                     + instructor.InstructorNumber + "\nYou can use this to log into your account");
+                // SocketLabs Library to send Emails to users who have just registered
+                sendEmailConfirmation(student);
+
                 this.Close();
                 this.Dispose();
             }
