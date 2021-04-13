@@ -13,7 +13,8 @@ using System.Windows.Forms;
 /// Authors: Sepehr Mansouri
 /// Include here date/revisions: Version 2.0, April 7th 2021.
 /// </summary>
-namespace BCITDesktop { 
+namespace BCITDesktop
+{
 
     /// <summary>
     /// Form for registering a user.
@@ -51,7 +52,8 @@ namespace BCITDesktop {
         {
             client = new FireSharp.FirebaseClient(firebaseConfigurations);
 
-            if (client == null) {
+            if (client == null)
+            {
                 MessageBox.Show("Connection Error");
             }
         }
@@ -172,8 +174,8 @@ namespace BCITDesktop {
                 };
 
 
-            // Checks if student number already exists in the database
-            FirebaseResponse response = client.Get(@"Students/" + student.StudentNumber);
+                // Checks if student number already exists in the database
+                FirebaseResponse response = client.Get(@"Students/" + student.StudentNumber);
                 Student resStudent = response.ResultAs<Student>(); // Database Results
                 if (resStudent != null)
                 {
@@ -231,6 +233,25 @@ namespace BCITDesktop {
                 this.Dispose();
             }
         }
-    }
 
+        private void phone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            /*            if(e.Handled=!char.IsDigit(e.KeyChar))
+                        {
+                            phoneReg.
+                        }
+                        else
+                        {
+
+                        }
+
+                        // If you want, you can allow decimal (float) numbers
+                        if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+                        {
+                            e.Handled = true;
+                        
+                    
+                }*/
+        }
+    }
 }
