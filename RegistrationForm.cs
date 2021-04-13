@@ -123,7 +123,7 @@ namespace BCITDesktop {
                                "<br>Student Full Name: " + studentObj.FirstName + " " + studentObj.LastName + "</br>" +
                                "<br>Student Number: " + studentObj.StudentNumber + "</br>" +
                                "<br>Student Email: " + studentObj.Email + "</br>";
-            message.From.Email = "registration@bcit.ca";
+            message.From.Email = "NoReply@bcit.ca";
             message.To.Add(student.Email);
             var res = emailClient.Send(message);
             Console.WriteLine(res);
