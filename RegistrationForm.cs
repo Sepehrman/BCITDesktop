@@ -236,22 +236,17 @@ namespace BCITDesktop
 
         private void phone_KeyPress(object sender, KeyPressEventArgs e)
         {
-            /*            if(e.Handled=!char.IsDigit(e.KeyChar))
-                        {
-                            phoneReg.
-                        }
-                        else
-                        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
 
-                        }
-
-                        // If you want, you can allow decimal (float) numbers
-                        if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-                        {
-                            e.Handled = true;
-                        
-                    
-                }*/
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
