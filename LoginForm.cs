@@ -232,7 +232,8 @@ namespace BCITDesktop
             {
                 MessageBox.Show("Please fill in all the fields to proceed");
             }
-            else
+            // Student login
+            else if (studentRadio.Checked)
             {
                 // Retrieves data from the database using Get()
                 Student resStudent = Student.getStudent(client, userLog.Text); // Database Results
@@ -260,6 +261,37 @@ namespace BCITDesktop
                 else
                 {
                     Student.ShowErrorMessage();
+                }
+            }
+            // Instructor login
+            else
+            {
+                // Retrieves data from the database using Get()
+                Instructor resInstructor = Instructor.getInstructor(client, userLog.Text); // Database Results
+                Instructor currentInstructor = new Instructor()
+                {
+                    InstructorNumber = userLog.Text,
+                    Password = passLog.Text
+                };
+
+                if (Instructor.areTheSameUsers(resInstructor, currentInstructor))
+                {
+                    // Passes the student info to the homepage
+                    HomeForm home = new HomeForm(resInstructor);
+                    home.ShowDialog();
+
+                    if (home.DialogResult == DialogResult.Cancel)
+                    {
+                        userLog.Clear();
+                        passLog.Clear();
+                        home.Close();
+                        home.Dispose();
+                    }
+
+                }
+                else
+                {
+                    Instructor.ShowErrorMessage();
                 }
             }
         }

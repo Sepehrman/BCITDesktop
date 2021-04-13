@@ -18,6 +18,7 @@ namespace BCITDesktop
     public partial class CourseForm : Form
     {
         private Student student;
+        private Instructor instructor;
         private HomeForm parent;
         private string courseName;
         /**
@@ -44,6 +45,13 @@ namespace BCITDesktop
             this.parent = homeRef;
             this.courseName = courseName;
         }
+        public CourseForm(Instructor instructor, HomeForm homeRef, string courseName)
+        {
+            InitializeComponent();
+            this.instructor = instructor;
+            this.parent = homeRef;
+            this.courseName = courseName;
+        }
 
         /// <summary>
         /// On load, gets the course information, and sets the labels.
@@ -62,9 +70,18 @@ namespace BCITDesktop
                     MessageBox.Show("Connection Error");
                 }
 
+                FirebaseResponse response;
                 // get courses from student
-                FirebaseResponse response = await client.GetAsync("Students/" + student.StudentNumber + "/Courses/"
-                                        + courseName);
+                if (this.instructor == null)
+                {
+                    response = await client.GetAsync("Students/" + student.StudentNumber + "/Courses/"
+                                            + courseName);
+                }
+                else
+                {
+                    response = await client.GetAsync("Instructors/" + instructor.InstructorNumber + "/Courses/"
+                        + courseName);
+                }
 
                 // convert response to course class.
                 Course course = response.ResultAs<Course>();

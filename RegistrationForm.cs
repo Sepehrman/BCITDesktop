@@ -21,7 +21,7 @@ namespace BCITDesktop
     public partial class RegistrationForm : Form
     {
         Student student;
-
+        Instructor instructor;
         /// <summary>
         /// Initialized the form
         /// Authors: Sepehr Mansouri
@@ -69,7 +69,8 @@ namespace BCITDesktop
                 string.IsNullOrWhiteSpace(genderReg.Text) ||
                 string.IsNullOrWhiteSpace(phoneReg.Text) ||
                 // RECHECK THIS
-                string.IsNullOrWhiteSpace(dobReg.Text))
+                string.IsNullOrWhiteSpace(dobReg.Text) ||
+                !(studentRadio.Checked || InstructorRadio.Checked))
             {
                 return true;
             }
@@ -104,7 +105,7 @@ namespace BCITDesktop
 
         /// <summary>
         /// Registers user if everything is valid, else notifies user with messagebox.
-        /// Authors: Sepehr Mansouri, Eric Dong.
+        /// Authors: Sepehr Mansouri, Eric Dong, Jacob Tan
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -118,7 +119,8 @@ namespace BCITDesktop
             {
                 MessageBox.Show("Passwords are unmatching!");
             }
-            else
+            // Student registration
+            else if (studentRadio.Checked)
             {
                 // Register users onto the realtime Database
 
@@ -151,6 +153,40 @@ namespace BCITDesktop
                 SetResponse set = client.Set(@"Students/" + student.StudentNumber, student);
                 MessageBox.Show("Student has been registered successfully!\nYour dedicated student number is "
                     + student.StudentNumber + "\nYou can use this to log into your account");
+                this.Close();
+                this.Dispose();
+            }
+            //Instructor registration
+            else if (InstructorRadio.Checked)
+            {
+                instructor = new Instructor()
+                {
+                    FirstName = makeTitle(firstNameReg.Text),
+                    LastName = makeTitle(LastnameReg.Text),
+                    InstructorNumber = generateStudentNumber(),
+                    Email = emailReg.Text,
+                    Password = passwordReg.Text,
+                    Gender = genderReg.Text,
+                    Phone = phoneReg.Text,
+                    DateOfBirth = dobReg.Value.Date
+                };
+                // Checks if student number already exists in the database
+                FirebaseResponse response = client.Get(@"Instructors/" + instructor.InstructorNumber);
+                Instructor resInstructor = response.ResultAs<Instructor>(); // Database Results
+                if (resInstructor != null)
+                {
+                    string instructorNuminDatabase = resInstructor.InstructorNumber;
+
+                    while (instructorNuminDatabase == instructor.InstructorNumber)
+                    {
+                        instructor.InstructorNumber = generateStudentNumber();
+                    }
+                }
+
+                // Sets the database name under 'Users' and sets their first name as the main tab opener
+                SetResponse set = client.Set(@"Instructors/" + instructor.InstructorNumber, instructor);
+                MessageBox.Show("Instructor has been registered successfully!\nYour dedicated instructor number is "
+                    + instructor.InstructorNumber + "\nYou can use this to log into your account");
                 this.Close();
                 this.Dispose();
             }

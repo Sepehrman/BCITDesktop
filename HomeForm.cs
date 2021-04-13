@@ -10,7 +10,7 @@ using FireSharp.Response;
 /// <summary>
 /// Term Project, Main form of program. 
 /// Authors: Sepehr Mansouri, Eric Dong, Jacob Tan
-/// Include here date/revisions: Version 3.0, April 7th 2021.
+/// Include here date/revisions: Version 3.0, April 12th 2021.
 /// </summary>
 namespace BCITDesktop
 {
@@ -36,8 +36,10 @@ namespace BCITDesktop
         /// </summary>
         private delegate void updateLabelsDelegate();
         private updateLabelsDelegate updateStudentLabels;
+        private updateLabelsDelegate updateInstructorLabels;
 
         private Student student;
+        private Instructor instructor;
 
         /// <summary>
         /// Initializes the form, the sutdent and delegate.
@@ -49,6 +51,16 @@ namespace BCITDesktop
             InitializeComponent();
             this.student = studentObj;
             this.updateStudentLabels = new updateLabelsDelegate(updateStudentLabelsmethod);
+        }
+        /// <summary>
+        /// Overloaded constructor for instructors
+        /// </summary>
+        /// <param name="instructorObj"></param>
+        public HomeForm(Instructor instructorObj)
+        {
+            InitializeComponent();
+            this.instructor = instructorObj;
+            this.updateInstructorLabels = new updateLabelsDelegate(updateInstructorLabelsmethod);
         }
 
         /// <summary>
@@ -89,8 +101,15 @@ namespace BCITDesktop
         /// <param name="e"></param>
         private void Homeform_Load(object sender, EventArgs e)
         {
-            // Update the student labels
-            updateStudentLabelsmethod();
+            if (this.instructor == null)
+            {
+                // Update the student labels
+                updateStudentLabelsmethod();
+            }
+            else
+            {
+                updateInstructorLabelsmethod();
+            }
             
             //  Set Windows Size
             changeSizeToAppSettingsSize();
@@ -151,7 +170,14 @@ namespace BCITDesktop
         /// <param name="e"></param>
         public void HomeButton_Click(object sender, EventArgs e)
         {
-            openChildForm(new Dashboard(student, this));
+            if (instructor == null)
+            {
+                openChildForm(new Dashboard(student, this));
+            }
+            else
+            {
+                openChildForm(new Dashboard(instructor, this));
+            }
         }
 
         /// <summary>
@@ -222,6 +248,16 @@ namespace BCITDesktop
             userName.Text = student.FirstName + ' ' + student.LastName;
             userNumber.Text = student.StudentNumber;
             header.Text = "Welcome " + student.FirstName;
+        }
+        /// <summary>
+        /// Method for delegate to update the labels containing user information.
+        /// Authors: Eric Dong
+        /// </summary>
+        public void updateInstructorLabelsmethod()
+        {
+            userName.Text = instructor.FirstName + ' ' + instructor.LastName;
+            userNumber.Text = instructor.InstructorNumber;
+            header.Text = "Welcome " + instructor.FirstName;
         }
     }
 }

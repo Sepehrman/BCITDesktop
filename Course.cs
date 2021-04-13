@@ -17,7 +17,7 @@ namespace BCITDesktop
         public string courseID { get; set; }
         public int courseCreds { get; set; }
         public string instructor { get; set; }
-        //private List<Student> _classList { get; set; }
+        private string[] announcements { get; set; }
 
         /// <summary>
         /// Enrolls a student to a course, not yet implemented.

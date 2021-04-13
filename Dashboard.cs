@@ -9,7 +9,7 @@ using FireSharp.Interfaces;
 /// <summary>
 /// Term Project, Dashboard of the main form.
 /// Authors: Jacob Tan
-/// Include here date/revisions: Version 1.0, April 7th 2021.
+/// Include here date/revisions: Version 1.0, April 12th 2021.
 /// </summary>
 namespace BCITDesktop
 {
@@ -20,6 +20,7 @@ namespace BCITDesktop
     public partial class Dashboard : Form
     {
         private Student student;
+        private Instructor instructor;
         private HomeForm parent;
         /**
          * Firebase initialization
@@ -43,7 +44,12 @@ namespace BCITDesktop
             this.student = student;
             this.parent = homeRef;
         }
-
+        public Dashboard(Instructor instructor, HomeForm homeRef)
+        {
+            InitializeComponent();
+            this.instructor = instructor;
+            this.parent = homeRef;
+        }
         /// <summary>
         /// On dashboard load, gets the courses from the student in the database, and displays them as buttons.
         /// Authors: Jacob Tan, Eric Dong
@@ -55,9 +61,20 @@ namespace BCITDesktop
             client = new FireSharp.FirebaseClient(firebaseConfigurations);
             if (client != null)
             {
-                
+                FirebaseResponse response;
+                string emptyCourseMessage;
+                // get response depending on if student or instructor is logged in
+                if (instructor == null)
+                { 
+                    response = await client.GetAsync("Students/" + student.StudentNumber + "/Courses");
+                    emptyCourseMessage = "You are currently not enrolled in any courses";
+                }
+                else
+                {
+                    response = await client.GetAsync("Instructors/" + instructor.InstructorNumber + "/Courses");
+                    emptyCourseMessage = "You are currently not instructing any courses";
+                }
                 // get courses the student has in the database.
-                FirebaseResponse response = await client.GetAsync("Students/" + student.StudentNumber + "/Courses");
                 Dictionary<string, Course> data = response.ResultAs<Dictionary<string, Course>>();
                 
                 if (data != null)
@@ -82,7 +99,7 @@ namespace BCITDesktop
                     // make label if they arent in any courses.
                     Label l = new Label();
                     l.Size = new Size(500, 200);
-                    l.Text = "You are currently not enrolled in any courses";
+                    l.Text = emptyCourseMessage;
                     l.TextAlign = ContentAlignment.TopLeft;
                     l.Font = new Font("Nirmala UI", 18f);
                     flowLayoutPanel.Controls.Add(l);
@@ -104,7 +121,15 @@ namespace BCITDesktop
         private void openCourseForm(object sender, EventArgs e)
         {
             Button b = (Button) sender;
-            Form courseForm = new CourseForm(student, parent, b.Name);
+            Form courseForm;
+            if (this.instructor == null)
+            {
+                courseForm = new CourseForm(student, parent, b.Name);
+            }
+            else
+            {
+                courseForm = new CourseForm(instructor, parent, b.Name);
+            }
 
             parent.openChildForm(courseForm);
         }
@@ -117,7 +142,15 @@ namespace BCITDesktop
         /// <param name="e"></param>
         private void addCourseBtn_Click(object sender, EventArgs e)
         {
-            Form courseReg = new CourseReg(student);
+            Form courseReg;
+            if (instructor == null)
+            {
+                courseReg = new CourseReg(student);
+            }
+            else
+            {
+                courseReg = new CourseReg(instructor);
+            }
             courseReg.ShowDialog();
             flowLayoutPanel.Controls.Clear();
             this.Dashboard_Load(null, EventArgs.Empty);

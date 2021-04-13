@@ -47,8 +47,8 @@ namespace BCITDesktop
             this.phoneReg = new System.Windows.Forms.TextBox();
             this.dobReg = new System.Windows.Forms.DateTimePicker();
             this.dob = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.studentNumReg = new System.Windows.Forms.TextBox();
+            this.InstructorRadio = new System.Windows.Forms.RadioButton();
+            this.studentRadio = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // RegistrationBtn
@@ -56,7 +56,7 @@ namespace BCITDesktop
             this.RegistrationBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(113)))));
             this.RegistrationBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegistrationBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.RegistrationBtn.Location = new System.Drawing.Point(90, 510);
+            this.RegistrationBtn.Location = new System.Drawing.Point(90, 459);
             this.RegistrationBtn.Margin = new System.Windows.Forms.Padding(2);
             this.RegistrationBtn.Name = "RegistrationBtn";
             this.RegistrationBtn.Size = new System.Drawing.Size(73, 34);
@@ -68,7 +68,7 @@ namespace BCITDesktop
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 238);
+            this.label2.Location = new System.Drawing.Point(36, 187);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 13);
@@ -88,7 +88,7 @@ namespace BCITDesktop
             // passwordReg
             // 
             this.passwordReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordReg.Location = new System.Drawing.Point(104, 238);
+            this.passwordReg.Location = new System.Drawing.Point(104, 187);
             this.passwordReg.Margin = new System.Windows.Forms.Padding(2);
             this.passwordReg.Name = "passwordReg";
             this.passwordReg.Size = new System.Drawing.Size(132, 28);
@@ -107,7 +107,7 @@ namespace BCITDesktop
             // text
             // 
             this.text.AutoSize = true;
-            this.text.Location = new System.Drawing.Point(56, 184);
+            this.text.Location = new System.Drawing.Point(56, 133);
             this.text.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.text.Name = "text";
             this.text.Size = new System.Drawing.Size(38, 13);
@@ -117,7 +117,7 @@ namespace BCITDesktop
             // emailReg
             // 
             this.emailReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailReg.Location = new System.Drawing.Point(104, 184);
+            this.emailReg.Location = new System.Drawing.Point(104, 133);
             this.emailReg.Margin = new System.Windows.Forms.Padding(2);
             this.emailReg.Name = "emailReg";
             this.emailReg.Size = new System.Drawing.Size(132, 28);
@@ -145,7 +145,7 @@ namespace BCITDesktop
             // passConfirm
             // 
             this.passConfirm.AutoSize = true;
-            this.passConfirm.Location = new System.Drawing.Point(3, 286);
+            this.passConfirm.Location = new System.Drawing.Point(3, 235);
             this.passConfirm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.passConfirm.Name = "passConfirm";
             this.passConfirm.Size = new System.Drawing.Size(97, 13);
@@ -155,7 +155,7 @@ namespace BCITDesktop
             // passwordConfReg
             // 
             this.passwordConfReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordConfReg.Location = new System.Drawing.Point(104, 286);
+            this.passwordConfReg.Location = new System.Drawing.Point(104, 235);
             this.passwordConfReg.Margin = new System.Windows.Forms.Padding(2);
             this.passwordConfReg.Name = "passwordConfReg";
             this.passwordConfReg.Size = new System.Drawing.Size(132, 28);
@@ -170,7 +170,7 @@ namespace BCITDesktop
             "Male",
             "Female",
             "Other"});
-            this.genderReg.Location = new System.Drawing.Point(104, 379);
+            this.genderReg.Location = new System.Drawing.Point(104, 328);
             this.genderReg.Margin = new System.Windows.Forms.Padding(2);
             this.genderReg.Name = "genderReg";
             this.genderReg.Size = new System.Drawing.Size(131, 30);
@@ -179,7 +179,7 @@ namespace BCITDesktop
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(47, 379);
+            this.label3.Location = new System.Drawing.Point(47, 328);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
@@ -189,7 +189,7 @@ namespace BCITDesktop
             // phone
             // 
             this.phone.AutoSize = true;
-            this.phone.Location = new System.Drawing.Point(9, 423);
+            this.phone.Location = new System.Drawing.Point(9, 372);
             this.phone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.phone.Name = "phone";
             this.phone.Size = new System.Drawing.Size(84, 13);
@@ -199,7 +199,7 @@ namespace BCITDesktop
             // phoneReg
             // 
             this.phoneReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneReg.Location = new System.Drawing.Point(104, 423);
+            this.phoneReg.Location = new System.Drawing.Point(104, 372);
             this.phoneReg.Margin = new System.Windows.Forms.Padding(2);
             this.phoneReg.Name = "phoneReg";
             this.phoneReg.Size = new System.Drawing.Size(131, 28);
@@ -207,7 +207,7 @@ namespace BCITDesktop
             // 
             // dobReg
             // 
-            this.dobReg.Location = new System.Drawing.Point(104, 333);
+            this.dobReg.Location = new System.Drawing.Point(104, 282);
             this.dobReg.Name = "dobReg";
             this.dobReg.Size = new System.Drawing.Size(133, 20);
             this.dobReg.TabIndex = 7;
@@ -215,40 +215,45 @@ namespace BCITDesktop
             // dob
             // 
             this.dob.AutoSize = true;
-            this.dob.Location = new System.Drawing.Point(22, 333);
+            this.dob.Location = new System.Drawing.Point(22, 282);
             this.dob.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dob.Name = "dob";
             this.dob.Size = new System.Drawing.Size(72, 13);
             this.dob.TabIndex = 22;
             this.dob.Text = "Date of Birth: ";
             // 
-            // label5
+            // InstructorRadio
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 130);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 13);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "Student Number: ";
+            this.InstructorRadio.AutoSize = true;
+            this.InstructorRadio.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InstructorRadio.Location = new System.Drawing.Point(152, 421);
+            this.InstructorRadio.Name = "InstructorRadio";
+            this.InstructorRadio.Size = new System.Drawing.Size(75, 17);
+            this.InstructorRadio.TabIndex = 24;
+            this.InstructorRadio.TabStop = true;
+            this.InstructorRadio.Text = "Instructor";
+            this.InstructorRadio.UseVisualStyleBackColor = true;
             // 
-            // studentNumReg
+            // studentRadio
             // 
-            this.studentNumReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentNumReg.Location = new System.Drawing.Point(105, 130);
-            this.studentNumReg.Margin = new System.Windows.Forms.Padding(2);
-            this.studentNumReg.Name = "studentNumReg";
-            this.studentNumReg.Size = new System.Drawing.Size(132, 28);
-            this.studentNumReg.TabIndex = 3;
+            this.studentRadio.AutoSize = true;
+            this.studentRadio.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentRadio.Location = new System.Drawing.Point(50, 421);
+            this.studentRadio.Name = "studentRadio";
+            this.studentRadio.Size = new System.Drawing.Size(66, 17);
+            this.studentRadio.TabIndex = 23;
+            this.studentRadio.TabStop = true;
+            this.studentRadio.Text = "Student";
+            this.studentRadio.UseVisualStyleBackColor = true;
             // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(113)))));
-            this.ClientSize = new System.Drawing.Size(260, 612);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.studentNumReg);
+            this.ClientSize = new System.Drawing.Size(260, 511);
+            this.Controls.Add(this.InstructorRadio);
+            this.Controls.Add(this.studentRadio);
             this.Controls.Add(this.dob);
             this.Controls.Add(this.dobReg);
             this.Controls.Add(this.phone);
@@ -298,7 +303,7 @@ namespace BCITDesktop
         private System.Windows.Forms.TextBox phoneReg;
         private System.Windows.Forms.DateTimePicker dobReg;
         private System.Windows.Forms.Label dob;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox studentNumReg;
+        private System.Windows.Forms.RadioButton InstructorRadio;
+        private System.Windows.Forms.RadioButton studentRadio;
     }
 }

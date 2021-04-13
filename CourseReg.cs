@@ -7,7 +7,7 @@ using FireSharp.Response;
 /// <summary>
 /// Term Project, Course registeration form.
 /// Authors: Sepehr Mansouri, Jacob Tan
-/// Include here date/revisions: Version 1.0, April 7th 2021.
+/// Include here date/revisions: Version 1.0, April 12th 2021.
 /// </summary>
 namespace BCITDesktop
 {
@@ -18,7 +18,7 @@ namespace BCITDesktop
     public partial class CourseReg : Form
     {
         Student student;
-
+        Instructor instructor;
         /// <summary>
         /// Initializer.
         /// Authors: Sepehr Mansouri, Jacob Tan
@@ -29,7 +29,12 @@ namespace BCITDesktop
             InitializeComponent();
             this.student = studentObj;
         }
-
+        public CourseReg(Instructor instructor)
+        {
+            InitializeComponent();
+            this.instructor = instructor;
+            instrName.Text = instructor.FirstName + ' ' + instructor.LastName;
+        }
         IFirebaseClient client;
         IFirebaseConfig firebaseConfigurations = new FirebaseConfig()
         {
@@ -79,7 +84,16 @@ namespace BCITDesktop
                 };
 
                 // get the response
-                SetResponse response = client.Set(@"Students/"+ student.StudentNumber + "/Courses/" + crsName.Text , c);
+                if (instructor == null)
+                {
+                    SetResponse response = client.Set(@"Students/" + student.StudentNumber + "/Courses/" + crsName.Text, c);
+                }
+                else
+                {
+                    SetResponse response = client.Set(@"Instructors/"+ instructor.InstructorNumber + "/Courses/" + crsName.Text , c);
+                }
+                SetResponse response2 = client.Set(@"CourseList/" + crsName.Text, c);
+
                 MessageBox.Show("Registered " + c);
                 
                 this.Close();
