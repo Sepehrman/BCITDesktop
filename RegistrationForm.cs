@@ -131,7 +131,7 @@ namespace BCITDesktop
                                "<br>Student Number: " + studentObj.StudentNumber + "</br>" +
                                "<br>Student Email: " + studentObj.Email + "</br>";
             message.From.Email = "NoReply@bcit.ca";
-            message.To.Add(student.Email);
+            message.To.Add(studentObj.Email);
             var res = emailClient.Send(message);
             Console.WriteLine(res);
 
@@ -234,6 +234,11 @@ namespace BCITDesktop
             }
         }
 
+        /// <summary>
+        /// Keypress event listener to only allow numbers 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void phone_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
