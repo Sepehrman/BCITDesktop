@@ -58,11 +58,6 @@ namespace BCITDesktop
             }
         }
 
-
-
-
-
-
         /// <summary>
         /// Check if fields are empty, returns if true or false.
         /// Authors: Sepehr Mansouri
@@ -78,7 +73,7 @@ namespace BCITDesktop
                 string.IsNullOrWhiteSpace(genderReg.Text) ||
                 string.IsNullOrWhiteSpace(phoneReg.Text) ||
                 // RECHECK THIS
-                string.IsNullOrWhiteSpace(dobReg.Text) ||
+                dobReg.Value == null ||
                 !(studentRadio.Checked || InstructorRadio.Checked))
             {
                 return true;
@@ -111,9 +106,6 @@ namespace BCITDesktop
 
             return text_info.ToTitleCase(word);
         }
-
-
-
 
         /// <summary>
         /// Sends an Email through SocketLabs API
@@ -241,8 +233,7 @@ namespace BCITDesktop
         /// <param name="e"></param>
         private void phone_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != '.'))
+            if (!char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }

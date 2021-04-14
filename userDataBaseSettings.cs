@@ -45,7 +45,7 @@ namespace BCITDesktop
                 string.IsNullOrWhiteSpace(genderSet.Text) ||
                 string.IsNullOrWhiteSpace(phoneSet.Text) ||
                 // RECHECK THIS
-                string.IsNullOrWhiteSpace(dobSet.Text))
+                dobSet.Value == null)
             {
                 return true;
             }
@@ -119,7 +119,6 @@ namespace BCITDesktop
                 };
                 client.Update("Students/" + student.StudentNumber, updatedStudent);
                 this.closeForm(sender, e);
-
             }      
         }
 

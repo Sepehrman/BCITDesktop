@@ -1,42 +1,21 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using BCITDesktop;
 using System.Windows.Forms;
-
+/// <summary>
+/// Module containing unit tests for login form helper methods.
+/// Authors: Eric Dong
+/// Include here date/revisions: Version 1.0, April 10th 2021.
+/// </summary>
 namespace UnitTestProject
 {
     /// <summary>
-    /// Summary description for UnitTest1
+    /// Unit tests for helper methods of login form.
+    /// Author: Eric Dong
     /// </summary>
     [TestClass]
     public class LoginFormUnitTest
     {
-        public LoginFormUnitTest()
-        {
-            //
-            // TODO: Add constructor logic here
-            //
-        }
-
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
 
         #region Additional test attributes
         //
@@ -61,7 +40,7 @@ namespace UnitTestProject
         #endregion
 
         /// <summary>
-        /// Test hasEmptyFields method in login forms for empty forms.
+        /// Test hasEmptyFields method in login forms for empty fields.
         /// Author: Eric Dong
         /// </summary>
         [TestMethod]
@@ -79,7 +58,7 @@ namespace UnitTestProject
         }
 
         /// <summary>
-        /// Test hasEmptyFields method in login forms for non-empty forms.
+        /// Test hasEmptyFields method in login forms for non-empty fields.
         /// Author: Eric Dong
         /// </summary>
         [TestMethod]

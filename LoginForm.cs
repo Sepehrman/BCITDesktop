@@ -301,7 +301,6 @@ namespace BCITDesktop
                         home.Close();
                         home.Dispose();
                     }
-
                 }
                 else
                 {
