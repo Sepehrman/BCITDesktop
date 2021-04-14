@@ -1,9 +1,10 @@
-﻿/// <summary>
+﻿
+using System.Collections.Generic;
+/// <summary>
 /// Term Project, Class representing a course.
 /// Authors: Jacob Tan, Sepehr mansouri
 /// Include here date/revisions: Version 1.0, April 7th 2021.
 /// </summary>
-
 namespace BCITDesktop
 {
     /// <summary>
@@ -12,22 +13,21 @@ namespace BCITDesktop
     /// </summary>
     public class Course
     {
-
+        public List<Announcement> Announcements { get; set; }
         public string courseName { get; set; }
         public string courseID { get; set; }
         public int courseCreds { get; set; }
         public string instructor { get; set; }
-        private string[] announcements { get; set; }
 
         /// <summary>
         /// Enrolls a student to a course, not yet implemented.
         /// Authors: Jacob Tan, Sepehr mansouri
         /// </summary>
         /// <param name="student"></param>
-        public void enrollStudent(Student student)
-        {
-            //_classList.Add(student);
-        }
+        //public void enrollStudent(Student student)
+        //{
+        //_classList.Add(student);
+        //}
 
         //public int classCount()
         //{

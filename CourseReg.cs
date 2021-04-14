@@ -73,14 +73,15 @@ namespace BCITDesktop
             else
             {
                 int creds = Int32.Parse(credits.Text);
-                
+
                 // new course object from information
                 Course c = new Course()
                 {
-                courseName = crsName.Text,
-                courseID = crsID.Text,
-                courseCreds = creds,
-                instructor = instrName.Text            
+                    courseName = crsName.Text,
+                    courseID = crsID.Text,
+                    courseCreds = creds,
+                    instructor = instrName.Text,
+                    Announcements = new System.Collections.Generic.List<Announcement>()
                 };
 
                 // get the response
