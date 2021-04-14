@@ -41,9 +41,6 @@ namespace BCITDesktop
             this.appSizeComboBox.FormattingEnabled = true;
             this.appSizeComboBox.Items.AddRange(new object[] {
             "996, 619",
-            "640, 480",
-            "800, 600",
-            "960, 720",
             "1024, 768",
             "1280, 960",
             "1400, 1050",

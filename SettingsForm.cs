@@ -58,26 +58,32 @@ namespace BCITDesktop
         /// <param name="e"></param>
         public void SetNewWindowsSize(Object sender, EventArgs e)
         {
-            // parses the string in the combobox into two strings.
-            // found on https://stackoverflow.com/questions/57205656/c-sharp-split-the-string-by-white-spaces-and-remove-the-comma
-            var size = appSizeComboBox.SelectedItem.ToString().Split(" ,".ToCharArray(), System.StringSplitOptions.RemoveEmptyEntries).ToArray();
-
-            Size newSize = new Size();
-            newSize.Width = Int32.Parse(size[0]);
-            newSize.Height = Int32.Parse(size[1]);
-
-            // changes the value in settings.
-            // found on https://www.codeproject.com/Articles/15013/Windows-Forms-User-Settings-in-C
-            if (this.WindowState == FormWindowState.Normal)
+            if (appSizeComboBox.SelectedItem != null)
             {
-                Settings.Default.ApplicationSize = newSize;
+                // parses the string in the combobox into two strings.
+                // found on https://stackoverflow.com/questions/57205656/c-sharp-split-the-string-by-white-spaces-and-remove-the-comma
+                var size = appSizeComboBox.SelectedItem.ToString().Split(" ,".ToCharArray(), System.StringSplitOptions.RemoveEmptyEntries).ToArray();
+
+                Size newSize = new Size();
+                newSize.Width = Int32.Parse(size[0]);
+                newSize.Height = Int32.Parse(size[1]);
+
+                // changes the value in settings.
+                // found on https://www.codeproject.com/Articles/15013/Windows-Forms-User-Settings-in-C
+                if (this.WindowState == FormWindowState.Normal)
+                {
+                    Settings.Default.ApplicationSize = newSize;
+                }
+                else
+                {
+                    Settings.Default.ApplicationSize = this.RestoreBounds.Size;
+                }
+                Settings.Default.Save();
             }
             else
             {
-                Settings.Default.ApplicationSize = this.RestoreBounds.Size;
+                MessageBox.Show("Please choose a resolution first.");
             }
-
-            Settings.Default.Save();
         }
     }
 }

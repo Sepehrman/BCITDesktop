@@ -50,6 +50,7 @@ namespace BCITDesktop
         {
             InitializeComponent();
             this.student = studentObj;
+            Console.WriteLine("_________________");
             this.updateStudentLabels = new updateLabelsDelegate(updateStudentLabelsmethod);
         }
         /// <summary>
@@ -83,6 +84,8 @@ namespace BCITDesktop
 
                 // update the student in this.
                 this.student = updatedStudent;
+
+                Console.WriteLine("In update student " + student.FirstName);
 
                 // call the method to update the labels
                 this.Invoke(this.updateStudentLabels);
@@ -118,12 +121,13 @@ namespace BCITDesktop
             Properties.Settings.Default.PropertyChanged += SettingsChanged;
 
             client = new FireSharp.FirebaseClient(firebaseConfigurations);
-            if (client != null)
+            if (client == null)
             {
                 MessageBox.Show("Connection Error");
             }
             else
             {
+                Console.WriteLine("update start");
                 this.updateStudent();
             }
         }
@@ -246,6 +250,7 @@ namespace BCITDesktop
         public void updateStudentLabelsmethod()
         {
             userName.Text = student.FirstName + ' ' + student.LastName;
+            Console.WriteLine("Update method labels method: " + student.FirstName);
             userNumber.Text = student.StudentNumber;
             header.Text = "Welcome " + student.FirstName;
         }

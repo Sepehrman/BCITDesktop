@@ -108,8 +108,8 @@ namespace BCITDesktop
                 // create new student
                 updatedStudent = new Student()
                 {
-                    FirstName = firstNameSet.Text.ToUpper(),
-                    LastName = lastNameSet.Text.ToUpper(),
+                    FirstName = RegistrationForm.makeTitle(firstNameSet.Text),
+                    LastName = RegistrationForm.makeTitle(lastNameSet.Text),
                     StudentNumber = student.StudentNumber,
                     Email = emailSet.Text,
                     Password = student.Password,
