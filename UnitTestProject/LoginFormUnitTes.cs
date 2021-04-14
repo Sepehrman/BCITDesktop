@@ -72,7 +72,7 @@ namespace UnitTestProject
             PrivateObject loginFormObject = new PrivateObject(loginForm);
 
             // Act
-            Boolean result = (Boolean) loginFormObject.Invoke("hasEmptyFields");
+            Boolean result = (Boolean)loginFormObject.Invoke("hasEmptyFields");
 
             // Assert
             Assert.AreEqual(true, result);
