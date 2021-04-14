@@ -71,8 +71,24 @@ namespace BCITDesktop
 
 
 
+        private bool matchesAgeStudent(Student stud)
+        {
+            if (stud.DateOfBirth == dateOfBirth.Value.Date)
+            {
+                return true;
+            }
+            return false;
+        }
 
 
+        private bool matchesAgeInstructor(Instructor stud)
+        {
+            if (stud.DateOfBirth == dateOfBirth.Value.Date)
+            {
+                return true;
+            }
+            return false;
+        }
 
 
         /// <summary>
@@ -105,33 +121,33 @@ namespace BCITDesktop
                 if (studentRadio.Checked)
                 {
                     Student resStudent = Student.getStudent(client, IdNumTextBox.Text); // Database Results
-                    if (resStudent == null)
+                    if (resStudent != null && matchesAgeStudent(resStudent))
                     {
-                        MessageBox.Show("Please check your Student Number for the password confirmation\n");
-
-                    } else
-                    {
+                        MessageBox.Show("Please check your Email to view your password");
                         sendEmailConfirmationStudent(resStudent);
                         this.Close();
                         this.Dispose();
+                    } else
+                    {
+                        MessageBox.Show("Details do not match please check your input details\n");
                     }
                 } 
                 else if (InstructorRadio.Checked)
                 {
                     Instructor resInstructor = Instructor.getInstructor(client, IdNumTextBox.Text); // Database Results
-                    if (resInstructor == null)
+                    if (resInstructor != null && matchesAgeInstructor(resInstructor))
                     {
-                        MessageBox.Show("Please check your Student Number for the password confirmation\n");
-
-                    }
-                    else
-                    {
+                        MessageBox.Show("Please check your Email to view your password");
                         sendEmailConfirmationInstructor(resInstructor);
                         this.Close();
                         this.Dispose();
                     }
+                    else
+                    {
+                        MessageBox.Show("Details do not match please check your input details\n");
+
+                    }
                 }
-                MessageBox.Show("Please check your Email to view your password");
             }
             else
             {
