@@ -72,7 +72,7 @@ namespace BCITDesktop
         /// <param name="client"> a IFireBaseClient, the client for the firebase database that stores your students data</param>
         /// <param name="studentID">a String, the student id</param>
         /// <returns></returns>
-        public static Student getStudent(IFirebaseClient client, String studentID) {
+        public static Student getStudent(IFirebaseClient client, string studentID) {
             FirebaseResponse response = client.Get(@"Students/" + studentID);
             return response.ResultAs<Student>();
         }

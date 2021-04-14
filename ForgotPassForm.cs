@@ -1,4 +1,5 @@
-﻿using FireSharp.Config;
+﻿using FireSharp;
+using FireSharp.Config;
 using FireSharp.Interfaces;
 using SocketLabs.InjectionApi;
 using SocketLabs.InjectionApi.Message;
@@ -24,6 +25,7 @@ namespace BCITDesktop
 
         private Student student;
         private Instructor instructor;
+        IFirebaseClient client;
 
 
         IFirebaseConfig firebaseConfigurations = new FirebaseConfig()
@@ -59,8 +61,8 @@ namespace BCITDesktop
             message.Subject = "Registration Confirmation";
             message.HtmlBody = "<p><h3>Hello " + instructorObj.FirstName + " This is your password reset details as you have requested.</h3>" +
                                "<br>Please make sure that you reset your password upon logging in</br>" +
-                               "<br>Student Number: " + instructorObj.InstructorNumber + "</br>" +
-                               "<br>Student Password: " + instructorObj.Password + "</br>";
+                               "<br>Student Password: " + instructorObj.Password + "</br>" +
+                               "<br>*** Please ignore this Email if you are not the recipient ***</br>";
             message.From.Email = "NoReplyPasswordReset@bcit.ca";
             message.To.Add(instructorObj.Email);
             var res = emailClient.Send(message);
@@ -69,26 +71,37 @@ namespace BCITDesktop
 
 
 
-/*        private string findEmailFromDatabase()
+        private bool matchesAgeStudent(Student stud)
         {
-
-        }*/
-
-
-
-        private void ForgotPassForm_Load(object sender, EventArgs e)
-        {
-
-
-
+            if (stud.DateOfBirth == dateOfBirth.Value.Date)
+            {
+                return true;
+            }
+            return false;
         }
 
 
-
-        private bool hasEmptyFiled()
+        private bool matchesAgeInstructor(Instructor stud)
         {
-            if (string.IsNullOrWhiteSpace(emailTextBox.Text))
+            if (stud.DateOfBirth == dateOfBirth.Value.Date)
             {
+                return true;
+            }
+            return false;
+        }
+
+
+        /// <summary>
+        /// Checks if there are any empty fields
+        /// </summary>
+        /// <returns></returns>
+        private bool hasEmptyField()
+        {
+            if (string.IsNullOrWhiteSpace(IdNumTextBox.Text))
+            {
+                return true;
+            }
+            if (!studentRadio.Checked && !InstructorRadio.Checked) {
                 return true;
             }
             return false;
@@ -101,16 +114,44 @@ namespace BCITDesktop
         /// <param name="e"></param>
         private void passEmail_OnClick(object sender, EventArgs e)
         {
-            if (hasEmptyFiled())
+            client = new FirebaseClient(firebaseConfigurations);
+
+            if (!hasEmptyField())
             {
-                MessageBox.Show("Please check to see if you have entered an email");
+                if (studentRadio.Checked)
+                {
+                    Student resStudent = Student.getStudent(client, IdNumTextBox.Text); // Database Results
+                    if (resStudent != null && matchesAgeStudent(resStudent))
+                    {
+                        MessageBox.Show("Please check your Email to view your password");
+                        sendEmailConfirmationStudent(resStudent);
+                        this.Close();
+                        this.Dispose();
+                    } else
+                    {
+                        MessageBox.Show("Details do not match please check your input details\n");
+                    }
+                } 
+                else if (InstructorRadio.Checked)
+                {
+                    Instructor resInstructor = Instructor.getInstructor(client, IdNumTextBox.Text); // Database Results
+                    if (resInstructor != null && matchesAgeInstructor(resInstructor))
+                    {
+                        MessageBox.Show("Please check your Email to view your password");
+                        sendEmailConfirmationInstructor(resInstructor);
+                        this.Close();
+                        this.Dispose();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Details do not match please check your input details\n");
+
+                    }
+                }
             }
             else
             {
-                //sendEmailConfirmation();
-                MessageBox.Show("Please check your Email for the password confirmation\n");
-                this.Close();
-                this.Dispose();
+                MessageBox.Show("Please make sure all fields are filled");
             }
         }
     }

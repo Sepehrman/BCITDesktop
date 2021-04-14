@@ -123,7 +123,6 @@ namespace BCITDesktop
             client = new FireSharp.FirebaseClient(firebaseConfigurations);
             if (client == null)
             {
-                MessageBox.Show("Connection Error");
             }
             else
             {

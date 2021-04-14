@@ -75,6 +75,7 @@ namespace BCITDesktop
             this.passLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passLog.Location = new System.Drawing.Point(162, 256);
             this.passLog.Name = "passLog";
+            this.passLog.ShortcutsEnabled = false;
             this.passLog.Size = new System.Drawing.Size(174, 34);
             this.passLog.TabIndex = 17;
             this.passLog.UseSystemPasswordChar = true;
@@ -151,7 +152,7 @@ namespace BCITDesktop
             this.forgotLabel.Size = new System.Drawing.Size(167, 28);
             this.forgotLabel.TabIndex = 24;
             this.forgotLabel.Text = "Forgot Password?";
-            this.forgotLabel.DoubleClick += new System.EventHandler(this.forgotPassword_OnDoubleClick);
+            this.forgotLabel.Click += new System.EventHandler(this.forgotPassword_Onclick);
             // 
             // Logo
             // 
@@ -212,14 +213,6 @@ namespace BCITDesktop
         private void LoginForm_Load(object sender, EventArgs e)
         {
             client = new FirebaseClient(firebaseConfigurations);
-            if (client == null)
-            {
-                MessageBox.Show("Connection Error");
-            }
-            else
-            {
-                MessageBox.Show("Connected");
-            }
         }
 
         /// <summary>
@@ -314,11 +307,10 @@ namespace BCITDesktop
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void forgotPassword_OnDoubleClick(object sender, EventArgs e)
+        private void forgotPassword_Onclick(object sender, EventArgs e)
         {
             ForgotPassForm forgotPass = new ForgotPassForm();
             forgotPass.ShowDialog();
-
         }
     }
 }
