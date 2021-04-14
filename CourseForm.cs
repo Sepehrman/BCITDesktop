@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using FireSharp.Config;
 using FireSharp.Response;
 using FireSharp.Interfaces;
+using System.Collections;
 
 /// <summary>
 /// Term Project, Form for displaying a course.
@@ -44,6 +45,7 @@ namespace BCITDesktop
             this.student = student;
             this.parent = homeRef;
             this.courseName = courseName;
+            addAnnoBtn.Visible = false;
         }
         public CourseForm(Instructor instructor, HomeForm homeRef, string courseName)
         {
@@ -51,6 +53,7 @@ namespace BCITDesktop
             this.instructor = instructor;
             this.parent = homeRef;
             this.courseName = courseName;
+            addAnnoBtn.Visible = true;
         }
 
         /// <summary>
@@ -72,6 +75,7 @@ namespace BCITDesktop
 
                 FirebaseResponse response;
                 // get courses from student
+                /**
                 if (this.instructor == null)
                 {
                     response = await client.GetAsync("Students/" + student.StudentNumber + "/Courses/"
@@ -82,6 +86,8 @@ namespace BCITDesktop
                     response = await client.GetAsync("Instructors/" + instructor.InstructorNumber + "/Courses/"
                         + courseName);
                 }
+                */
+                response = await client.GetAsync("CourseList/" + courseName);
 
                 // convert response to course class.
                 Course course = response.ResultAs<Course>();
@@ -89,6 +95,12 @@ namespace BCITDesktop
                 // set the labels
                 courseIDLabel.Text = course.courseID;
                 courseNameLabel.Text = course.courseName;
+                foreach (Announcement anno in course.Announcements)
+                {
+                    Label label = new Label();
+                    label.Text = anno.id;
+                    announcementPanel.Controls.Add(label);
+                }
             }
             catch
             {
@@ -106,5 +118,22 @@ namespace BCITDesktop
         {
             parent.HomeButton_Click(sender, e);
         }
+        /// <summary>
+        /// Add announcement to course
+        /// Author: Jacob Tan
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void addAnnoBtn_Click(object sender, EventArgs e)
+        {
+            var data = new Announcement
+            {
+                id = annoTextBox.Text
+            };
+
+            FirebaseResponse response = await client.UpdateAsync("CourseList/" + courseName + "/Announcements/" , data);
+            Announcement a = response.ResultAs<Announcement>();
+        }
     }
+
 }
