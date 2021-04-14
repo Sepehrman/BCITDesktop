@@ -108,7 +108,6 @@ namespace BCITDesktop
 
             else
             {
-                MessageBox.Show("Connection Error");
             }
         }
 

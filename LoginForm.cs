@@ -212,14 +212,6 @@ namespace BCITDesktop
         private void LoginForm_Load(object sender, EventArgs e)
         {
             client = new FirebaseClient(firebaseConfigurations);
-            if (client == null)
-            {
-                MessageBox.Show("Connection Error");
-            }
-            else
-            {
-                MessageBox.Show("Connected");
-            }
         }
 
         /// <summary>
