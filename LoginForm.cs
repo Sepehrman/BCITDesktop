@@ -75,6 +75,7 @@ namespace BCITDesktop
             this.passLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passLog.Location = new System.Drawing.Point(162, 256);
             this.passLog.Name = "passLog";
+            this.passLog.ShortcutsEnabled = false;
             this.passLog.Size = new System.Drawing.Size(174, 34);
             this.passLog.TabIndex = 17;
             this.passLog.UseSystemPasswordChar = true;
