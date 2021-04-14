@@ -1,4 +1,5 @@
-﻿using FireSharp.Config;
+﻿using FireSharp;
+using FireSharp.Config;
 using FireSharp.Interfaces;
 using SocketLabs.InjectionApi;
 using SocketLabs.InjectionApi.Message;
@@ -24,6 +25,7 @@ namespace BCITDesktop
 
         private Student student;
         private Instructor instructor;
+        IFirebaseClient client;
 
 
         IFirebaseConfig firebaseConfigurations = new FirebaseConfig()
@@ -59,8 +61,8 @@ namespace BCITDesktop
             message.Subject = "Registration Confirmation";
             message.HtmlBody = "<p><h3>Hello " + instructorObj.FirstName + " This is your password reset details as you have requested.</h3>" +
                                "<br>Please make sure that you reset your password upon logging in</br>" +
-                               "<br>Student Number: " + instructorObj.InstructorNumber + "</br>" +
-                               "<br>Student Password: " + instructorObj.Password + "</br>";
+                               "<br>Student Password: " + instructorObj.Password + "</br>" +
+                               "<br>*** Please ignore this Email if you are not the recipient ***</br>";
             message.From.Email = "NoReplyPasswordReset@bcit.ca";
             message.To.Add(instructorObj.Email);
             var res = emailClient.Send(message);
@@ -69,26 +71,17 @@ namespace BCITDesktop
 
 
 
-/*        private string findEmailFromDatabase()
+        /// <summary>
+        /// Checks if there are any empty fields
+        /// </summary>
+        /// <returns></returns>
+        private bool hasEmptyField()
         {
-
-        }*/
-
-
-
-        private void ForgotPassForm_Load(object sender, EventArgs e)
-        {
-
-
-
-        }
-
-
-
-        private bool hasEmptyFiled()
-        {
-            if (string.IsNullOrWhiteSpace(emailTextBox.Text))
+            if (string.IsNullOrWhiteSpace(IdNumTextBox.Text))
             {
+                return true;
+            }
+            if (!studentRadio.Checked && !InstructorRadio.Checked) {
                 return true;
             }
             return false;
@@ -101,16 +94,44 @@ namespace BCITDesktop
         /// <param name="e"></param>
         private void passEmail_OnClick(object sender, EventArgs e)
         {
-            if (hasEmptyFiled())
+            client = new FirebaseClient(firebaseConfigurations);
+
+            if (!hasEmptyField())
             {
-                MessageBox.Show("Please check to see if you have entered an email");
+                if (studentRadio.Checked)
+                {
+                    Student resStudent = Student.getStudent(client, IdNumTextBox.Text); // Database Results
+                    if (resStudent == null)
+                    {
+                        MessageBox.Show("Please check your Student Number for the password confirmation\n");
+
+                    } else
+                    {
+                        sendEmailConfirmationStudent(resStudent);
+                        this.Close();
+                        this.Dispose();
+                    }
+                } 
+                else if (InstructorRadio.Checked)
+                {
+                    Instructor resInstructor = Instructor.getInstructor(client, IdNumTextBox.Text); // Database Results
+                    if (resInstructor == null)
+                    {
+                        MessageBox.Show("Please check your Student Number for the password confirmation\n");
+
+                    }
+                    else
+                    {
+                        sendEmailConfirmationInstructor(resInstructor);
+                        this.Close();
+                        this.Dispose();
+                    }
+                }
+                MessageBox.Show("Please check your Email to view your password");
             }
             else
             {
-                //sendEmailConfirmation();
-                MessageBox.Show("Please check your Email for the password confirmation\n");
-                this.Close();
-                this.Dispose();
+                MessageBox.Show("Please make sure all fields are filled");
             }
         }
     }

@@ -151,7 +151,7 @@ namespace BCITDesktop
             this.forgotLabel.Size = new System.Drawing.Size(167, 28);
             this.forgotLabel.TabIndex = 24;
             this.forgotLabel.Text = "Forgot Password?";
-            this.forgotLabel.DoubleClick += new System.EventHandler(this.forgotPassword_OnDoubleClick);
+            this.forgotLabel.Click += new System.EventHandler(this.forgotPassword_Onclick);
             // 
             // Logo
             // 
@@ -315,11 +315,10 @@ namespace BCITDesktop
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void forgotPassword_OnDoubleClick(object sender, EventArgs e)
+        private void forgotPassword_Onclick(object sender, EventArgs e)
         {
             ForgotPassForm forgotPass = new ForgotPassForm();
             forgotPass.ShowDialog();
-
         }
     }
 }
