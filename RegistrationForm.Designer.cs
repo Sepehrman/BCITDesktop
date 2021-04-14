@@ -195,6 +195,7 @@ namespace BCITDesktop
             this.phoneReg.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phoneReg.Location = new System.Drawing.Point(139, 458);
             this.phoneReg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.phoneReg.MaxLength = 10;
             this.phoneReg.Name = "phoneReg";
             this.phoneReg.Size = new System.Drawing.Size(173, 34);
             this.phoneReg.TabIndex = 9;
