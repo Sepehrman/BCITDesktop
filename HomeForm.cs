@@ -50,7 +50,6 @@ namespace BCITDesktop
         {
             InitializeComponent();
             this.student = studentObj;
-            Console.WriteLine("_________________");
             this.updateStudentLabels = new updateLabelsDelegate(updateStudentLabelsmethod);
         }
         /// <summary>
@@ -75,25 +74,30 @@ namespace BCITDesktop
             // if the update is an add event
             added: (s, args, context) =>
             {
+                StudentChangedHelperMethod();
             },
             // if the update is a change event, update the student attribute and labels.
             changed: (s, args, context) =>
             {
-                FirebaseResponse responseStudent = client.Get(@"Students/" + this.student.StudentNumber);
-                Student updatedStudent = responseStudent.ResultAs<Student>();
-
-                // update the student in this.
-                this.student = updatedStudent;
-
-                Console.WriteLine("In update student " + student.FirstName);
-
-                // call the method to update the labels
-                this.Invoke(this.updateStudentLabels);
+                StudentChangedHelperMethod();
             },
             // if the update is a remove event.
             removed: (s, args, context) =>
             {
+                StudentChangedHelperMethod();
             });
+        }
+
+        private void StudentChangedHelperMethod()
+        {
+            FirebaseResponse responseStudent = client.Get(@"Students/" + this.student.StudentNumber);
+            Student updatedStudent = responseStudent.ResultAs<Student>();
+
+            // update the student in this.
+            this.student = updatedStudent;
+
+            // call the method to update the labels
+            this.Invoke(this.updateStudentLabels);
         }
 
         /// <summary>

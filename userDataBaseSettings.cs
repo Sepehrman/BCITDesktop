@@ -105,11 +105,13 @@ namespace BCITDesktop
             }
             else
             {
+                String firstName = RegistrationForm.makeTitle(firstNameSet.Text);
+                String lastName = RegistrationForm.makeTitle(lastNameSet.Text);
                 // create new student
                 updatedStudent = new Student()
                 {
-                    FirstName = RegistrationForm.makeTitle(firstNameSet.Text),
-                    LastName = RegistrationForm.makeTitle(lastNameSet.Text),
+                    FirstName = firstName,
+                    LastName = lastName,
                     StudentNumber = student.StudentNumber,
                     Email = emailSet.Text,
                     Password = student.Password,

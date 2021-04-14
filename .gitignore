@@ -3,3 +3,12 @@ bin\Debug\
 obj\Debug\
 obj\Release\
 .vs/BCITDesktop/v16/TestStore/0/001.testlog
+.vs/BCITDesktop/v16/.suo
+bin/Debug/BCITDesktop.exe
+bin/Debug/BCITDesktop.pdb
+obj/Debug/BCITDesktop.csproj.CoreCompileInputs.cache
+obj/Debug/BCITDesktop.csproj.FileListAbsolute.txt
+obj/Debug/BCITDesktop.csproj.GenerateResource.cache
+obj/Debug/BCITDesktop.csprojAssemblyReference.cache
+obj/Debug/BCITDesktop.exe
+obj/Debug/BCITDesktop.pdb
