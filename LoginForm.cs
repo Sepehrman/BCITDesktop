@@ -29,6 +29,7 @@ namespace BCITDesktop
         private RadioButton studentRadio;
         private RadioButton InstructorRadio;
         private PictureBox Logo;
+        private Label forgotLabel;
         IFirebaseConfig firebaseConfigurations = new FirebaseConfig()
         {
             AuthSecret = "xyEfrWdHzVWmoXvV11MFgTmMRv8g28oLaJs8kRnH",
@@ -55,6 +56,7 @@ namespace BCITDesktop
             this.btnLog = new System.Windows.Forms.Button();
             this.studentRadio = new System.Windows.Forms.RadioButton();
             this.InstructorRadio = new System.Windows.Forms.RadioButton();
+            this.forgotLabel = new System.Windows.Forms.Label();
             this.Logo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +66,7 @@ namespace BCITDesktop
             this.pass.AutoSize = true;
             this.pass.Location = new System.Drawing.Point(64, 256);
             this.pass.Name = "pass";
-            this.pass.Size = new System.Drawing.Size(83, 21);
+            this.pass.Size = new System.Drawing.Size(102, 28);
             this.pass.TabIndex = 18;
             this.pass.Text = "Password: ";
             // 
@@ -73,7 +75,7 @@ namespace BCITDesktop
             this.passLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passLog.Location = new System.Drawing.Point(162, 256);
             this.passLog.Name = "passLog";
-            this.passLog.Size = new System.Drawing.Size(174, 28);
+            this.passLog.Size = new System.Drawing.Size(174, 34);
             this.passLog.TabIndex = 17;
             this.passLog.UseSystemPasswordChar = true;
             // 
@@ -82,7 +84,7 @@ namespace BCITDesktop
             this.username.AutoSize = true;
             this.username.Location = new System.Drawing.Point(64, 196);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(88, 21);
+            this.username.Size = new System.Drawing.Size(108, 28);
             this.username.TabIndex = 16;
             this.username.Text = "Username: ";
             // 
@@ -91,14 +93,14 @@ namespace BCITDesktop
             this.userLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userLog.Location = new System.Drawing.Point(161, 196);
             this.userLog.Name = "userLog";
-            this.userLog.Size = new System.Drawing.Size(174, 28);
+            this.userLog.Size = new System.Drawing.Size(174, 34);
             this.userLog.TabIndex = 15;
             // 
             // registerBtn
             // 
             this.registerBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(120)))));
             this.registerBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerBtn.Location = new System.Drawing.Point(93, 327);
+            this.registerBtn.Location = new System.Drawing.Point(97, 353);
             this.registerBtn.Name = "registerBtn";
             this.registerBtn.Size = new System.Drawing.Size(131, 42);
             this.registerBtn.TabIndex = 19;
@@ -111,7 +113,7 @@ namespace BCITDesktop
             this.btnLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(120)))));
             this.btnLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLog.ForeColor = System.Drawing.Color.White;
-            this.btnLog.Location = new System.Drawing.Point(278, 327);
+            this.btnLog.Location = new System.Drawing.Point(277, 353);
             this.btnLog.Name = "btnLog";
             this.btnLog.Size = new System.Drawing.Size(82, 42);
             this.btnLog.TabIndex = 20;
@@ -124,7 +126,7 @@ namespace BCITDesktop
             this.studentRadio.AutoSize = true;
             this.studentRadio.Location = new System.Drawing.Point(140, 166);
             this.studentRadio.Name = "studentRadio";
-            this.studentRadio.Size = new System.Drawing.Size(81, 25);
+            this.studentRadio.Size = new System.Drawing.Size(101, 32);
             this.studentRadio.TabIndex = 21;
             this.studentRadio.TabStop = true;
             this.studentRadio.Text = "Student";
@@ -135,11 +137,21 @@ namespace BCITDesktop
             this.InstructorRadio.AutoSize = true;
             this.InstructorRadio.Location = new System.Drawing.Point(242, 166);
             this.InstructorRadio.Name = "InstructorRadio";
-            this.InstructorRadio.Size = new System.Drawing.Size(95, 25);
+            this.InstructorRadio.Size = new System.Drawing.Size(117, 32);
             this.InstructorRadio.TabIndex = 22;
             this.InstructorRadio.TabStop = true;
             this.InstructorRadio.Text = "Instructor";
             this.InstructorRadio.UseVisualStyleBackColor = true;
+            // 
+            // forgotLabel
+            // 
+            this.forgotLabel.AutoSize = true;
+            this.forgotLabel.Location = new System.Drawing.Point(237, 305);
+            this.forgotLabel.Name = "forgotLabel";
+            this.forgotLabel.Size = new System.Drawing.Size(167, 28);
+            this.forgotLabel.TabIndex = 24;
+            this.forgotLabel.Text = "Forgot Password?";
+            this.forgotLabel.DoubleClick += new System.EventHandler(this.forgotPassword_OnDoubleClick);
             // 
             // Logo
             // 
@@ -156,6 +168,7 @@ namespace BCITDesktop
             this.AcceptButton = this.btnLog;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(113)))));
             this.ClientSize = new System.Drawing.Size(456, 436);
+            this.Controls.Add(this.forgotLabel);
             this.Controls.Add(this.Logo);
             this.Controls.Add(this.InstructorRadio);
             this.Controls.Add(this.studentRadio);
@@ -167,10 +180,11 @@ namespace BCITDesktop
             this.Controls.Add(this.userLog);
             this.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.LoginForm_Load);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,6 +307,18 @@ namespace BCITDesktop
                     Instructor.ShowErrorMessage();
                 }
             }
+        }
+
+        /// <summary>
+        /// Opens a dialog for users to reset their passwords
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void forgotPassword_OnDoubleClick(object sender, EventArgs e)
+        {
+            ForgotPassForm forgotPass = new ForgotPassForm();
+            forgotPass.ShowDialog();
+
         }
     }
 }

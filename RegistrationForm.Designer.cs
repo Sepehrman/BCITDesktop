@@ -204,7 +204,7 @@ namespace BCITDesktop
             // dobReg
             // 
             this.dobReg.Location = new System.Drawing.Point(139, 347);
-            this.dobReg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dobReg.Margin = new System.Windows.Forms.Padding(4);
             this.dobReg.Name = "dobReg";
             this.dobReg.Size = new System.Drawing.Size(176, 22);
             this.dobReg.TabIndex = 7;
@@ -223,7 +223,7 @@ namespace BCITDesktop
             this.InstructorRadio.AutoSize = true;
             this.InstructorRadio.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InstructorRadio.Location = new System.Drawing.Point(203, 518);
-            this.InstructorRadio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.InstructorRadio.Margin = new System.Windows.Forms.Padding(4);
             this.InstructorRadio.Name = "InstructorRadio";
             this.InstructorRadio.Size = new System.Drawing.Size(90, 23);
             this.InstructorRadio.TabIndex = 24;
@@ -236,7 +236,7 @@ namespace BCITDesktop
             this.studentRadio.AutoSize = true;
             this.studentRadio.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentRadio.Location = new System.Drawing.Point(67, 518);
-            this.studentRadio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.studentRadio.Margin = new System.Windows.Forms.Padding(4);
             this.studentRadio.Name = "studentRadio";
             this.studentRadio.Size = new System.Drawing.Size(78, 23);
             this.studentRadio.TabIndex = 23;
