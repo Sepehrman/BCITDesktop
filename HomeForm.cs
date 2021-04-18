@@ -130,7 +130,6 @@ namespace BCITDesktop
             }
             else
             {
-                Console.WriteLine("update start");
                 this.updateStudent();
             }
         }
@@ -253,7 +252,6 @@ namespace BCITDesktop
         public void updateStudentLabelsmethod()
         {
             userName.Text = student.FirstName + ' ' + student.LastName;
-            Console.WriteLine("Update method labels method: " + student.FirstName);
             userNumber.Text = student.StudentNumber;
             header.Text = "Welcome " + student.FirstName;
         }
