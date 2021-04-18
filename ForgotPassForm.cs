@@ -22,12 +22,7 @@ namespace BCITDesktop
             InitializeComponent();
         }
 
-
-        private Student student;
-        private Instructor instructor;
         IFirebaseClient client;
-
-
         IFirebaseConfig firebaseConfigurations = new FirebaseConfig()
         {
             AuthSecret = "xyEfrWdHzVWmoXvV11MFgTmMRv8g28oLaJs8kRnH",

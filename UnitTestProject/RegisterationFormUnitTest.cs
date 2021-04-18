@@ -131,7 +131,7 @@ namespace UnitTestProject
             TextBox passwordReg = new System.Windows.Forms.TextBox { Text = "something" };
 
             TextBox passwordConfReg = new System.Windows.Forms.TextBox { Text = "something" };
-            
+
             ComboBox genderReg = new System.Windows.Forms.ComboBox { Text = "something" };
 
             TextBox phoneReg = new System.Windows.Forms.TextBox { Text = "something" };

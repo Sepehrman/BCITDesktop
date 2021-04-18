@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using FireSharp.Config;
 using FireSharp.Response;
 using FireSharp.Interfaces;
-using System.Collections;
 
 /// <summary>
 /// Term Project, Form for displaying a course.
