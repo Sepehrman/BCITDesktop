@@ -27,7 +27,6 @@ namespace BCITDesktop
         public DateTime DateOfBirth { get; set; }
         public Course c1 { get; set; }
         public Course c2 { get; set; }
-        //public List<Course> enrolledCourses { get; set; }
 
         /// <summary>
         /// Show error message to user.

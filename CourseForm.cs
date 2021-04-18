@@ -75,18 +75,7 @@ namespace BCITDesktop
 
                 FirebaseResponse response;
                 // get courses from student
-                /**
-                if (this.instructor == null)
-                {
-                    response = await client.GetAsync("Students/" + student.StudentNumber + "/Courses/"
-                                            + courseName);
-                }
-                else
-                {
-                    response = await client.GetAsync("Instructors/" + instructor.InstructorNumber + "/Courses/"
-                        + courseName);
-                }
-                */
+
                 response = await client.GetAsync("CourseList/" + courseName);
 
                 // convert response to course class.

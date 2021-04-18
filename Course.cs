@@ -19,19 +19,5 @@ namespace BCITDesktop
         public int courseCreds { get; set; }
         public string instructor { get; set; }
 
-        /// <summary>
-        /// Enrolls a student to a course, not yet implemented.
-        /// Authors: Jacob Tan, Sepehr mansouri
-        /// </summary>
-        /// <param name="student"></param>
-        //public void enrollStudent(Student student)
-        //{
-        //_classList.Add(student);
-        //}
-
-        //public int classCount()
-        //{
-        //    return _classList.Count;
-        //}
     }
 }
